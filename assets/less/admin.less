@@ -1,0 +1,402 @@
+table.wcrw-addon-table {
+    thead {
+
+        tr {
+            th {
+                padding: 10px;
+                margin: 0px;
+
+                &.cost, &.duration {
+                    width: 38%;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                padding: 10px;
+                margin: 0px;
+
+                input.warranty_price {
+                    width: 85%;
+                }
+
+                input.warranty_length, select.warranty_duration {
+                    width: 42%;
+                }
+
+                select.warranty_duration {
+                    vertical-align: baseline;
+                }
+
+                a.add-item, a.remove-item {
+                    text-decoration: none;
+                    color: #5d5d5d;
+                }
+            }
+        }
+    }
+
+    &.wcrw-product-addon-table {
+        tbody {
+            tr {
+                td {
+                    span.input-group-addon {
+                        float: left;
+                        display: block;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.status-class {
+    display: inline-flex;
+    display: -webkit-inline-box;
+    line-height: 2.5em;
+    color: #777;
+    background: #e5e5e5;
+    border-radius: 4px;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    margin: -.25em 0;
+    cursor: inherit !important;
+    padding: 0px 15px;
+    white-space: nowrap;
+    max-width: 100%;
+
+    &.status-new {
+        background: #f8dda7;
+        color: #94660c;
+    }
+    &.status-processing {
+        background: #c6e1c6;
+        color: #5b841b;
+    }
+    &.status-completed {
+        background: #c8d7e1;
+        color: #2e4453;
+    }
+    &.status-rejected {
+        background: #f3d6d6;
+        color: #9a7c77;
+    }
+}
+
+.wcrw-single-request-wrap {
+    font-size: 14px;
+
+    #wcrw-request-detilas {
+        padding: 15px 12px;
+
+        .heading {
+            margin: 0px;
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 1.2;
+            text-shadow: 1px 1px 1px #fff;
+            padding: 0;
+        }
+
+        .heading-meta {
+            font-weight: 400;
+            line-height: 1.6em;
+            font-size: 16px;
+            color: #777;
+        }
+        .content {
+            overflow: hidden;
+            h3 {
+                font-size: 14px;
+                color: #333;
+                margin: 1.33em 0 1em;
+            }
+
+            ul.list-item {
+                font-size: 14px;
+                line-height: 1.6em;
+                span {
+                    &.label {
+                        font-weight: bold;
+                        display: inline-block;
+                        width: 20%;
+                    }
+
+                    &.value {
+                        display: inline-block;
+                    }
+                }
+            }
+            .left-content {
+                float: left;
+                width: 47%;
+                margin-right: 2%;
+                font-size: 14px;
+            }
+            .right-content {
+                float: left;
+                width: 47%;
+                font-size: 14px;
+            }
+        }
+    }
+
+    #wcrw-request-items {
+        .inside {
+            margin: 0px;
+            padding: 0px;
+
+            table.woocommerce_order_items {
+                width: 100%;
+                thead {
+                    tr {
+                        th {
+                            padding: 1em;
+                            background: #f8f8f8;
+                            color: #999;
+                            font-weight: 400;
+                            user-select: none;
+                            font-size: 14px;
+                            text-align: left;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            padding: 1.5em 1em 1em;
+                            text-align: left;
+                            line-height: 1.5em;
+                            vertical-align: top;
+                            border-bottom: 1px solid #f8f8f8;
+
+                            &.thumb {
+                                width: 10%;
+                                img {
+                                    width: 38px;
+                                    height: 38px;
+                                    border: 2px solid #e8e8e8;
+                                    background: #f8f8f8;
+                                    color: #ccc;
+                                    position: relative;
+                                    font-size: 21px;
+                                    display: block;
+                                    text-align: center;
+                                }
+                            }
+
+                            &.name {
+                                width: 40%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #wcrw-request-actions {
+        form {
+            select#request_status {
+                width: 100%;
+            }
+        }
+    }
+
+    #wcrw-request-admin-notes {
+        .inside {
+            margin: 0px;
+            padding: 0px;
+            .request-note-list {
+                ul.request-note {
+                    li {
+                        padding: 0 10px;
+                        margin-bottom: 6px;
+
+                        .note-content {
+                            padding: 10px;
+                            background: #efefef;
+                            position: relative;
+                            p {
+                                margin: 0;
+                                padding: 0;
+                                word-wrap: break-word;
+                            }
+
+                            &:after {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                bottom: -10px;
+                                left: 20px;
+                                width: 0;
+                                height: 0;
+                                border-width: 10px 10px 0 0;
+                                border-style: solid;
+                                border-color: #efefef transparent;
+                            }
+                        }
+
+                        .meta {
+                            padding: 10px;
+                            color: #999;
+                            margin: 0;
+                            font-size: 11px;
+                            span {
+                                border-bottom: 1px dotted #999;
+                            }
+                            a.delete {
+                                color: #a00;
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .no-note-found {
+                    padding: 5px 15px;
+                }
+            }
+
+            form.request-note-form {
+                overflow: hidden;
+                padding: 10px;
+                border-top: 1px solid #e3e3e3;
+
+                label {
+                    display: block;
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+
+                textarea#request-note-field {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                }
+
+                input#add-request-note {
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+/* TipTip CSS - Version 1.2 */
+
+#tiptip_holder {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
+
+#tiptip_holder.tip_top {
+    padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_bottom {
+    padding-top: 5px;
+}
+
+#tiptip_holder.tip_right {
+    padding-left: 5px;
+}
+
+#tiptip_holder.tip_left {
+    padding-right: 5px;
+}
+
+#tiptip_content {
+    font-size: 11px;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+    padding: 4px 8px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background-color: rgb(25,25,25);
+    background-color: rgba(25,25,25,0.92);
+    // background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    box-shadow: 0 0 1px #555;
+    -webkit-box-shadow: 0 0 1px #555;
+    -moz-box-shadow: 0 0 1px #555;
+}
+
+#tiptip_arrow, #tiptip_arrow_inner {
+    position: absolute;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 6px;
+    height: 0;
+    width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow {
+    border-top-color: #fff;
+    border-top-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow {
+    border-bottom-color: #fff;
+    border-bottom-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow {
+    border-right-color: #fff;
+    border-right-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow {
+    border-left-color: #fff;
+    border-left-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+    margin-top: -7px;
+    margin-left: -6px;
+    border-top-color: rgb(25,25,25);
+    border-top-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+    margin-top: -5px;
+    margin-left: -6px;
+    border-bottom-color: rgb(25,25,25);
+    border-bottom-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+    margin-top: -6px;
+    margin-left: -5px;
+    border-right-color: rgb(25,25,25);
+    border-right-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+    margin-top: -6px;
+    margin-left: -7px;
+    border-left-color: rgb(25,25,25);
+    border-left-color: rgba(25,25,25,0.92);
+}
+
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #tiptip_content {
+        padding: 4px 8px 5px 8px;
+        background-color: rgba(45,45,45,0.88);
+    }
+    #tiptip_holder.tip_bottom #tiptip_arrow_inner {
+        border-bottom-color: rgba(45,45,45,0.88);
+    }
+    #tiptip_holder.tip_top #tiptip_arrow_inner {
+        border-top-color: rgba(20,20,20,0.92);
+    }
+}
