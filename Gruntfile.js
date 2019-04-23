@@ -89,6 +89,14 @@ module.exports = function(grunt) {
             }
         },
 
+        wp_readme_to_markdown: {
+            your_target: {
+                files: {
+                    'README.md': 'readme.txt'
+                }
+            },
+        },
+
         //Compress build directory into <name>.zip and <name>-<version>.zip
         compress: {
             main: {
@@ -113,14 +121,18 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( 'grunt-contrib-clean' );
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-compress' );
+    grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
 
     grunt.registerTask( 'default', [
         'less',
     ]);
 
+    grunt.registerTask('readme', ['wp_readme_to_markdown'] );
+
     grunt.registerTask('release', [
         'makepot',
         'less',
+        'readme'
     ]);
 
     grunt.registerTask( 'zip', [
