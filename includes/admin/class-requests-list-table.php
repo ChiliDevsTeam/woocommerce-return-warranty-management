@@ -161,11 +161,11 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
         ];
 
         if ( $item['type'] == 'refund' ) {
-            $edit_order_url = get_edit_post_link( $item['order_id'] );
+            $edit_order_url    = get_edit_post_link( $item['order_id'] );
             $actions['refund'] = sprintf( '<a href="%s">%s</a>', esc_url( $edit_order_url ), __( 'Refund', 'wc-return-warranty-management' ) );
         }
 
-        return $title . $this->row_actions( apply_filters( 'wcrw_request_table_row_actions', $actions ) );
+        return $title . $this->row_actions( apply_filters( 'wcrw_request_table_row_actions', $actions, $item ) );
     }
 
     /**
@@ -225,10 +225,10 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
      * @return string
      */
     protected function usort_reorder( $a, $b ) {
-      $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'id';
-      $order   = ( ! empty($_GET['order'] ) ) ? $_GET['order'] : 'desc';
-      $result  = strcmp( $a[$orderby], $b[$orderby] );
-      return ( $order === 'asc' ) ? $result : -$result;
+        $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'id';
+        $order   = ( ! empty($_GET['order'] ) ) ? $_GET['order'] : 'desc';
+        $result  = strcmp( $a[$orderby], $b[$orderby] );
+        return ( $order === 'asc' ) ? $result : -$result;
     }
 
     /**

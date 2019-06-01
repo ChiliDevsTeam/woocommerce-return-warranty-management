@@ -101,6 +101,17 @@ class WCRW_Warranty_Item {
     }
 
     /**
+     * Get Warranty data for item
+     *
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function get_data() {
+        return $this->data;
+    }
+
+    /**
      * Get type
      *
      * @since 1.0.0

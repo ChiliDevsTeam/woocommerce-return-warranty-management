@@ -170,7 +170,7 @@
                                                 <?php echo wc_price( $item['price'] ); ?>
                                             </td>
                                             <td class="quantity">
-                                                <?php echo wc_get_order_item_meta( $item['item_id'], '_qty', true ); ?>
+                                                <?php echo $item['order_quantity']; ?>
                                             </td>
                                             <td class="quantity">
                                                 <?php echo $item['quantity']; ?>

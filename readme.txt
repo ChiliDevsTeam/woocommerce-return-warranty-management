@@ -2,9 +2,9 @@
 Contributors: wpeasysoft
 Tags: WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management
 Requires at least: 4.4
-Tested up to: 5.1.1
+Tested up to: 5.2.1
 WC requires at least: 3.0
-WC tested up to: 3.6.1
+WC tested up to: 3.6.4
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -84,6 +84,13 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 == Changelog ==
+
+v1.0.1 -> June 1, 2019
+--------------------------------------------
+- [fix]   Default warranty value showing error when install first time and not save any data fixed
+- [fix]   Added some filter and hooks for extending return types
+- [fix]   Item price not showing accurately in single warranty request page
+- [tweak] Change Return and Request menu position
 
 = v1.0.0 -> 22 April, 2019 =
 Initial version released

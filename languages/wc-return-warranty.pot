@@ -2,9 +2,9 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Return and Warrranty 1.0.0\n"
+"Project-Id-Version: WooCommerce Return and Warrranty 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wpeasysoft.com/\n"
-"POT-Creation-Date: 2019-04-23 19:11:40+00:00\n"
+"POT-Creation-Date: 2019-06-01 10:02:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -50,7 +50,7 @@ msgid "Type"
 msgstr ""
 
 #: includes/admin/class-admin-products.php:91
-#: includes/admin/class-admin-settings.php:269
+#: includes/admin/class-admin-settings.php:273
 msgid "Length"
 msgstr ""
 
@@ -75,12 +75,12 @@ msgid "Set your warranty lenght duration"
 msgstr ""
 
 #: includes/admin/class-admin-products.php:131
-#: includes/admin/class-admin-settings.php:317
+#: includes/admin/class-admin-settings.php:321
 msgid "Cost"
 msgstr ""
 
 #: includes/admin/class-admin-products.php:132
-#: includes/admin/class-admin-settings.php:318
+#: includes/admin/class-admin-settings.php:322
 msgid "Duration"
 msgstr ""
 
@@ -173,24 +173,24 @@ msgid ""
 "menu"
 msgstr ""
 
-#: includes/admin/class-admin-settings.php:277
+#: includes/admin/class-admin-settings.php:281
 msgid "Choose your warranty length"
 msgstr ""
 
-#: includes/admin/class-admin-settings.php:283
+#: includes/admin/class-admin-settings.php:287
 msgid "Length Value"
 msgstr ""
 
-#: includes/admin/class-admin-settings.php:287
-#: includes/admin/class-admin-settings.php:301
+#: includes/admin/class-admin-settings.php:291
+#: includes/admin/class-admin-settings.php:305
 msgid "Choose your number of day or week or month or year"
 msgstr ""
 
-#: includes/admin/class-admin-settings.php:293
+#: includes/admin/class-admin-settings.php:297
 msgid "Length Duration"
 msgstr ""
 
-#: includes/admin/class-admin-settings.php:311
+#: includes/admin/class-admin-settings.php:315
 msgid "Price base warranty"
 msgstr ""
 
@@ -285,7 +285,7 @@ msgstr ""
 msgid "Request has been submitted successfully"
 msgstr ""
 
-#: includes/class-frontend.php:52 includes/class-frontend.php:221
+#: includes/class-frontend.php:52 includes/class-frontend.php:223
 #: includes/functions.php:106
 msgid "Lifetime"
 msgstr ""
@@ -298,7 +298,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: includes/class-frontend.php:151
+#: includes/class-frontend.php:153
 msgid "Please select your %s first."
 msgstr ""
 
@@ -418,7 +418,7 @@ msgstr ""
 msgid "Request type must be required"
 msgstr ""
 
-#: includes/functions.php:597 includes/functions.php:879
+#: includes/functions.php:597 includes/functions.php:887
 msgid "No request id found"
 msgstr ""
 
@@ -430,27 +430,27 @@ msgstr ""
 msgid "Request not updated successfully"
 msgstr ""
 
-#: includes/functions.php:727
+#: includes/functions.php:735
 msgid "All"
 msgstr ""
 
-#: includes/functions.php:776
+#: includes/functions.php:784
 msgid "No request found"
 msgstr ""
 
-#: includes/functions.php:780
+#: includes/functions.php:788
 msgid "Note field is empty. Please write something"
 msgstr ""
 
-#: includes/functions.php:814
+#: includes/functions.php:822
 msgid "No Request found for delete"
 msgstr ""
 
-#: includes/functions.php:824
+#: includes/functions.php:832
 msgid "Request not deleted, Try again"
 msgstr ""
 
-#: includes/functions.php:885
+#: includes/functions.php:893
 msgid "Request note not deleted. Please try again"
 msgstr ""
 
