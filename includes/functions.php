@@ -641,23 +641,25 @@ function wcrw_transformer_warranty_request( $data ) {
     $items       = [];
     $product_ids = explode( ',', $data['products'] );
     $quantites   = explode( ',', $data['quantity'] );
-    $item_id     = explode( ',', $data['item_id'] );
+    $item_ids    = explode( ',', $data['item_id'] );
+    $order       = wc_get_order( $data['order_id'] );
 
-    foreach ( $product_ids as $key => $product_id ) {
-        $product = wc_get_product( $product_id );
+    foreach ( $item_ids as $key => $item_id ) {
+        $item = new WC_Order_Item_Product( $item_id );
+        $product = wc_get_product( $item->get_product_id() );
         $image = wp_get_attachment_url( $product->get_image_id() );
+
         $items[] = [
-            'id'        => $product->get_id(),
-            'title'     => $product->get_title(),
-            'thumbnail' => $image ? $image : wc_placeholder_img_src(),
-            'quantity'  => $quantites[$key],
-            'url'       => $product->get_permalink(),
-            'price'     => $product->get_price(),
-            'item_id'   => $item_id[$key]
+            'id'             => $product->get_id(),
+            'title'          => $product->get_title(),
+            'thumbnail'      => $image ? $image : wc_placeholder_img_src(),
+            'quantity'       => $quantites[$key],
+            'url'            => $product->get_permalink(),
+            'price'          => $order->get_item_subtotal( $item, false ),
+            'item_id'        => $item_id,
+            'order_quantity' => $item->get_quantity(),
         ];
     }
-
-    $order = wc_get_order( $data['order_id'] );
 
     if ( ! empty( $data['customer_id'] ) ) {
         $customer = get_user_by( 'id', $data['customer_id'] );

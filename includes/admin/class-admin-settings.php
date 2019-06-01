@@ -45,7 +45,7 @@ class WCRW_Admin_Settings {
      */
     public function admin_menu() {
         $capability           = apply_filters( 'wcrw_menu_capability', 'manage_woocommerce' );
-        $return_warranty_page = add_menu_page( 'Return Request', __( 'Return Request', 'wc-return-warranty-management' ), $capability, 'wc-return-warranty-management', [ $this, 'return_warranty_html' ], 'dashicons-image-rotate', 40 );
+        $return_warranty_page = add_menu_page( 'Return Request', __( 'Return Request', 'wc-return-warranty-management' ), $capability, 'wc-return-warranty-management', [ $this, 'return_warranty_html' ], 'dashicons-image-rotate', 56 );
         $requests             = add_submenu_page( 'wc-return-warranty-management', __( 'Requests', 'wc-return-warranty-management' ), __( 'Requests', 'wc-return-warranty-management' ), $capability, 'wc-return-warranty-management', [ $this, 'return_warranty_html'] );
         $settings             = add_submenu_page( 'wc-return-warranty-management', __( 'Settings', 'wc-return-warranty-management' ), __( 'Settings', 'wc-return-warranty-management' ), $capability, 'wc-return-warranty-management-settings', [ $this, 'settings_page'] );
 
