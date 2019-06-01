@@ -15,7 +15,8 @@ table.wcrw-addon-table tbody tr td input.warranty_price {
 }
 table.wcrw-addon-table tbody tr td input.warranty_length,
 table.wcrw-addon-table tbody tr td select.warranty_duration {
-  width: 42%;
+  width: 42% !important;
+  min-width: auto !important;
 }
 table.wcrw-addon-table tbody tr td select.warranty_duration {
   vertical-align: baseline;

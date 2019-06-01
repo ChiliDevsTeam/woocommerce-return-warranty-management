@@ -35,7 +35,7 @@ class WCRW_Frontend {
     public function show_warranty() {
         global $product;
 
-        if ( $product->is_type( 'external' ) ) {
+        if ( ! $product->is_type( 'simple' ) ) {
             return;
         }
 
@@ -56,7 +56,7 @@ class WCRW_Frontend {
 
             if ( is_array($addons) && !empty($addons) ) {
                 echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .': </strong> <select name="wcrw_warranty">';
-                echo '<option value="-1">'. __('No warranty', 'wc-return-warranty-management' ) .'</option>';
+                echo '<option value="-1">'. __( 'No warranty', 'wc-return-warranty-management' ) .'</option>';
 
                 foreach ( $addons as $x => $addon ) {
                     $price    = $addon['price'];
@@ -144,6 +144,8 @@ class WCRW_Frontend {
      * @return boolean
      */
     public function add_cart_validation( $valid = '', $product_id = 0 ) {
+        $product_id = ! empty( $_REQUEST['variation_id'] ) ? absint( $_REQUEST['variation_id'] ) : $product_id;
+
         $warranty       = wcrw_get_warranty_settings( $product_id );
         $warranty_label = $warranty['label'];
 

@@ -348,8 +348,6 @@ class WC_Return_Warranty {
 
         return $actions;
     }
-
-
 }
 
 

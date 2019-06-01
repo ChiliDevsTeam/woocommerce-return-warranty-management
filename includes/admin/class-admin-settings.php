@@ -260,7 +260,11 @@ class WCRW_Admin_Settings {
      */
     public function load_default_warranty_settings( $form ) {
         $default_warranty = get_option( 'wcrw_default_warranty' );
-        $addon_warranty = ! empty( $default_warranty['add_ons'] ) ? $default_warranty['add_ons'] : [];
+
+        $addon_warranty                   = ! empty( $default_warranty['add_ons'] ) ? $default_warranty['add_ons'] : [];
+        $default_warranty_length          = ! empty( $default_warranty['length'] ) ? $default_warranty['length'] : '';
+        $default_warranty_length_value    = ! empty( $default_warranty['length_value'] ) ? $default_warranty['length_value'] : '';
+        $default_warranty_length_duration = ! empty( $default_warranty['length_duration'] ) ? $default_warranty['length_duration'] : '';
         ?>
         <table class="form-table show_if_included_warranty">
             <tbody>
@@ -271,7 +275,7 @@ class WCRW_Admin_Settings {
                     <td>
                         <select name="wcrw_default_warranty[length]" id="wcrw_default_warranty[length]" class="wcrw_default_warranty[length]">
                             <?php foreach ( wcrw_warranty_length() as $length_key => $length_value ): ?>
-                                <option value="<?php echo esc_attr( $length_key ); ?>" <?php selected( $default_warranty['length'], $length_key ); ?>><?php echo esc_html( $length_value ); ?></option>
+                                <option value="<?php echo esc_attr( $length_key ); ?>" <?php selected( $default_warranty_length, $length_key ); ?>><?php echo esc_html( $length_value ); ?></option>
                             <?php endforeach ?>
                         </select>
                         <p class="description"><?php _e( 'Choose your warranty length', 'wc-return-warranty-management' ) ?></p>
@@ -283,7 +287,7 @@ class WCRW_Admin_Settings {
                         <label for="wcrw_default_warranty[length_value]"><?php _e( 'Length Value', 'wc-return-warranty-management' ); ?></label>
                     </th>
                     <td>
-                        <input type="number" class="regular-text" min="0" step="1" name="wcrw_default_warranty[length_value]" value="<?php echo esc_html( $default_warranty['length_value'] ); ?>">
+                        <input type="number" class="regular-text" min="0" step="1" name="wcrw_default_warranty[length_value]" value="<?php echo esc_html( $default_warranty_length_value ); ?>">
                         <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warranty-management' ) ?></p>
                     </td>
                 </tr>
@@ -295,7 +299,7 @@ class WCRW_Admin_Settings {
                     <td>
                         <select name="wcrw_default_warranty[length_duration]" id="wcrw_default_warranty[length_duration]" class="wcrw_default_warranty[length_duration]">
                             <?php foreach ( wcrw_warranty_length_duration() as $length_duration_key => $length_duration_value ): ?>
-                                <option value="<?php echo esc_attr( $length_duration_key ); ?>" <?php selected( $default_warranty['length_duration'], $length_duration_key ); ?>><?php echo esc_html( $length_duration_value ); ?></option>
+                                <option value="<?php echo esc_attr( $length_duration_key ); ?>" <?php selected( $default_warranty_length_duration, $length_duration_key ); ?>><?php echo esc_html( $length_duration_value ); ?></option>
                             <?php endforeach ?>
                         </select>
                         <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warranty-management' ) ?></p>
@@ -373,5 +377,4 @@ class WCRW_Admin_Settings {
         </table>
         <?php
     }
-
 }

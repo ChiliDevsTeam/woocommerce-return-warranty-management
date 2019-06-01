@@ -144,10 +144,10 @@ function wcrw_warranty_length_duration( $duration = '' ) {
  * @return void
  */
 function wcrw_warranty_request_type( $type = '' ) {
-    $types = [
+    $types = apply_filters( 'wcrw_warranty_request_types',  [
         'replacement' => __( 'Replacement', 'wc-return-warranty-management' ),
         'refund'      => __( 'Refund', 'wc-return-warranty-management' )
-    ];
+    ] );
 
     if ( ! empty( $type ) ) {
         return isset( $types[$type] ) ? $types[$type] : '';
@@ -695,14 +695,20 @@ function wcrw_transformer_warranty_request( $data ) {
  * Get formatted request items
  *
  * @param array $items
+ * @param boolean $with_refund_label
  *
  * @return string
  */
-function wcrw_get_formatted_request_items( $items ) {
+function wcrw_get_formatted_request_items( $items, $with_refund_label = false ) {
     $formatted_item = [];
 
     if ( ! empty( $items ) ) {
         foreach ( $items as $item ) {
+            $refund_label = '';
+
+            if ( $with_refund_label ) {
+                $warranty_item = new WCRW_Warranty_Item( $item->get_id() );
+            }
             $formatted_item[] = '<a href="' . $item['url'] . '">' . $item['title'] . '</a> &times; ' . $item['quantity'];
         }
     }
@@ -892,6 +898,7 @@ function wcrw_order_has_any_item_warranty( $order ) {
     if ( ! $order ) {
         return false;
     }
+
     $has_warranty = false;
 
     foreach ( $order->get_items() as $key => $item ) {
@@ -905,8 +912,4 @@ function wcrw_order_has_any_item_warranty( $order ) {
 
     return false;
 }
-
-
-
-
 
