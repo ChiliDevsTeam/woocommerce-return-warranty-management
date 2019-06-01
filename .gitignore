@@ -4,6 +4,7 @@ build
 secret.json
 log.txt
 package-lock.json
+plugin-deploy.sh
 
 # Compiled output #
 ###################
