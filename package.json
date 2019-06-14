@@ -1,8 +1,8 @@
 {
   "name": "wc-return-warranty",
-  "version": "1.0.1",
-  "slug": "wc-return-warranty",
-  "description": "An extension for manage return and warranty system for WooCommerce shop",
+  "version": "1.0.2",
+  "slug": "wc-return-warranty-management",
+  "description": "An extension for manage return and warranty (RMA) system for WooCommerce shop",
   "author": "wpeasysoft",
   "license": "GPL",
   "private": true,
