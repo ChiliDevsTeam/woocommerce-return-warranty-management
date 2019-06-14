@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: WooCommerce Return and Warrranty
+Plugin Name: WooCommerce Return and Warrranty (RMA)
 Plugin URI: https://wpeasysoft.com/woocommerce-return-and-warranty-management/
 Description: An extension for manage return and warranty system for WooCommerce shop
-Version: 1.0.1
+Version: 1.0.2
 Author: wpeasysoft
 Author URI: https://wpeasysoft.com/
 WC requires at least: 3.0
@@ -54,7 +54,7 @@ class WC_Return_Warranty {
      *
      * @var string
      */
-    public $version = '1.0.1';
+    public $version = '1.0.2';
 
     /**
      * Minimum PHP version required

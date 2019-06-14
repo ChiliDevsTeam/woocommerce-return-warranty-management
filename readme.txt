@@ -51,6 +51,9 @@ On the General tab in the Settings page, there are two groups – Order Status t
 
 On to the Default Warranty tab, you can set Label, Type, and Add-On Warranty. Label carries the name to show in place of Warranty. Type has three options – No Warranty, Included Warranty, and Price base warranty.
 
+= Contribute =
+If you find bugs, plase make issues on [Github](https://github.com/wpeasysoft/woocommerce-return-warranty-management). Any pull requests are welcomed.
+
 = Author =
 Created by [wpeasysoft](https://wpeasysoft.com)
 
@@ -84,6 +87,13 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 == Changelog ==
+
+v1.0.2 -> June 14, 2019
+--------------------------------------------
+- [fix] Product warranty data not saving if admin want to override default warranty data
+- [fix] Remove unnessary order status for creating return request in admin settings
+- [fix] Add some missing textdomain
+- [tweak] Refactor some codes
 
 v1.0.1 -> June 1, 2019
 --------------------------------------------

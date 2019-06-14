@@ -55,8 +55,8 @@ class WCRW_Admin_Product {
                             'value'         => $override_warranty,
                             'cbvalue'       => 'yes',
                             'wrapper_class' => 'show_if_simple',
-                            'label'         => __( 'Override default', 'woocommerce' ),
-                            'description'   => __( 'If you want to override default warranty settings', 'woocommerce' ),
+                            'label'         => __( 'Override default', 'wc-return-warranty-management' ),
+                            'description'   => __( 'If you want to override default warranty settings', 'wc-return-warranty-management' ),
                         ]
                     );
 

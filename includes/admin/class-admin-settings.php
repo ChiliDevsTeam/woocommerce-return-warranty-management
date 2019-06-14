@@ -146,6 +146,9 @@ class WCRW_Admin_Settings {
      * @return array settings fields
      */
     public function get_settings_fields() {
+        $allowed_status = wc_get_order_statuses();
+        unset( $allowed_status['wc-refunded'], $allowed_status['wc-failed'], $allowed_status['wc-cancelled'] );
+
         $settings_fields = array(
             'wcrw_basic' => array(
                 array(
@@ -154,7 +157,7 @@ class WCRW_Admin_Settings {
                     'desc'    => __( 'What status do you want to allow the warranty request button for your customer', 'wc-return-warranty-management' ),
                     'type'    => 'multicheck',
                     'default' => 'wc-completed',
-                    'options' => wc_get_order_statuses()
+                    'options' => $allowed_status
                 ),
                 array(
                     'name'  => 'default_refund_status',
