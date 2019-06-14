@@ -234,11 +234,9 @@ function wcrw_get_warranty_settings( $product_id = 0 ) {
 
         if ( 'yes' == $override_default ) {
             $settings = get_post_meta( $product_id, '_wcrw_product_warranty', true );
-            // $settings         = wcrw_transform_warranty_settings( $product_settings );
             $settings['from'] = 'product';
         } else {
             $admin_settings = get_option( 'wcrw_default_warranty', [] );
-            error_log( print_r( $admin_settings, true ) );
             $settings       = wcrw_transform_warranty_settings( $admin_settings );
         }
 
@@ -250,7 +248,6 @@ function wcrw_get_warranty_settings( $product_id = 0 ) {
     }
 
     return $settings;
-
 }
 
 /**

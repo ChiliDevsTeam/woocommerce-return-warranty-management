@@ -15,7 +15,7 @@
                 <?php foreach ( $requests as $request ): ?>
                     <tr>
                         <td>
-                            <a href="<?php echo esc_url( wc_get_account_endpoint_url( 'view-warranty-request' ) . $request['id'] ); ?>"><?php echo '#' . $request['id']; ?></a>
+                            <?php echo sprintf( '<a href="%s">%s #%d</a>', esc_url( wc_get_account_endpoint_url( 'view-warranty-request' ) . $request['id'] ), __( 'Request', 'wc-return-warranty-management' ), $request['id'] ); ?>
                         </td>
                         <td>
                             <a href="<?php echo esc_url( wc_get_account_endpoint_url( 'view-order' ) . $request['order_id'] ); ?>"><?php echo 'Order #' . $request['order_id']; ?></a>
