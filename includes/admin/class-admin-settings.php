@@ -53,6 +53,8 @@ class WCRW_Admin_Settings {
         add_action( $settings, [ $this, 'load_admin_scripts' ], 10 );
         add_action( 'admin_print_scripts-post-new.php', [ $this, 'product_admin_script' ], 11 );
         add_action( 'admin_print_scripts-post.php', [ $this, 'product_admin_script' ], 11 );
+
+        do_action( 'wcrw_admin_menu', $return_warranty_page, $capability );
     }
 
     /**
