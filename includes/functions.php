@@ -854,7 +854,7 @@ function wcrw_get_request_notes( $data = [] ) {
     $note_table = $wpdb->prefix . 'wcrw_request_notes';
     $response   = [];
 
-    $sql = "SELECT * FROM `wp_wcrw_request_notes` WHERE 1=1";
+    $sql = "SELECT * FROM {$note_table} WHERE 1=1";
 
     if ( ! empty( $data['request_id'] ) ) {
         $sql .= " AND `request_id`={$data['request_id']}";
