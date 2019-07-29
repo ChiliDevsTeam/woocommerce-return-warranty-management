@@ -42,8 +42,6 @@
 </template>
 
 <script>
-    // import Heading from './Heading';
-
     export default {
         name: 'Field',
 

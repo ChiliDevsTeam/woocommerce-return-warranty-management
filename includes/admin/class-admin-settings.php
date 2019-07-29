@@ -69,12 +69,14 @@ class WCRW_Admin_Settings {
     public function load_admin_scripts() {
         wp_enqueue_style( 'wcrw-admin-style', WCRW_ASSETS . '/css/admin.css', false, WCRW_VERSION, 'all' );
         wp_enqueue_script( 'jquery-tiptip' );
+        wp_enqueue_script( 'wcrw-i18n-jed', WCRW_ASSETS . '/js/jed.js', array( 'jquery' ), WCRW_VERSION, true );
         wp_enqueue_script( 'jquery-blockui', WC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI.min.js', array( 'jquery' ), WCRW_VERSION, true );
-        wp_enqueue_script( 'wcrw-admin-script', WCRW_ASSETS . '/js/admin-script.js', array( 'jquery', 'jquery-blockui' ), WCRW_VERSION, true );
+        wp_enqueue_script( 'wcrw-admin-script', WCRW_ASSETS . '/js/admin-script.js', array( 'jquery', 'jquery-blockui', 'wcrw-i18n-jed' ), WCRW_VERSION, true );
         wp_localize_script( 'wcrw-admin-script', 'wcrwadmin', [
             'ajaxurl'     => admin_url( 'admin-ajax.php' ),
             'nonce'       => wp_create_nonce( 'wcrw_admin_nonce' ),
             'ajax_loader' => WCRW_ASSETS . '/images/spinner-2x.gif',
+            'i18n'        => [ 'wc-return-warranty' => wcrw_get_jed_locale_data( 'wc-return-warranty' ) ],
         ] );
     }
 
@@ -87,14 +89,16 @@ class WCRW_Admin_Settings {
      */
     public function load_form_builder_scripts() {
         wp_enqueue_style( 'wcrw-admin-style', WCRW_ASSETS . '/css/admin.css', false, WCRW_VERSION, 'all' );
+        wp_enqueue_script( 'wcrw-i18n-jed', WCRW_ASSETS . '/js/jed.js', array( 'jquery' ), WCRW_VERSION, true );
         wp_enqueue_script( 'wcrw-block-ui', WC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI.min.js', array( 'jquery' ), WCRW_VERSION, true );
-        wp_enqueue_script( 'wcrw-form-builder-script', WCRW_ASSETS . '/js/builder.js', array( 'jquery', 'wcrw-block-ui' ), WCRW_VERSION, true );
+        wp_enqueue_script( 'wcrw-form-builder-script', WCRW_ASSETS . '/js/builder.js', array( 'jquery', 'wcrw-block-ui', 'wcrw-i18n-jed' ), WCRW_VERSION, true );
 
         wp_localize_script( 'wcrw-form-builder-script', 'wcrwForms', [
             'ajaxurl'     => admin_url( 'admin-ajax.php' ),
             'nonce'       => wp_create_nonce( 'wcrw_admin_nonce' ),
             'ajax_loader' => WCRW_ASSETS . '/images/spinner-2x.gif',
-            'form_fields' => wcrw_get_form_fields()
+            'form_fields' => wcrw_get_form_fields(),
+            'i18n'        => [ 'wc-return-warranty' => wcrw_get_jed_locale_data( 'wc-return-warranty' ) ],
         ] );
     }
 

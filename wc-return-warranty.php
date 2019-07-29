@@ -8,7 +8,7 @@ Author: wpeasysoft
 Author URI: https://wpeasysoft.com/
 WC requires at least: 3.0
 WC tested up to: 3.6.4
-Text Domain: wc-return-warranty-management
+Text Domain: wc-return-warranty
 Domain Path: /languages/
 License: GPL2
 */

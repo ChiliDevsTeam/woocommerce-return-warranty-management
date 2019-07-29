@@ -12,11 +12,11 @@
                     <field v-for="(field,index) in form" :key="index" :isloadsettings="isLoadSettings" :field="field" @loadsettings="loadSettings" @deletefield="deleteFormField"></field>
                 </draggable>
                 <div class="no-form-element-found" v-if="form.length <= 0">
-                    No form element found
+                    {{ __( 'No form element found', 'wc-return-warranty' ) }}
                 </div>
             </div>
             <div class="form-elements" v-if="! isLoadSettings">
-                <h3>Form Fields</h3>
+                <h3>{{ __( 'Form Fields', 'wc-return-warranty' ) }}</h3>
                 <div class="form-field-button">
                     <template v-for="formField in formFields">
                         <button class="button button-default" @click.prevent="addField(formField)" v-html="formField.label"></button>
@@ -25,84 +25,84 @@
             </div>
             <div class="form-elements" v-if="isLoadSettings">
                 <h3>
-                    Field Settings
-                    <a href="#" @click.prevent="cancelLoadSettings">&larr; Back to Fields</a>
+                    {{ __( 'Field Settings', 'wc-return-warranty' ) }}
+                    <a href="#" @click.prevent="cancelLoadSettings">&larr; {{ __( 'Back to Fields', 'wc-return-warranty' ) }}</a>
                 </h3>
                 <div class="form-field-settings">
                     <div class="form-row">
-                        <label for="field-name">Label</label>
+                        <label for="field-name">{{ __( 'Label', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].label">
                     </div>
                     <div class="form-row">
-                        <label for="field-name">Description</label>
+                        <label for="field-name">{{ __( 'Description', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.description">
                     </div>
                     <div class="form-row" v-if="['select', 'checkbox', 'html'].indexOf( form[selectedFieldIndex].type ) == '-1'">
-                        <label for="field-name">Placeholder</label>
+                        <label for="field-name">{{ __( 'Placeholder', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.placeholder">
                     </div>
                     <div class="form-row">
-                        <label for="field-name">Class attribute</label>
+                        <label for="field-name">{{ __( 'Class attribute', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.class">
                     </div>
                     <div class="form-row">
-                        <label for="field-name">ID attribute</label>
+                        <label for="field-name">{{ __( 'ID attribute', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.id">
                     </div>
                     <div class="form-row">
-                        <label for="field-name">Wrapper Class</label>
+                        <label for="field-name">{{ __( 'Wrapper Class', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.wrapperClass">
                     </div>
                     <div class="form-row" v-if="['html'].indexOf( form[selectedFieldIndex].type ) == '-1'">
                         <label for="required-field" class="checkbox">
                             <input type="checkbox" id="required-field" class="checkbox" v-model="form[selectedFieldIndex].settings.required">
-                            Is Required ?
+                            {{ __( 'Is required ?', 'wc-return-warranty' ) }}
                         </label>
                     </div>
                     <template v-if="form[selectedFieldIndex].type == 'select'">
                         <div class="form-row">
-                            <label for="field-name">Options</label>
+                            <label for="field-name">{{ __( 'Options (One option per line)', 'wc-return-warranty' ) }}</label>
                             <textarea rows="4" v-model="selectFieldOption" class="regular-text"></textarea>
                         </div>
                         <div class="form-row">
-                            <label for="empty-option">Select option text (Leave empty of no need)</label>
+                            <label for="empty-option">{{ __( 'Select option text (Leave empty of no need)', 'wc-return-warranty' ) }}</label>
                             <input type="text" id="empty-option" v-model="form[selectedFieldIndex].settings.emptyOption" class="regular-text">
                         </div>
                     </template>
                     <template v-if="form[selectedFieldIndex].type == 'textarea'">
                         <div class="form-row">
-                            <label for="row-option">Rows</label>
+                            <label for="row-option">{{ __( 'Rows', 'wc-return-warranty' ) }}</label>
                             <input type="text" id="row-option" v-model="form[selectedFieldIndex].settings.row" class="regular-text">
                         </div>
                     </template>
                     <template v-if="form[selectedFieldIndex].type == 'html'">
                         <div class="form-row">
-                            <label for="heading-type">Heading Font Size (px)</label>
+                            <label for="heading-type">{{ __( 'Heading Font Size (px)', 'wc-return-warranty' ) }}</label>
                             <input type="number" v-model="form[selectedFieldIndex].settings.headingFontSize" class="regular-text">
                         </div>
                         <div class="form-row">
-                            <label for="heading-type">Paragraph Font Size (px)</label>
+                            <label for="heading-type">{{ __( 'Paragraph Font Size (px)', 'wc-return-warranty' ) }}</label>
                             <input type="number" v-model="form[selectedFieldIndex].settings.paraFontSize" class="regular-text">
                         </div>
                     </template>
                     <template v-if="form[selectedFieldIndex].type == 'number'">
                         <div class="form-row">
-                            <label for="field-name">Min value</label>
+                            <label for="field-name">{{ __( 'Min value', 'wc-return-warranty' ) }}</label>
                             <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.min">
                         </div>
                         <div class="form-row">
-                            <label for="field-name">Max value</label>
+                            <label for="field-name">{{ __( 'Max value', 'wc-return-warranty' ) }}</label>
                             <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.max">
                         </div>
                         <div class="form-row">
-                            <label for="field-name">Step</label>
+                            <label for="field-name">{{ __( 'Step', 'wc-return-warranty' ) }}</label>
                             <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.step">
                         </div>
                     </template>
                 </div>
             </div>
         </div>
-        <button class="button button-primary form-save-button" @click.prevent="saveFormSettings">Save Form Settings</button>
+        <button class="button button-primary form-save-button" @click.prevent="saveFormSettings">{{ __( 'Save Form Settings', 'wc-return-warranty' ) }}</button>
     </div>
 </template>
 
@@ -136,7 +136,7 @@ export default {
             if ( val ) {
                 this.form[this.selectedFieldIndex].settings.options.unshift({
                     value: '',
-                    label: 'Select a option'
+                    label: this.__( 'Select a option', 'wc-return-warranty' )
                 });
             }
         },

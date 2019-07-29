@@ -1161,4 +1161,78 @@ function wcrw_render_request_form_field( $field ) {
     }
 }
 
+/**
+ * Translactions fpr WC Return and Warranty
+ *
+ * @since 1.1.0
+ *
+ * @param string $domain
+ * @param string $language_dir
+ *
+ * @return array
+ */
+function wcrw_get_translations_plugin_domain( $domain, $language_dir = null ) {
+
+    if ( $language_dir == null ) {
+        $language_dir      = WCRW_ASSETS . '/languages/';
+    }
+
+    $languages     = get_available_languages( $language_dir );
+    $get_site_lang = is_admin() ? get_user_locale() : get_locale();
+    $mo_file_name  = $domain . '-' . $get_site_lang;
+    $translations  = [];
+
+    if ( in_array( $mo_file_name, $languages ) && file_exists( $language_dir . $mo_file_name . '.mo' ) ) {
+        $mo = new MO();
+        if ( $mo->import_from_file( $language_dir . $mo_file_name . '.mo' ) ) {
+            $translations = $mo->entries;
+        }
+    }
+
+    return [
+        'header'       => isset( $mo ) ? $mo->headers : '',
+        'translations' => $translations,
+    ];
+}
+
+/**
+ * Jed-formatted localization data.
+ *
+ * @since 1.1.0
+ *
+ * @param  string $domain Translation domain.
+ *
+ * @return array
+ */
+function wcrw_get_jed_locale_data( $domain, $language_dir = null ) {
+    $plugin_translations = wcrw_get_translations_plugin_domain( $domain, $language_dir );
+    $translations = get_translations_for_domain( $domain );
+
+    $locale = array(
+        'domain'      => $domain,
+        'locale_data' => array(
+            $domain => array(
+                '' => array(
+                    'domain' => $domain,
+                    'lang'   => is_admin() ? get_user_locale() : get_locale(),
+                ),
+            ),
+        ),
+    );
+
+    if ( ! empty( $translations->headers['Plural-Forms'] ) ) {
+        $locale['locale_data'][ $domain ]['']['plural_forms'] = $translations->headers['Plural-Forms'];
+    } else if ( ! empty( $plugin_translations['header'] ) ) {
+        $locale['locale_data'][ $domain ]['']['plural_forms'] = $plugin_translations['header']['Plural-Forms'];
+    }
+
+    $entries = array_merge( $plugin_translations['translations'], $translations->entries );
+
+    foreach ( $entries as $msgid => $entry ) {
+        $locale['locale_data'][ $domain ][ $msgid ] = $entry->translations;
+    }
+
+    return $locale;
+}
+
 

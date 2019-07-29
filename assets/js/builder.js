@@ -195,6 +195,43 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./assets/src/Mixin.js":
+/*!*****************************!*\
+  !*** ./assets/src/Mixin.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./i18n */ "./assets/src/i18n.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    setLocaleData: function setLocaleData(data) {
+      return Object(_i18n__WEBPACK_IMPORTED_MODULE_0__["setLocaleData"])(data);
+    },
+    __: function __(text, domain) {
+      return Object(_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])(text, domain);
+    },
+    _nx: function _nx(single, plural, number, context, domain) {
+      return Object(_i18n__WEBPACK_IMPORTED_MODULE_0__["_nx"])(single, plural, number, context, domain);
+    },
+    __n: function __n(single, plural, number, domain) {
+      return _n(single, plural, number, domain);
+    },
+    sprintf: function sprintf(fmt) {
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+
+      return _i18n__WEBPACK_IMPORTED_MODULE_0__["sprintf"].apply(void 0, [fmt].concat(args));
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./assets/src/components/Field.vue":
 /*!*****************************************!*\
   !*** ./assets/src/components/Field.vue ***!
@@ -282,6 +319,134 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./assets/src/i18n.js":
+/*!****************************!*\
+  !*** ./assets/src/i18n.js ***!
+  \****************************/
+/*! exports provided: setLocaleData, getI18n, __, _x, _n, _nx, sprintf */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLocaleData", function() { return setLocaleData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getI18n", function() { return getI18n; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__", function() { return __; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_x", function() { return _x; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_n", function() { return _n; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_nx", function() { return _nx; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sprintf", function() { return sprintf; });
+/**
+ * External dependencies
+ */
+var i18n = {};
+/**
+ * Creates a new Jed instance with specified locale data configuration.
+ *
+ * @see http://messageformat.github.io/Jed/
+ *
+ * @param {Object} data Locale data configuration.
+ */
+
+function setLocaleData(data) {
+  var jed = new Jed(data);
+  i18n[jed._textdomain] = jed;
+}
+/**
+ * Returns the current Jed instance, initializing with a default configuration
+ * if not already assigned.
+ *
+ * @return {Jed} Jed instance.
+ */
+
+function getI18n() {
+  var domain = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+  if (!i18n[domain]) {
+    setLocaleData({
+      '': {}
+    });
+  }
+
+  return i18n[domain];
+}
+/**
+ * Retrieve the translation of text.
+ *
+ * @see https://developer.wordpress.org/reference/functions/__/
+ *
+ * @param {string} text Text to translate.
+ * @param {string} domain Domain to retrieve the translated text.
+ *
+ * @return {string} Translated text.
+ */
+
+function __(text, domain) {
+  return getI18n(domain) ? getI18n(domain).dgettext(domain, text) : text;
+}
+/**
+ * Retrieve translated string with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_x/
+ *
+ * @param {string} text    Text to translate.
+ * @param {string} context Context information for the translators.
+ * @param {string} domain Domain to retrieve the translated text.
+ *
+ * @return {string} Translated context string without pipe.
+ */
+
+function _x(text, context, domain) {
+  return getI18n(domain).dpgettext(domain, context, text);
+}
+/**
+ * Translates and retrieves the singular or plural form based on the supplied
+ * number.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_n/
+ *
+ * @param {string} single The text to be used if the number is singular.
+ * @param {string} plural The text to be used if the number is plural.
+ * @param {number} number The number to compare against to use either the
+ *                         singular or plural form.
+ * @param {string} domain Domain to retrieve the translated text.
+ *
+ * @return {string} The translated singular or plural form.
+ */
+
+function _n(single, plural, number, domain) {
+  return getI18n(domain).dngettext(domain, single, plural, number);
+}
+/**
+ * Translates and retrieves the singular or plural form based on the supplied
+ * number, with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_nx/
+ *
+ * @param {string} single  The text to be used if the number is singular.
+ * @param {string} plural  The text to be used if the number is plural.
+ * @param {number} number  The number to compare against to use either the
+ *                          singular or plural form.
+ * @param {string} context Context information for the translators.
+ * @param {string} domain Domain to retrieve the translated text.
+ *
+ * @return {string} The translated singular or plural form.
+ */
+
+function _nx(single, plural, number, context, domain) {
+  return getI18n(domain).dnpgettext(domain, context, single, plural, number);
+}
+/**
+ * Returns a formatted string.
+ *
+ * @see http://www.diveintojavascript.com/projects/javascript-sprintf
+ *
+ * @type {string}
+ */
+
+var sprintf = Jed.sprintf;
+
+/***/ }),
+
 /***/ "./assets/src/main.js":
 /*!****************************!*\
   !*** ./assets/src/main.js ***!
@@ -294,13 +459,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./assets/src/App.vue");
+/* harmony import */ var _Mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Mixin */ "./assets/src/Mixin.js");
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin(_Mixin__WEBPACK_IMPORTED_MODULE_2__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#wcrw-form-builder',
   render: function render(h) {
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  },
+  created: function created() {
+    this.setLocaleData(wcrwForms.i18n['wc-return-warranty']);
   }
 });
 
@@ -450,7 +621,7 @@ __webpack_require__.r(__webpack_exports__);
       if (val) {
         this.form[this.selectedFieldIndex].settings.options.unshift({
           value: '',
-          label: 'Select a option'
+          label: this.__('Select a option', 'wc-return-warranty')
         });
       }
     },
@@ -604,7 +775,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import Heading from './Heading';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Field',
   props: {
@@ -4344,7 +4514,13 @@ var render = function() {
           _vm._v(" "),
           _vm.form.length <= 0
             ? _c("div", { staticClass: "no-form-element-found" }, [
-                _vm._v("\n                No form element found\n            ")
+                _vm._v(
+                  "\n                " +
+                    _vm._s(
+                      _vm.__("No form element found", "wc-return-warranty")
+                    ) +
+                    "\n            "
+                )
               ])
             : _vm._e()
         ],
@@ -4353,7 +4529,9 @@ var render = function() {
       _vm._v(" "),
       !_vm.isLoadSettings
         ? _c("div", { staticClass: "form-elements" }, [
-            _c("h3", [_vm._v("Form Fields")]),
+            _c("h3", [
+              _vm._v(_vm._s(_vm.__("Form Fields", "wc-return-warranty")))
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -4382,7 +4560,11 @@ var render = function() {
       _vm.isLoadSettings
         ? _c("div", { staticClass: "form-elements" }, [
             _c("h3", [
-              _vm._v("\n                Field Settings\n                "),
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.__("Field Settings", "wc-return-warranty")) +
+                  "\n                "
+              ),
               _c(
                 "a",
                 {
@@ -4394,7 +4576,12 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("← Back to Fields")]
+                [
+                  _vm._v(
+                    "← " +
+                      _vm._s(_vm.__("Back to Fields", "wc-return-warranty"))
+                  )
+                ]
               )
             ]),
             _vm._v(" "),
@@ -4404,7 +4591,7 @@ var render = function() {
               [
                 _c("div", { staticClass: "form-row" }, [
                   _c("label", { attrs: { for: "field-name" } }, [
-                    _vm._v("Label")
+                    _vm._v(_vm._s(_vm.__("Label", "wc-return-warranty")))
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -4436,7 +4623,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-row" }, [
                   _c("label", { attrs: { for: "field-name" } }, [
-                    _vm._v("Description")
+                    _vm._v(_vm._s(_vm.__("Description", "wc-return-warranty")))
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -4476,7 +4663,9 @@ var render = function() {
                 ) == "-1"
                   ? _c("div", { staticClass: "form-row" }, [
                       _c("label", { attrs: { for: "field-name" } }, [
-                        _vm._v("Placeholder")
+                        _vm._v(
+                          _vm._s(_vm.__("Placeholder", "wc-return-warranty"))
+                        )
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -4516,7 +4705,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-row" }, [
                   _c("label", { attrs: { for: "field-name" } }, [
-                    _vm._v("Class attribute")
+                    _vm._v(
+                      _vm._s(_vm.__("Class attribute", "wc-return-warranty"))
+                    )
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -4550,7 +4741,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-row" }, [
                   _c("label", { attrs: { for: "field-name" } }, [
-                    _vm._v("ID attribute")
+                    _vm._v(_vm._s(_vm.__("ID attribute", "wc-return-warranty")))
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -4584,7 +4775,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-row" }, [
                   _c("label", { attrs: { for: "field-name" } }, [
-                    _vm._v("Wrapper Class")
+                    _vm._v(
+                      _vm._s(_vm.__("Wrapper Class", "wc-return-warranty"))
+                    )
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -4696,7 +4889,11 @@ var render = function() {
                             }
                           }),
                           _vm._v(
-                            "\n                        Is Required ?\n                    "
+                            "\n                        " +
+                              _vm._s(
+                                _vm.__("Is required ?", "wc-return-warranty")
+                              ) +
+                              "\n                    "
                           )
                         ]
                       )
@@ -4707,7 +4904,14 @@ var render = function() {
                   ? [
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "field-name" } }, [
-                          _vm._v("Options")
+                          _vm._v(
+                            _vm._s(
+                              _vm.__(
+                                "Options (One option per line)",
+                                "wc-return-warranty"
+                              )
+                            )
+                          )
                         ]),
                         _vm._v(" "),
                         _c("textarea", {
@@ -4735,7 +4939,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "empty-option" } }, [
-                          _vm._v("Select option text (Leave empty of no need)")
+                          _vm._v(
+                            _vm._s(
+                              _vm.__(
+                                "Select option text (Leave empty of no need)",
+                                "wc-return-warranty"
+                              )
+                            )
+                          )
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -4778,7 +4989,7 @@ var render = function() {
                   ? [
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "row-option" } }, [
-                          _vm._v("Rows")
+                          _vm._v(_vm._s(_vm.__("Rows", "wc-return-warranty")))
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -4818,7 +5029,14 @@ var render = function() {
                   ? [
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "heading-type" } }, [
-                          _vm._v("Heading Font Size (px)")
+                          _vm._v(
+                            _vm._s(
+                              _vm.__(
+                                "Heading Font Size (px)",
+                                "wc-return-warranty"
+                              )
+                            )
+                          )
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -4857,7 +5075,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "heading-type" } }, [
-                          _vm._v("Paragraph Font Size (px)")
+                          _vm._v(
+                            _vm._s(
+                              _vm.__(
+                                "Paragraph Font Size (px)",
+                                "wc-return-warranty"
+                              )
+                            )
+                          )
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -4900,7 +5125,9 @@ var render = function() {
                   ? [
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "field-name" } }, [
-                          _vm._v("Min value")
+                          _vm._v(
+                            _vm._s(_vm.__("Min value", "wc-return-warranty"))
+                          )
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -4936,7 +5163,9 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "field-name" } }, [
-                          _vm._v("Max value")
+                          _vm._v(
+                            _vm._s(_vm.__("Max value", "wc-return-warranty"))
+                          )
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -4972,7 +5201,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "field-name" } }, [
-                          _vm._v("Step")
+                          _vm._v(_vm._s(_vm.__("Step", "wc-return-warranty")))
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -5026,7 +5255,7 @@ var render = function() {
           }
         }
       },
-      [_vm._v("Save Form Settings")]
+      [_vm._v(_vm._s(_vm.__("Save Form Settings", "wc-return-warranty")))]
     )
   ])
 }
