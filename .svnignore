@@ -20,6 +20,9 @@ CONTRIBUTING.md
 config.json
 phpcs.xml.dist
 build
+yarn.lock
+yarn-error.log
+mix-manifest.json
 webpack.config.js
 vendor
 composer.lock

@@ -96,7 +96,7 @@ table.wcrw-addon-table.wcrw-product-addon-table tbody tr td span.input-group-add
 .wcrw-single-request-wrap #wcrw-request-detilas .content ul.list-item span.label {
   font-weight: bold;
   display: inline-block;
-  width: 20%;
+  width: 30%;
 }
 .wcrw-single-request-wrap #wcrw-request-detilas .content ul.list-item span.value {
   display: inline-block;
@@ -124,7 +124,10 @@ table.wcrw-addon-table.wcrw-product-addon-table tbody tr td span.input-group-add
   background: #f8f8f8;
   color: #999;
   font-weight: 400;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-size: 14px;
   text-align: left;
 }
@@ -218,6 +221,22 @@ table.wcrw-addon-table.wcrw-product-addon-table tbody tr td span.input-group-add
 }
 .wcrw-single-request-wrap #wcrw-request-admin-notes .inside form.request-note-form input#add-request-note {
   float: right;
+}
+.wcrw-request-form-builder h1.wp-heading-inline {
+  margin-bottom: 15px;
+  position: relative;
+}
+.wcrw-request-form-builder .wcrw-request-form-builder-wrap {
+  display: -webkit-box;
+  display: flex;
+}
+.wcrw-request-form-builder .wcrw-request-form-builder-wrap .form-priview {
+  -webkit-box-flex: 2;
+          flex: 2;
+}
+.wcrw-request-form-builder .wcrw-request-form-builder-wrap .form-elements {
+  -webkit-box-flex: 1;
+          flex: 1;
 }
 /* TipTip CSS - Version 1.2 */
 #tiptip_holder {

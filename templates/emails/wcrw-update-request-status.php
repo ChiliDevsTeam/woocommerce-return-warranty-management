@@ -14,15 +14,15 @@ $text_align = is_rtl() ? 'right' : 'left';
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-    <p><?php printf( __( 'Your return request ID #%d is now <strong>%s</strong>', 'wc-return-warranty-management' ), $request['id'], wcrw_warranty_request_status( $request['status'] ) ); ?></p>
+    <p><?php printf( __( 'Your return request ID #%d is now <strong>%s</strong>', 'wc-return-warrranty' ), $request['id'], wcrw_warranty_request_status( $request['status'] ) ); ?></p>
 
     <div style="margin-bottom: 40px;">
         <table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
             <thead>
                 <tr>
-                    <th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php esc_html_e( 'Product', 'wc-return-warranty-management' ); ?></th>
-                    <th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php esc_html_e( 'Quantity', 'wc-return-warranty-management' ); ?></th>
-                    <th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php esc_html_e( 'Price', 'wc-return-warranty-management' ); ?></th>
+                    <th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php esc_html_e( 'Product', 'wc-return-warrranty' ); ?></th>
+                    <th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php esc_html_e( 'Quantity', 'wc-return-warrranty' ); ?></th>
+                    <th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php esc_html_e( 'Price', 'wc-return-warrranty' ); ?></th>
                 </tr>
             </thead>
             <tbody>

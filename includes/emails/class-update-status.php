@@ -21,9 +21,9 @@ class WCRW_Update_Request extends WC_Email {
     function __construct() {
         // Email slug we can use to filter other data.
         $this->id             = 'wcrw_update_request_notification';
-        $this->title          = __( 'Request Status', 'wc-return-warranty-management' );
+        $this->title          = __( 'Request Status', 'wc-return-warrranty' );
         $this->customer_email = true;
-        $this->description    = __( 'An email sent to the customer when a admin update request status', 'wc-return-warranty-management' );
+        $this->description    = __( 'An email sent to the customer when a admin update request status', 'wc-return-warrranty' );
 
         // Template paths.
         $this->template_html  = 'emails/wcrw-update-request-status.php';
@@ -51,7 +51,7 @@ class WCRW_Update_Request extends WC_Email {
      * @return string
      */
     public function get_default_subject() {
-        return __( '[{site_name}] Request Updated', 'wc-return-warranty-management' );
+        return __( '[{site_name}] Request Updated', 'wc-return-warrranty' );
     }
 
     /**
@@ -62,7 +62,7 @@ class WCRW_Update_Request extends WC_Email {
      * @return string
      */
     public function get_default_heading() {
-        return __( 'Your request updated to {new_status}', 'wc-return-warranty-management' );
+        return __( 'Your request updated to {new_status}', 'wc-return-warrranty' );
     }
 
     /**
