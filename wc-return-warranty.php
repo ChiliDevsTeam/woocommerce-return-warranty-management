@@ -3,12 +3,12 @@
 Plugin Name: WooCommerce Return and Warrranty (RMA)
 Plugin URI: https://wpeasysoft.com/woocommerce-return-and-warranty-management/
 Description: An extension for manage return and warranty system for WooCommerce shop
-Version: 1.0.2
+Version: 1.1.0
 Author: wpeasysoft
 Author URI: https://wpeasysoft.com/
 WC requires at least: 3.0
-WC tested up to: 3.6.4
-Text Domain: wc-return-warranty-management
+WC tested up to: 3.6.5
+Text Domain: wc-return-warranty
 Domain Path: /languages/
 License: GPL2
 */
@@ -54,7 +54,7 @@ class WC_Return_Warranty {
      *
      * @var string
      */
-    public $version = '1.0.2';
+    public $version = '1.1.0';
 
     /**
      * Minimum PHP version required
@@ -113,7 +113,7 @@ class WC_Return_Warranty {
         if ( ! function_exists( 'WC' ) ) {
             ?>
             <div id="message" class="error notice is-dismissible">
-                <p><?php echo sprintf( wp_kses_post( '<b>WooCommerce Return and Warranty</b> requires <a href="%s">WooCommerce</a> to be installed & activated! Go back your <a href="%s">Plugin page</a>', 'wc-return-warranty-management' ), 'https://wordpress.org/plugins/woocommerce/', esc_url( admin_url( 'plugins.php' ) ) ) ?></p>
+                <p><?php echo sprintf( wp_kses_post( '<b>WooCommerce Return and Warranty</b> requires <a href="%s">WooCommerce</a> to be installed & activated! Go back your <a href="%s">Plugin page</a>', 'wc-return-warrranty' ), 'https://wordpress.org/plugins/woocommerce/', esc_url( admin_url( 'plugins.php' ) ) ) ?></p>
                 <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
             </div>
             <?php
@@ -309,7 +309,7 @@ class WC_Return_Warranty {
      * @uses load_plugin_textdomain()
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'wc-return-warranty-management', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'wc-return-warrranty', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**

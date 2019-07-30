@@ -1,12 +1,12 @@
 <div class="wrap">
-    <h1 class="wp-heading-inline"><?php _e( 'All Requests', 'wc-return-warranty-management' ); ?></h1>
+    <h1 class="wp-heading-inline"><?php _e( 'All Requests', 'wc-return-warrranty' ); ?></h1>
 
     <?php
     if ( isset( $_GET['updated'] ) && $_GET['updated'] ) {
         if ( ! empty( $_GET['message'] ) && $_GET['message'] == 'deleted' ) {
             ?>
                 <div id="message" class="updated notice is-dismissible">
-                    <p><strong><?php _e( 'Request deleted successfully', 'wc-return-warranty-management' ) ?></strong></p>
+                    <p><strong><?php _e( 'Request deleted successfully', 'wc-return-warrranty' ) ?></strong></p>
                     <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
                 </div>
             <?php
@@ -14,7 +14,7 @@
         if ( ! empty( $_GET['message'] ) && $_GET['message'] == 'status_updated' ) {
             ?>
                 <div id="message" class="updated notice is-dismissible">
-                    <p><strong><?php _e( 'Request status updated', 'wc-return-warranty-management' ) ?></strong></p>
+                    <p><strong><?php _e( 'Request status updated', 'wc-return-warrranty' ) ?></strong></p>
                     <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
                 </div>
             <?php

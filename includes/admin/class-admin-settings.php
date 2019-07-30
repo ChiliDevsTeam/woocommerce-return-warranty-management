@@ -45,14 +45,18 @@ class WCRW_Admin_Settings {
      */
     public function admin_menu() {
         $capability           = apply_filters( 'wcrw_menu_capability', 'manage_woocommerce' );
-        $return_warranty_page = add_menu_page( 'Return Request', __( 'Return Request', 'wc-return-warranty-management' ), $capability, 'wc-return-warranty-management', [ $this, 'return_warranty_html' ], 'dashicons-image-rotate', 56 );
-        $requests             = add_submenu_page( 'wc-return-warranty-management', __( 'Requests', 'wc-return-warranty-management' ), __( 'Requests', 'wc-return-warranty-management' ), $capability, 'wc-return-warranty-management', [ $this, 'return_warranty_html'] );
-        $settings             = add_submenu_page( 'wc-return-warranty-management', __( 'Settings', 'wc-return-warranty-management' ), __( 'Settings', 'wc-return-warranty-management' ), $capability, 'wc-return-warranty-management-settings', [ $this, 'settings_page'] );
+        $return_warranty_page = add_menu_page( 'Return Request', __( 'Return Request', 'wc-return-warrranty' ), $capability, 'wc-return-warrranty', [ $this, 'return_warranty_html' ], 'dashicons-image-rotate', 56 );
+        $requests             = add_submenu_page( 'wc-return-warrranty', __( 'Requests', 'wc-return-warrranty' ), __( 'Requests', 'wc-return-warrranty' ), $capability, 'wc-return-warrranty', [ $this, 'return_warranty_html'] );
+        $form_builder         = add_submenu_page( 'wc-return-warrranty', __( 'Request Form', 'wc-return-warrranty' ), __( 'Requests Form', 'wc-return-warrranty' ), $capability, 'wc-return-request-form-builder', [ $this, 'return_form_builder'] );
+        $settings             = add_submenu_page( 'wc-return-warrranty', __( 'Settings', 'wc-return-warrranty' ), __( 'Settings', 'wc-return-warrranty' ), $capability, 'wc-return-warranty-management-settings', [ $this, 'settings_page'] );
 
         add_action( $requests, [ $this, 'load_admin_scripts' ], 10 );
         add_action( $settings, [ $this, 'load_admin_scripts' ], 10 );
+        add_action( $form_builder, [ $this, 'load_form_builder_scripts' ], 10 );
         add_action( 'admin_print_scripts-post-new.php', [ $this, 'product_admin_script' ], 11 );
         add_action( 'admin_print_scripts-post.php', [ $this, 'product_admin_script' ], 11 );
+
+        do_action( 'wcrw_admin_menu', $return_warranty_page, $capability );
     }
 
     /**
@@ -65,12 +69,36 @@ class WCRW_Admin_Settings {
     public function load_admin_scripts() {
         wp_enqueue_style( 'wcrw-admin-style', WCRW_ASSETS . '/css/admin.css', false, WCRW_VERSION, 'all' );
         wp_enqueue_script( 'jquery-tiptip' );
+        wp_enqueue_script( 'wcrw-i18n-jed', WCRW_ASSETS . '/js/jed.js', array( 'jquery' ), WCRW_VERSION, true );
         wp_enqueue_script( 'jquery-blockui', WC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI.min.js', array( 'jquery' ), WCRW_VERSION, true );
-        wp_enqueue_script( 'wcrw-admin-script', WCRW_ASSETS . '/js/admin-script.js', array( 'jquery', 'jquery-blockui' ), WCRW_VERSION, true );
+        wp_enqueue_script( 'wcrw-admin-script', WCRW_ASSETS . '/js/admin-script.js', array( 'jquery', 'jquery-blockui', 'wcrw-i18n-jed' ), WCRW_VERSION, true );
         wp_localize_script( 'wcrw-admin-script', 'wcrwadmin', [
             'ajaxurl'     => admin_url( 'admin-ajax.php' ),
             'nonce'       => wp_create_nonce( 'wcrw_admin_nonce' ),
             'ajax_loader' => WCRW_ASSETS . '/images/spinner-2x.gif',
+            'i18n'        => [ 'wc-return-warranty' => wcrw_get_jed_locale_data( 'wc-return-warranty' ) ],
+        ] );
+    }
+
+    /**
+     * Load form builder js files
+     *
+     * @since 1.0.3
+     *
+     * @return void
+     */
+    public function load_form_builder_scripts() {
+        wp_enqueue_style( 'wcrw-admin-style', WCRW_ASSETS . '/css/admin.css', false, WCRW_VERSION, 'all' );
+        wp_enqueue_script( 'wcrw-i18n-jed', WCRW_ASSETS . '/js/jed.js', array( 'jquery' ), WCRW_VERSION, true );
+        wp_enqueue_script( 'wcrw-block-ui', WC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI.min.js', array( 'jquery' ), WCRW_VERSION, true );
+        wp_enqueue_script( 'wcrw-form-builder-script', WCRW_ASSETS . '/js/builder.js', array( 'jquery', 'wcrw-block-ui', 'wcrw-i18n-jed' ), WCRW_VERSION, true );
+
+        wp_localize_script( 'wcrw-form-builder-script', 'wcrwForms', [
+            'ajaxurl'     => admin_url( 'admin-ajax.php' ),
+            'nonce'       => wp_create_nonce( 'wcrw_admin_nonce' ),
+            'ajax_loader' => WCRW_ASSETS . '/images/spinner-2x.gif',
+            'form_fields' => wcrw_get_form_fields(),
+            'i18n'        => [ 'wc-return-warranty' => wcrw_get_jed_locale_data( 'wc-return-warranty' ) ],
         ] );
     }
 
@@ -118,19 +146,19 @@ class WCRW_Admin_Settings {
             array(
                 'id'    => 'wcrw_basic',
                 'title' => '',
-                'name' => __( 'General', 'wc-return-warranty-management' ),
+                'name' => __( 'General', 'wc-return-warrranty' ),
                 'icon'  => 'dashicons-admin-generic'
             ),
             array(
                 'id'    => 'wcrw_default_warranty',
                 'title' => '',
-                'name' => __( 'Default Warranty', 'wc-return-warranty-management' ),
+                'name' => __( 'Default Warranty', 'wc-return-warrranty' ),
                 'icon'  => 'dashicons-admin-tools'
             ),
             array(
                 'id'    => 'wcrw_frontend',
                 'title' => '',
-                'name' => __( 'Frontend', 'wc-return-warranty-management' ),
+                'name' => __( 'Frontend', 'wc-return-warrranty' ),
                 'icon'  => 'dashicons-admin-appearance'
             )
         );
@@ -153,16 +181,16 @@ class WCRW_Admin_Settings {
             'wcrw_basic' => array(
                 array(
                     'name'    => 'allowed_order_status',
-                    'label'   => __( 'Order Status to allow Warranty Request', 'wc-return-warranty-management' ),
-                    'desc'    => __( 'What status do you want to allow the warranty request button for your customer', 'wc-return-warranty-management' ),
+                    'label'   => __( 'Order Status to allow Warranty Request', 'wc-return-warrranty' ),
+                    'desc'    => __( 'What status do you want to allow the warranty request button for your customer', 'wc-return-warrranty' ),
                     'type'    => 'multicheck',
                     'default' => 'wc-completed',
                     'options' => $allowed_status
                 ),
                 array(
                     'name'  => 'default_refund_status',
-                    'label' => __( 'Returned Status', 'wc-return-warranty-management' ),
-                    'desc'  => __( 'Default status for return request when customer first create a return request', 'wc-return-warranty-management' ),
+                    'label' => __( 'Returned Status', 'wc-return-warrranty' ),
+                    'desc'  => __( 'Default status for return request when customer first create a return request', 'wc-return-warrranty' ),
                     'type'    => 'select',
                     'default' => 'new',
                     'options' => wcrw_warranty_request_status()
@@ -171,15 +199,15 @@ class WCRW_Admin_Settings {
             'wcrw_default_warranty' => array(
                 array(
                     'name'    => 'label',
-                    'label'   => __( 'Label', 'wc-return-warranty-management' ),
-                    'desc'    => __( 'Default warranty label which will be shown in product page', 'wc-return-warranty-management' ),
+                    'label'   => __( 'Label', 'wc-return-warrranty' ),
+                    'desc'    => __( 'Default warranty label which will be shown in product page', 'wc-return-warrranty' ),
                     'type'    => 'text',
-                    'default' => __( 'Warranty', 'wc-return-warranty-management' )
+                    'default' => __( 'Warranty', 'wc-return-warrranty' )
                 ),
                 array(
                     'name'    => 'type',
-                    'label'   => __( 'Type', 'wc-return-warranty-management' ),
-                    'desc'    => __( 'Select your default warranty type which can be override from individual product', 'wc-return-warranty-management' ),
+                    'label'   => __( 'Type', 'wc-return-warrranty' ),
+                    'desc'    => __( 'Select your default warranty type which can be override from individual product', 'wc-return-warrranty' ),
                     'type'    => 'select',
                     'default' => 'no-warranty',
                     'options' => wcrw_warranty_types()
@@ -189,22 +217,22 @@ class WCRW_Admin_Settings {
             'wcrw_frontend' => array(
                 array(
                     'name'    => 'request_btn_label',
-                    'label'   => __( 'Request Button Label', 'wc-return-warranty-management' ),
-                    'desc'    => __( 'Select button text for request a warranty from customer my order page', 'wc-return-warranty-management' ),
+                    'label'   => __( 'Request Button Label', 'wc-return-warrranty' ),
+                    'desc'    => __( 'Select button text for request a warranty from customer my order page', 'wc-return-warrranty' ),
                     'type'    => 'text',
-                    'default' => __( 'Request Warranty', 'wc-return-warranty-management' )
+                    'default' => __( 'Request Warranty', 'wc-return-warrranty' )
                 ),
                 array(
                     'name'    => 'myaccount_menu_title',
-                    'label'   => __( 'Request Menu title', 'wc-return-warranty-management' ),
-                    'desc'    => __( 'Set menu title text for showing all warranty request in customer my account page', 'wc-return-warranty-management' ),
+                    'label'   => __( 'Request Menu title', 'wc-return-warrranty' ),
+                    'desc'    => __( 'Set menu title text for showing all warranty request in customer my account page', 'wc-return-warrranty' ),
                     'type'    => 'text',
-                    'default' => __( 'Request Warranty', 'wc-return-warranty-management' )
+                    'default' => __( 'Request Warranty', 'wc-return-warrranty' )
                 ),
                 array(
                     'name'    => 'requests_per_page',
-                    'label'   => __( 'Per page Request Number', 'wc-return-warranty-management' ),
-                    'desc'    => __( 'How many request will be shown in per page in customer my account requests menu', 'wc-return-warranty-management' ),
+                    'label'   => __( 'Per page Request Number', 'wc-return-warrranty' ),
+                    'desc'    => __( 'How many request will be shown in per page in customer my account requests menu', 'wc-return-warrranty' ),
                     'type'    => 'number',
                     'default' => 10
                 ),
@@ -212,6 +240,17 @@ class WCRW_Admin_Settings {
         );
 
         return apply_filters( 'wcrw_settings_fields', $settings_fields );
+    }
+
+    /**
+     * Requeest Form builder
+     *
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function return_form_builder() {
+        require_once WCRW_TEMPLATE_PATH . '/admin/form-builder.php';
     }
 
     /**
@@ -224,7 +263,7 @@ class WCRW_Admin_Settings {
     public function settings_page() {
         ?>
         <div class="wrap">
-            <h1 class="wp-heading-inline"><?php _e( 'Settings', 'wc-return-warranty-management' ) ?></h1><br>
+            <h1 class="wp-heading-inline"><?php _e( 'Settings', 'wc-return-warrranty' ) ?></h1><br>
             <div class="wcrw-settings-wrap">
                 <?php
                     $this->settings_api->show_navigation();
@@ -273,7 +312,7 @@ class WCRW_Admin_Settings {
             <tbody>
                 <tr class="length">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[length]"><?php _e( 'Length', 'wc-return-warranty-management' ); ?></label>
+                        <label for="wcrw_default_warranty[length]"><?php _e( 'Length', 'wc-return-warrranty' ); ?></label>
                     </th>
                     <td>
                         <select name="wcrw_default_warranty[length]" id="wcrw_default_warranty[length]" class="wcrw_default_warranty[length]">
@@ -281,23 +320,23 @@ class WCRW_Admin_Settings {
                                 <option value="<?php echo esc_attr( $length_key ); ?>" <?php selected( $default_warranty_length, $length_key ); ?>><?php echo esc_html( $length_value ); ?></option>
                             <?php endforeach ?>
                         </select>
-                        <p class="description"><?php _e( 'Choose your warranty length', 'wc-return-warranty-management' ) ?></p>
+                        <p class="description"><?php _e( 'Choose your warranty length', 'wc-return-warrranty' ) ?></p>
                     </td>
                 </tr>
 
                 <tr class="length_value hide_if_lifetime">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[length_value]"><?php _e( 'Length Value', 'wc-return-warranty-management' ); ?></label>
+                        <label for="wcrw_default_warranty[length_value]"><?php _e( 'Length Value', 'wc-return-warrranty' ); ?></label>
                     </th>
                     <td>
                         <input type="number" class="regular-text" min="0" step="1" name="wcrw_default_warranty[length_value]" value="<?php echo esc_html( $default_warranty_length_value ); ?>">
-                        <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warranty-management' ) ?></p>
+                        <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warrranty' ) ?></p>
                     </td>
                 </tr>
 
                 <tr class="length_duration hide_if_lifetime">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[length_duration]"><?php _e( 'Length Duration', 'wc-return-warranty-management' ); ?></label>
+                        <label for="wcrw_default_warranty[length_duration]"><?php _e( 'Length Duration', 'wc-return-warrranty' ); ?></label>
                     </th>
                     <td>
                         <select name="wcrw_default_warranty[length_duration]" id="wcrw_default_warranty[length_duration]" class="wcrw_default_warranty[length_duration]">
@@ -305,7 +344,7 @@ class WCRW_Admin_Settings {
                                 <option value="<?php echo esc_attr( $length_duration_key ); ?>" <?php selected( $default_warranty_length_duration, $length_duration_key ); ?>><?php echo esc_html( $length_duration_value ); ?></option>
                             <?php endforeach ?>
                         </select>
-                        <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warranty-management' ) ?></p>
+                        <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warrranty' ) ?></p>
                     </td>
                 </tr>
             </tbody>
@@ -315,14 +354,14 @@ class WCRW_Admin_Settings {
             <tbody>
                 <tr class="">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[add_ons]"><?php _e( 'Price base warranty', 'wc-return-warranty-management' ); ?></label>
+                        <label for="wcrw_default_warranty[add_ons]"><?php _e( 'Price base warranty', 'wc-return-warrranty' ); ?></label>
                     </th>
                     <td>
                         <table class="wcrw-addon-table">
                             <thead>
                                 <tr>
-                                    <th class="cost"><?php _e( 'Cost', 'wc-return-warranty-management' ) ?></th>
-                                    <th class="duration"><?php _e( 'Duration', 'wc-return-warranty-management' ) ?></th>
+                                    <th class="cost"><?php _e( 'Cost', 'wc-return-warrranty' ) ?></th>
+                                    <th class="duration"><?php _e( 'Duration', 'wc-return-warrranty' ) ?></th>
                                     <th class="action"></th>
                                 </tr>
                             </thead>

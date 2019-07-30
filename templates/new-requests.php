@@ -5,7 +5,7 @@
             $order    = wc_get_order( $order_id );
 
             if ( ! $order ) {
-                throw new Exception( __( 'Invalid order', 'wc-return-warranty-management' ) );
+                throw new Exception( __( 'Invalid order', 'wc-return-warrranty' ) );
             }
             ?>
             <form method="post">
@@ -13,9 +13,9 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th><?php _e( 'Product Name', 'wc-return-warranty-management' ) ?></th>
-                            <th><?php _e( 'Expiry Date', 'wc-return-warranty-management' ) ?></th>
-                            <th><?php _e( 'Quantity', 'wc-return-warranty-management' ) ?></th>
+                            <th><?php _e( 'Product Name', 'wc-return-warrranty' ) ?></th>
+                            <th><?php _e( 'Expiry Date', 'wc-return-warrranty' ) ?></th>
+                            <th><?php _e( 'Quantity', 'wc-return-warrranty' ) ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,14 +49,18 @@
 
                 <div class="wcrw-request-form">
                     <?php foreach ( wcrw_get_warranty_request_form_fields() as $field ): ?>
-                        <p class="form-row form-row-wide" id="<?php echo $field['id'] ?>">
+                        <?php if ( 'heading' == $field['type'] ): ?>
                             <?php echo wcrw_render_request_form_field( $field ); ?>
-                        </p>
+                        <?php else: ?>
+                            <p class="form-row form-row-wide" id="<?php echo $field['id'] ?>">
+                                <?php echo wcrw_render_request_form_field( $field ); ?>
+                            </p>
+                        <?php endif ?>
                     <?php endforeach ?>
                     <p class="form-row form-row-wide form-submit-wrapper" id="wcrw-request-form-submit">
                         <input type="hidden" name="order_id" value="<?php echo $order->get_id(); ?>">
                         <?php wp_nonce_field( 'wcrw_request_form_nonce_action', 'wcrw_request_form_nonce' ); ?>
-                        <input type="submit" class="button" name="save_warranty_request" value="<?php _e( 'Send Request', 'wc-return-warranty-management' ); ?>">
+                        <input type="submit" class="button" name="save_warranty_request" value="<?php _e( 'Send Request', 'wc-return-warrranty' ); ?>">
                     </p>
                 </div>
             </form>

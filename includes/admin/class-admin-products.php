@@ -25,7 +25,7 @@ class WCRW_Admin_Product {
      */
     public function add_warranty_tab( $default_tabs ) {
         $default_tabs['wcrw_warranty_tab'] = array(
-            'label'    =>  __( 'Warranty', 'wc-return-warranty-management' ),
+            'label'    =>  __( 'Warranty', 'wc-return-warrranty' ),
             'target'   =>  'wcrw_warranty_tab',
             'priority' => 71,
             'class'    => array( 'show_if_simple', 'show_if_grouped' )
@@ -55,28 +55,28 @@ class WCRW_Admin_Product {
                             'value'         => $override_warranty,
                             'cbvalue'       => 'yes',
                             'wrapper_class' => 'show_if_simple',
-                            'label'         => __( 'Override default', 'wc-return-warranty-management' ),
-                            'description'   => __( 'If you want to override default warranty settings', 'wc-return-warranty-management' ),
+                            'label'         => __( 'Override default', 'wc-return-warrranty' ),
+                            'description'   => __( 'If you want to override default warranty settings', 'wc-return-warrranty' ),
                         ]
                     );
 
                     woocommerce_wp_text_input(
                         [
                             'id'          => 'wcrw_product_warranty[label]',
-                            'label'       => __( 'Label', 'wc-return-warranty-management' ),
-                            'placeholder' => __( 'Warranty', 'wc-return-warranty-management' ),
+                            'label'       => __( 'Label', 'wc-return-warrranty' ),
+                            'placeholder' => __( 'Warranty', 'wc-return-warrranty' ),
                             'value'       => $settings['label'],
-                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warranty-management' ),
+                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warrranty' ),
                         ]
                     );
 
                     woocommerce_wp_select(
                         [
                             'id'          => 'wcrw_product_warranty[type]',
-                            'label'       => __( 'Type', 'wc-return-warranty-management' ),
-                            'placeholder' => __( 'Warranty', 'wc-return-warranty-management' ),
+                            'label'       => __( 'Type', 'wc-return-warrranty' ),
+                            'placeholder' => __( 'Warranty', 'wc-return-warrranty' ),
                             'value'       => $settings['type'],
-                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warranty-management' ),
+                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warrranty' ),
                             'options'     => wcrw_warranty_types()
                         ]
                     );
@@ -88,8 +88,8 @@ class WCRW_Admin_Product {
                     woocommerce_wp_select(
                         [
                             'id'          => 'wcrw_product_warranty[length]',
-                            'label'       => __( 'Length', 'wc-return-warranty-management' ),
-                            'description' => __( 'Set your warranty lenght lifetime or limited', 'wc-return-warranty-management' ),
+                            'label'       => __( 'Length', 'wc-return-warrranty' ),
+                            'description' => __( 'Set your warranty lenght lifetime or limited', 'wc-return-warrranty' ),
                             'value'       => $settings['length'],
                             'options'     => wcrw_warranty_length()
                         ]
@@ -99,9 +99,9 @@ class WCRW_Admin_Product {
                         [
                             'id'            => 'wcrw_product_warranty[length_value]',
                             'type'          => 'number',
-                            'label'         => __( 'Lenght value', 'wc-return-warranty-management' ),
-                            'placeholder'   => __( '10', 'wc-return-warranty-management' ),
-                            'description'   => __( 'Set your warranty length', 'wc-return-warranty-management' ),
+                            'label'         => __( 'Lenght value', 'wc-return-warrranty' ),
+                            'placeholder'   => __( '10', 'wc-return-warrranty' ),
+                            'description'   => __( 'Set your warranty length', 'wc-return-warrranty' ),
                             'wrapper_class' => 'hide_if_lifetime',
                             'value'         => $settings['length_value'],
                             'custom_attributes' => [
@@ -114,8 +114,8 @@ class WCRW_Admin_Product {
                     woocommerce_wp_select(
                         [
                             'id'            => 'wcrw_product_warranty[length_duration]',
-                            'label'         => __( 'Length duration', 'wc-return-warranty-management' ),
-                            'description'   => __( 'Set your warranty lenght duration', 'wc-return-warranty-management' ),
+                            'label'         => __( 'Length duration', 'wc-return-warrranty' ),
+                            'description'   => __( 'Set your warranty lenght duration', 'wc-return-warrranty' ),
                             'wrapper_class' => 'hide_if_lifetime',
                             'value'         => $settings['length_duration'],
                             'options'       => wcrw_warranty_length_duration()
@@ -128,8 +128,8 @@ class WCRW_Admin_Product {
                 <table class="form-table wcrw-addon-table wcrw-product-addon-table">
                     <thead>
                         <tr>
-                            <th class="cost"><?php _e( 'Cost', 'wc-return-warranty-management' ) ?></th>
-                            <th class="duration"><?php _e( 'Duration', 'wc-return-warranty-management' ) ?></th>
+                            <th class="cost"><?php _e( 'Cost', 'wc-return-warrranty' ) ?></th>
+                            <th class="duration"><?php _e( 'Duration', 'wc-return-warrranty' ) ?></th>
                             <th class="action"></th>
                         </tr>
                     </thead>
