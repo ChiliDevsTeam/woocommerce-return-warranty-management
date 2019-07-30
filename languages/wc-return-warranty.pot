@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.0.2\n"
+"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-return-warranty\n"
-"POT-Creation-Date: 2019-07-29 18:39:54+00:00\n"
+"POT-Creation-Date: 2019-07-30 17:04:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,93 +14,102 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: wp-vue-i18n 1.1.4\n"
 
-#: build/includes/admin/class-admin-products.php:103
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:103
 #: includes/admin/class-admin-products.php:103
 msgid "10"
 msgstr ""
 
-#: assets/js/builder.js:624 includes/functions.php:923
-msgid "Select a option"
-msgstr ""
-
-#: assets/js/builder.js:4452 assets/js/builder.js:5284
-#: assets/js/builder.js:16503
-msgid "div"
-msgstr ""
-
-#: assets/js/builder.js:16539
-msgid " + (data ? ("
-msgstr ""
-
-#: assets/js/builder.js:16959
-msgid " + (JSON.stringify(comment.text)) + "
-msgstr ""
-
-#: assets/js/builder.js:16994
-msgid " + componentName + "
-msgstr ""
-
 #: assets/src/App.vue:15
+#: build/wc-return-warranty/languages/wc-return-warranty.php:6
 msgid "No form element found"
 msgstr ""
 
 #: assets/src/App.vue:19
+#: build/wc-return-warranty/languages/wc-return-warranty.php:7
 msgid "Form Fields"
 msgstr ""
 
 #: assets/src/App.vue:28
+#: build/wc-return-warranty/languages/wc-return-warranty.php:8
 msgid "Field Settings"
 msgstr ""
 
 #: assets/src/App.vue:29
+#: build/wc-return-warranty/languages/wc-return-warranty.php:9
 msgid "Back to Fields"
 msgstr ""
 
-#: assets/src/App.vue:33 build/includes/admin/class-admin-products.php:66
-#: build/includes/admin/class-admin-settings.php:174
+#: assets/src/App.vue:33
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:66
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:174
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:202
+#: build/wc-return-warranty/languages/wc-return-warranty.php:10
 #: includes/admin/class-admin-products.php:66
 #: includes/admin/class-admin-settings.php:202
 msgid "Label"
 msgstr ""
 
 #: assets/src/App.vue:37
+#: build/wc-return-warranty/languages/wc-return-warranty.php:11
 msgid "Description"
 msgstr ""
 
 #: assets/src/App.vue:41
+#: build/wc-return-warranty/languages/wc-return-warranty.php:12
 msgid "Placeholder"
 msgstr ""
 
 #: assets/src/App.vue:45
+#: build/wc-return-warranty/languages/wc-return-warranty.php:13
 msgid "Class attribute"
 msgstr ""
 
 #: assets/src/App.vue:49
+#: build/wc-return-warranty/languages/wc-return-warranty.php:14
 msgid "ID attribute"
 msgstr ""
 
 #: assets/src/App.vue:53
+#: build/wc-return-warranty/languages/wc-return-warranty.php:15
 msgid "Wrapper Class"
 msgstr ""
 
 #: assets/src/App.vue:59
+#: build/wc-return-warranty/languages/wc-return-warranty.php:16
 msgid "Is required ?"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:28
-#: build/includes/admin/class-admin-products.php:67
-#: build/includes/admin/class-admin-products.php:77
-#: build/includes/admin/class-admin-settings.php:177
-#: build/includes/functions.php:172 build/includes/functions.php:224
+#: build/wc-return-warranty/assets/js/builder.js:624
+#: build/wc-return-warranty/includes/functions.php:923
+#: build/wc-return-warranty/languages/wc-return-warranty.php:3
+#: includes/functions.php:923
+msgid "Select a option"
+msgstr ""
+
+#: build/wc-return-warranty/assets/js/builder.js:4452
+#: build/wc-return-warranty/assets/js/builder.js:5284
+#: build/wc-return-warranty/assets/js/builder.js:16503
+msgid "div"
+msgstr ""
+
+#: build/wc-return-warranty/assets/js/builder.js:16539
+msgid " + (data ? ("
+msgstr ""
+
+#: build/wc-return-warranty/assets/js/builder.js:16959
+#: build/wc-return-warranty/languages/wc-return-warranty.php:5
+msgid " + (JSON.stringify(comment.text)) + "
+msgstr ""
+
+#: build/wc-return-warranty/assets/js/builder.js:16994
+msgid " + componentName + "
+msgstr ""
+
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:28
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:67
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:77
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:177
-#: build/wc-return-warranty/includes/functions.php:172
-#: build/wc-return-warranty/includes/functions.php:224
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:205
+#: build/wc-return-warranty/includes/functions.php:171
+#: build/wc-return-warranty/includes/functions.php:222
 #: includes/admin/class-admin-products.php:28
 #: includes/admin/class-admin-products.php:67
 #: includes/admin/class-admin-products.php:77
@@ -109,20 +118,16 @@ msgstr ""
 msgid "Warranty"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:58
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:58
 #: includes/admin/class-admin-products.php:58
 msgid "Override default"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:59
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:59
 #: includes/admin/class-admin-products.php:59
 msgid "If you want to override default warranty settings"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:69
-#: build/includes/admin/class-admin-products.php:79
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:69
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:79
 #: includes/admin/class-admin-products.php:69
@@ -130,83 +135,66 @@ msgstr ""
 msgid "Enter your warranty label for override defaults"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:76
-#: build/includes/admin/class-admin-settings.php:181
-#: build/templates/admin/single-request.php:105
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:76
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:181
-#: build/wc-return-warranty/templates/admin/single-request.php:105
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:209
+#: build/wc-return-warranty/templates/admin/single-request.php:107
 #: includes/admin/class-admin-products.php:76
 #: includes/admin/class-admin-settings.php:209
 #: templates/admin/single-request.php:107
 msgid "Type"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:91
-#: build/includes/admin/class-admin-settings.php:276
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:91
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:276
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:315
 #: includes/admin/class-admin-products.php:91
 #: includes/admin/class-admin-settings.php:315
 msgid "Length"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:92
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:92
 #: includes/admin/class-admin-products.php:92
 msgid "Set your warranty lenght lifetime or limited"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:102
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:102
 #: includes/admin/class-admin-products.php:102
 msgid "Lenght value"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:104
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:104
 #: includes/admin/class-admin-products.php:104
 msgid "Set your warranty length"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:117
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:117
 #: includes/admin/class-admin-products.php:117
 msgid "Length duration"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:118
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:118
 #: includes/admin/class-admin-products.php:118
 msgid "Set your warranty lenght duration"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:131
-#: build/includes/admin/class-admin-settings.php:324
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:131
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:324
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:363
 #: includes/admin/class-admin-products.php:131
 #: includes/admin/class-admin-settings.php:363
 msgid "Cost"
 msgstr ""
 
-#: build/includes/admin/class-admin-products.php:132
-#: build/includes/admin/class-admin-settings.php:325
 #: build/wc-return-warranty/includes/admin/class-admin-products.php:132
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:325
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:364
 #: includes/admin/class-admin-products.php:132
 #: includes/admin/class-admin-settings.php:364
 msgid "Duration"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:48
 #: build/wc-return-warranty/includes/admin/class-admin-settings.php:48
 #: includes/admin/class-admin-settings.php:48
 msgid "Return Request"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:49
-#: build/includes/admin/class-requests-list-table.php:18
 #: build/wc-return-warranty/includes/admin/class-admin-settings.php:49
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:18
 #: includes/admin/class-admin-settings.php:49
@@ -214,188 +202,192 @@ msgstr ""
 msgid "Requests"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:50
-#: build/includes/admin/class-admin-settings.php:227
 #: build/wc-return-warranty/includes/admin/class-admin-settings.php:50
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:227
+#: build/wc-return-warranty/templates/admin/form-builder.php:2
+#: includes/admin/class-admin-settings.php:50
+#: templates/admin/form-builder.php:2
+msgid "Request Form"
+msgstr ""
+
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:50
+#: includes/admin/class-admin-settings.php:50
+msgid "Requests Form"
+msgstr ""
+
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:51
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:266
 #: includes/admin/class-admin-settings.php:51
 #: includes/admin/class-admin-settings.php:266
 msgid "Settings"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:121
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:121
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:149
 #: includes/admin/class-admin-settings.php:149
 msgid "General"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:127
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:127
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:155
 #: includes/admin/class-admin-settings.php:155
 msgid "Default Warranty"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:133
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:133
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:161
 #: includes/admin/class-admin-settings.php:161
 msgid "Frontend"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:156
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:156
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:184
 #: includes/admin/class-admin-settings.php:184
 msgid "Order Status to allow Warranty Request"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:157
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:157
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:185
 #: includes/admin/class-admin-settings.php:185
 msgid ""
 "What status do you want to allow the warranty request button for your "
 "customer"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:164
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:164
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:192
 #: includes/admin/class-admin-settings.php:192
 msgid "Returned Status"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:165
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:165
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:193
 #: includes/admin/class-admin-settings.php:193
 msgid ""
 "Default status for return request when customer first create a return "
 "request"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:175
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:175
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:203
 #: includes/admin/class-admin-settings.php:203
 msgid "Default warranty label which will be shown in product page"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:182
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:182
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:210
 #: includes/admin/class-admin-settings.php:210
 msgid ""
 "Select your default warranty type which can be override from individual "
 "product"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:192
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:192
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:220
 #: includes/admin/class-admin-settings.php:220
 msgid "Request Button Label"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:193
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:193
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:221
 #: includes/admin/class-admin-settings.php:221
 msgid "Select button text for request a warranty from customer my order page"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:195
-#: build/includes/admin/class-admin-settings.php:202
-#: build/includes/class-customer.php:164
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:195
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:202
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:223
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:230
 #: build/wc-return-warranty/includes/class-customer.php:164
 #: includes/admin/class-admin-settings.php:223
 #: includes/admin/class-admin-settings.php:230 includes/class-customer.php:164
 msgid "Request Warranty"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:199
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:199
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:227
 #: includes/admin/class-admin-settings.php:227
 msgid "Request Menu title"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:200
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:200
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:228
 #: includes/admin/class-admin-settings.php:228
 msgid ""
 "Set menu title text for showing all warranty request in customer my account "
 "page"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:206
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:206
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:234
 #: includes/admin/class-admin-settings.php:234
 msgid "Per page Request Number"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:207
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:207
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:235
 #: includes/admin/class-admin-settings.php:235
 msgid ""
 "How many request will be shown in per page in customer my account requests "
 "menu"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:284
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:284
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:323
 #: includes/admin/class-admin-settings.php:323
 msgid "Choose your warranty length"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:290
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:290
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:329
 #: includes/admin/class-admin-settings.php:329
 msgid "Length Value"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:294
-#: build/includes/admin/class-admin-settings.php:308
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:294
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:308
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:333
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:347
 #: includes/admin/class-admin-settings.php:333
 #: includes/admin/class-admin-settings.php:347
 msgid "Choose your number of day or week or month or year"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:300
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:300
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:339
 #: includes/admin/class-admin-settings.php:339
 msgid "Length Duration"
 msgstr ""
 
-#: build/includes/admin/class-admin-settings.php:318
-#: build/wc-return-warranty/includes/admin/class-admin-settings.php:318
+#: build/wc-return-warranty/includes/admin/class-admin-settings.php:357
 #: includes/admin/class-admin-settings.php:357
 msgid "Price base warranty"
 msgstr ""
 
-#: build/includes/admin/class-ajax.php:30
-#: build/includes/admin/class-ajax.php:59
-#: build/wc-return-warranty/includes/admin/class-ajax.php:30
-#: build/wc-return-warranty/includes/admin/class-ajax.php:59
+#: build/wc-return-warranty/includes/admin/class-ajax.php:32
+#: build/wc-return-warranty/includes/admin/class-ajax.php:61
+#: build/wc-return-warranty/includes/admin/class-ajax.php:92
+#: build/wc-return-warranty/includes/admin/class-ajax.php:117
 #: includes/admin/class-ajax.php:32 includes/admin/class-ajax.php:61
 #: includes/admin/class-ajax.php:92 includes/admin/class-ajax.php:117
 msgid "Nonce verification faild"
 msgstr ""
 
-#: build/includes/admin/class-ajax.php:36
-#: build/wc-return-warranty/includes/admin/class-ajax.php:36
+#: build/wc-return-warranty/includes/admin/class-ajax.php:38
 #: includes/admin/class-ajax.php:38
 msgid "Request not found"
 msgstr ""
 
-#: build/includes/admin/class-ajax.php:63
-#: build/wc-return-warranty/includes/admin/class-ajax.php:63
+#: build/wc-return-warranty/includes/admin/class-ajax.php:65
 #: includes/admin/class-ajax.php:65
 msgid "Request id not found"
 msgstr ""
 
-#: build/includes/admin/class-ajax.php:72
-#: build/wc-return-warranty/includes/admin/class-ajax.php:72
+#: build/wc-return-warranty/includes/admin/class-ajax.php:74
 #: includes/admin/class-ajax.php:74
 msgid "Note deleted successfully"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:17
-#: build/templates/all-requests.php:18
+#: build/wc-return-warranty/includes/admin/class-ajax.php:86
+#: build/wc-return-warranty/includes/admin/class-ajax.php:111
+#: includes/admin/class-ajax.php:86 includes/admin/class-ajax.php:111
+msgid "You are not allowed to do this"
+msgstr ""
+
+#: build/wc-return-warranty/includes/admin/class-ajax.php:99
+#: includes/admin/class-ajax.php:99
+msgid "Request form udpated successfully"
+msgstr ""
+
+#: build/wc-return-warranty/includes/admin/class-ajax.php:122
+#: build/wc-return-warranty/includes/functions.php:956
+#: includes/admin/class-ajax.php:122 includes/functions.php:956
+msgid "Reason for request"
+msgstr ""
+
+#: build/wc-return-warranty/includes/admin/class-ajax.php:133
+#: build/wc-return-warranty/includes/functions.php:967
+#: includes/admin/class-ajax.php:133 includes/functions.php:967
+msgid "Write your valid reasons"
+msgstr ""
+
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:17
 #: build/wc-return-warranty/templates/all-requests.php:18
 #: includes/admin/class-requests-list-table.php:17
@@ -403,76 +395,58 @@ msgstr ""
 msgid "Request"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:51
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:51
 #: includes/admin/class-requests-list-table.php:51
 msgid "No requests found."
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:73
-#: build/templates/all-requests.php:5
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:73
 #: build/wc-return-warranty/templates/all-requests.php:5
 #: includes/admin/class-requests-list-table.php:73 templates/all-requests.php:5
 msgid "Request ID"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:74
-#: build/templates/all-requests.php:6
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:74
 #: build/wc-return-warranty/templates/all-requests.php:6
 #: includes/admin/class-requests-list-table.php:74 templates/all-requests.php:6
 msgid "Order ID"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:75
-#: build/templates/all-requests.php:7
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:75
 #: build/wc-return-warranty/templates/all-requests.php:7
 #: includes/admin/class-requests-list-table.php:75 templates/all-requests.php:7
 msgid "Items"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:76
-#: build/templates/admin/single-request.php:101
-#: build/templates/all-requests.php:8
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:76
-#: build/wc-return-warranty/templates/admin/single-request.php:101
+#: build/wc-return-warranty/templates/admin/single-request.php:103
 #: build/wc-return-warranty/templates/all-requests.php:8
 #: includes/admin/class-requests-list-table.php:76
 #: templates/admin/single-request.php:103 templates/all-requests.php:8
 msgid "Status"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:77
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:77
 #: includes/admin/class-requests-list-table.php:77
 msgid "Customer"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:78
-#: build/templates/all-requests.php:9
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:78
 #: build/wc-return-warranty/templates/all-requests.php:9
 #: includes/admin/class-requests-list-table.php:78 templates/all-requests.php:9
 msgid "Created Date"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:79
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:79
 #: includes/admin/class-requests-list-table.php:79
 msgid "Action"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:159
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:159
 #: includes/admin/class-requests-list-table.php:159
 msgid "View"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:160
-#: build/includes/admin/class-requests-list-table.php:191
-#: build/templates/admin/single-request.php:71
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:160
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:191
 #: build/wc-return-warranty/templates/admin/single-request.php:71
@@ -482,52 +456,42 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: build/includes/admin/class-requests-list-table.php:165
-#: build/includes/functions.php:149
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:165
-#: build/wc-return-warranty/includes/functions.php:149
+#: build/wc-return-warranty/includes/functions.php:148
 #: includes/admin/class-requests-list-table.php:165 includes/functions.php:148
 msgid "Refund"
 msgstr ""
 
-#: build/includes/class-customer.php:41
 #: build/wc-return-warranty/includes/class-customer.php:41
 #: includes/class-customer.php:41
 msgid "Request for a Warranty"
 msgstr ""
 
-#: build/includes/class-customer.php:52
 #: build/wc-return-warranty/includes/class-customer.php:52
 #: includes/class-customer.php:52
 msgid "Create New Request"
 msgstr ""
 
-#: build/includes/class-customer.php:68
 #: build/wc-return-warranty/includes/class-customer.php:68
 #: includes/class-customer.php:68
 msgid "Warranty Requests"
 msgstr ""
 
-#: build/includes/class-customer.php:107
 #: build/wc-return-warranty/includes/class-customer.php:107
 #: includes/class-customer.php:107
 msgid "&laquo; Previous"
 msgstr ""
 
-#: build/includes/class-customer.php:108
 #: build/wc-return-warranty/includes/class-customer.php:108
 #: includes/class-customer.php:108
 msgid "Next &raquo;"
 msgstr ""
 
-#: build/includes/class-form-handler.php:61
 #: build/wc-return-warranty/includes/class-form-handler.php:61
 #: includes/class-form-handler.php:61
 msgid "Request has been submitted successfully"
 msgstr ""
 
-#: build/includes/class-frontend.php:52 build/includes/class-frontend.php:223
-#: build/includes/functions.php:106
 #: build/wc-return-warranty/includes/class-frontend.php:52
 #: build/wc-return-warranty/includes/class-frontend.php:223
 #: build/wc-return-warranty/includes/functions.php:106
@@ -536,406 +500,381 @@ msgstr ""
 msgid "Lifetime"
 msgstr ""
 
-#: build/includes/class-frontend.php:59 build/includes/class-frontend.php:67
 #: build/wc-return-warranty/includes/class-frontend.php:59
 #: build/wc-return-warranty/includes/class-frontend.php:67
 #: includes/class-frontend.php:59 includes/class-frontend.php:67
 msgid "No warranty"
 msgstr ""
 
-#: build/includes/class-frontend.php:70
 #: build/wc-return-warranty/includes/class-frontend.php:70
 #: includes/class-frontend.php:70
 msgid "Free"
 msgstr ""
 
-#: build/includes/class-frontend.php:153
 #: build/wc-return-warranty/includes/class-frontend.php:153
 #: includes/class-frontend.php:153
 msgid "Please select your %s first."
 msgstr ""
 
-#: build/includes/emails/class-create-request-to-admin.php:23
 #: build/wc-return-warranty/includes/emails/class-create-request-to-admin.php:23
 #: includes/emails/class-create-request-to-admin.php:23
 msgid "New Request to Admin"
 msgstr ""
 
-#: build/includes/emails/class-create-request-to-admin.php:24
 #: build/wc-return-warranty/includes/emails/class-create-request-to-admin.php:24
 #: includes/emails/class-create-request-to-admin.php:24
 msgid "An email sent to the admin when a customer send a return request to admin"
 msgstr ""
 
-#: build/includes/emails/class-create-request-to-admin.php:51
 #: build/wc-return-warranty/includes/emails/class-create-request-to-admin.php:51
 #: includes/emails/class-create-request-to-admin.php:51
 msgid "[{site_name}] A New Return Request is submitted from ({customer_name})"
 msgstr ""
 
-#: build/includes/emails/class-create-request-to-admin.php:62
 #: build/wc-return-warranty/includes/emails/class-create-request-to-admin.php:62
 #: includes/emails/class-create-request-to-admin.php:62
 msgid "New request created by {customer_name}"
 msgstr ""
 
-#: build/includes/emails/class-update-status.php:24
 #: build/wc-return-warranty/includes/emails/class-update-status.php:24
 #: includes/emails/class-update-status.php:24
 msgid "Request Status"
 msgstr ""
 
-#: build/includes/emails/class-update-status.php:26
 #: build/wc-return-warranty/includes/emails/class-update-status.php:26
 #: includes/emails/class-update-status.php:26
 msgid "An email sent to the customer when a admin update request status"
 msgstr ""
 
-#: build/includes/emails/class-update-status.php:54
 #: build/wc-return-warranty/includes/emails/class-update-status.php:54
 #: includes/emails/class-update-status.php:54
 msgid "[{site_name}] Request Updated"
 msgstr ""
 
-#: build/includes/emails/class-update-status.php:65
 #: build/wc-return-warranty/includes/emails/class-update-status.php:65
 #: includes/emails/class-update-status.php:65
 msgid "Your request updated to {new_status}"
 msgstr ""
 
-#: build/includes/functions.php:42
 #: build/wc-return-warranty/includes/functions.php:42 includes/functions.php:42
 msgid "New"
 msgstr ""
 
-#: build/includes/functions.php:43
 #: build/wc-return-warranty/includes/functions.php:43 includes/functions.php:43
 msgid "Processing"
 msgstr ""
 
-#: build/includes/functions.php:44
 #: build/wc-return-warranty/includes/functions.php:44 includes/functions.php:44
 msgid "Completed"
 msgstr ""
 
-#: build/includes/functions.php:45
 #: build/wc-return-warranty/includes/functions.php:45 includes/functions.php:45
 msgid "Rejected"
 msgstr ""
 
-#: build/includes/functions.php:46
 #: build/wc-return-warranty/includes/functions.php:46 includes/functions.php:46
 msgid "Reviewing"
 msgstr ""
 
-#: build/includes/functions.php:84
 #: build/wc-return-warranty/includes/functions.php:84 includes/functions.php:84
 msgid "No Warranty"
 msgstr ""
 
-#: build/includes/functions.php:85
 #: build/wc-return-warranty/includes/functions.php:85 includes/functions.php:85
 msgid "Included Warranty"
 msgstr ""
 
-#: build/includes/functions.php:86
 #: build/wc-return-warranty/includes/functions.php:86 includes/functions.php:86
 msgid "Price base Warranty"
 msgstr ""
 
-#: build/includes/functions.php:105
 #: build/wc-return-warranty/includes/functions.php:105
 #: includes/functions.php:105
 msgid "Limited"
 msgstr ""
 
-#: build/includes/functions.php:126
-#: build/wc-return-warranty/includes/functions.php:126
+#: build/wc-return-warranty/includes/functions.php:125
 #: includes/functions.php:125
 msgid "Days"
 msgstr ""
 
-#: build/includes/functions.php:127
-#: build/wc-return-warranty/includes/functions.php:127
+#: build/wc-return-warranty/includes/functions.php:126
 #: includes/functions.php:126
 msgid "Weeks"
 msgstr ""
 
-#: build/includes/functions.php:128
-#: build/wc-return-warranty/includes/functions.php:128
+#: build/wc-return-warranty/includes/functions.php:127
 #: includes/functions.php:127
 msgid "Months"
 msgstr ""
 
-#: build/includes/functions.php:129
-#: build/wc-return-warranty/includes/functions.php:129
+#: build/wc-return-warranty/includes/functions.php:128
 #: includes/functions.php:128
 msgid "Years"
 msgstr ""
 
-#: build/includes/functions.php:148
-#: build/wc-return-warranty/includes/functions.php:148
+#: build/wc-return-warranty/includes/functions.php:147
 #: includes/functions.php:147
 msgid "Replacement"
 msgstr ""
 
-#: build/includes/functions.php:342
-#: build/wc-return-warranty/includes/functions.php:342
-#: includes/functions.php:983
-msgid "Request for"
-msgstr ""
-
-#: build/includes/functions.php:346
-#: build/wc-return-warranty/includes/functions.php:346
-#: includes/functions.php:988
-msgid "-- Select type --"
-msgstr ""
-
-#: build/includes/functions.php:446
-#: build/wc-return-warranty/includes/functions.php:452
+#: build/wc-return-warranty/includes/functions.php:360
 #: includes/functions.php:360
 msgid "No order found"
 msgstr ""
 
-#: build/includes/functions.php:451
-#: build/wc-return-warranty/includes/functions.php:457
+#: build/wc-return-warranty/includes/functions.php:365
 #: includes/functions.php:365
 msgid "Please select any item for sending request"
 msgstr ""
 
-#: build/includes/functions.php:456
-#: build/wc-return-warranty/includes/functions.php:462
+#: build/wc-return-warranty/includes/functions.php:370
 #: includes/functions.php:370
 msgid "Request type must be required"
 msgstr ""
 
-#: build/includes/functions.php:589 build/includes/functions.php:879
-#: build/wc-return-warranty/includes/functions.php:595
-#: build/wc-return-warranty/includes/functions.php:885
+#: build/wc-return-warranty/includes/functions.php:391
+#: includes/functions.php:391
+msgid "field is required"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:544
+#: build/wc-return-warranty/includes/functions.php:833
 #: includes/functions.php:544 includes/functions.php:833
 msgid "No request id found"
 msgstr ""
 
-#: build/includes/functions.php:599
-#: build/wc-return-warranty/includes/functions.php:605
+#: build/wc-return-warranty/includes/functions.php:554
 #: includes/functions.php:554
 msgid "Invalid status"
 msgstr ""
 
-#: build/includes/functions.php:605
-#: build/wc-return-warranty/includes/functions.php:611
+#: build/wc-return-warranty/includes/functions.php:560
 #: includes/functions.php:560
 msgid "Request not updated successfully"
 msgstr ""
 
-#: build/includes/functions.php:727
-#: build/wc-return-warranty/includes/functions.php:733
+#: build/wc-return-warranty/includes/functions.php:681
 #: includes/functions.php:681
 msgid "All"
 msgstr ""
 
-#: build/includes/functions.php:776
-#: build/wc-return-warranty/includes/functions.php:782
+#: build/wc-return-warranty/includes/functions.php:730
 #: includes/functions.php:730
 msgid "No request found"
 msgstr ""
 
-#: build/includes/functions.php:780
-#: build/wc-return-warranty/includes/functions.php:786
+#: build/wc-return-warranty/includes/functions.php:734
 #: includes/functions.php:734
 msgid "Note field is empty. Please write something"
 msgstr ""
 
-#: build/includes/functions.php:814
-#: build/wc-return-warranty/includes/functions.php:820
+#: build/wc-return-warranty/includes/functions.php:768
 #: includes/functions.php:768
 msgid "No Request found for delete"
 msgstr ""
 
-#: build/includes/functions.php:824
-#: build/wc-return-warranty/includes/functions.php:830
+#: build/wc-return-warranty/includes/functions.php:778
 #: includes/functions.php:778
 msgid "Request not deleted, Try again"
 msgstr ""
 
-#: build/includes/functions.php:885
-#: build/wc-return-warranty/includes/functions.php:891
+#: build/wc-return-warranty/includes/functions.php:839
 #: includes/functions.php:839
 msgid "Request note not deleted. Please try again"
 msgstr ""
 
-#: build/libs/class.settings-api.php:363
+#: build/wc-return-warranty/includes/functions.php:881
+#: includes/functions.php:881
+msgid "Text input"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:890
+#: includes/functions.php:890
+msgid "Text Field"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:894
+#: includes/functions.php:894
+msgid "Textarea"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:904
+#: includes/functions.php:904
+msgid "Textarea Field"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:908
+#: includes/functions.php:908
+msgid "Checkbox"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:919
+#: includes/functions.php:919
+msgid "Select Dropdown"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:932
+#: includes/functions.php:932
+msgid "Html"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:935
+#: includes/functions.php:935
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, "
+"blanditiis."
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:983
+#: includes/functions.php:983
+msgid "Request for"
+msgstr ""
+
+#: build/wc-return-warranty/includes/functions.php:988
+#: includes/functions.php:988
+msgid "-- Select type --"
+msgstr ""
+
 #: build/wc-return-warranty/libs/class.settings-api.php:363
 #: libs/class.settings-api.php:363
 msgid "Choose File"
 msgstr ""
 
-#: build/libs/class.settings-api.php:535
 #: build/wc-return-warranty/libs/class.settings-api.php:535
 #: libs/class.settings-api.php:535
 msgid "Save Settings"
 msgstr ""
 
-#: build/templates/admin/all-requests.php:2
 #: build/wc-return-warranty/templates/admin/all-requests.php:2
 #: templates/admin/all-requests.php:2
 msgid "All Requests"
 msgstr ""
 
-#: build/templates/admin/all-requests.php:9
 #: build/wc-return-warranty/templates/admin/all-requests.php:9
 #: templates/admin/all-requests.php:9
 msgid "Request deleted successfully"
 msgstr ""
 
-#: build/templates/admin/all-requests.php:17
 #: build/wc-return-warranty/templates/admin/all-requests.php:17
 #: templates/admin/all-requests.php:17
 msgid "Request status updated"
 msgstr ""
 
-#: build/templates/admin/single-request.php:2
 #: build/wc-return-warranty/templates/admin/single-request.php:2
 #: templates/admin/single-request.php:2
 msgid "Request Details"
 msgstr ""
 
-#: build/templates/admin/single-request.php:7
 #: build/wc-return-warranty/templates/admin/single-request.php:7
 #: templates/admin/single-request.php:7
 msgid "Request updated"
 msgstr ""
 
-#: build/templates/admin/single-request.php:8
-#: build/templates/admin/single-request.php:16
 #: build/wc-return-warranty/templates/admin/single-request.php:8
 #: build/wc-return-warranty/templates/admin/single-request.php:16
 #: templates/admin/single-request.php:8 templates/admin/single-request.php:16
 msgid "Dismiss this notice."
 msgstr ""
 
-#: build/templates/admin/single-request.php:26
-#: build/templates/admin/single-request.php:57
 #: build/wc-return-warranty/templates/admin/single-request.php:26
 #: build/wc-return-warranty/templates/admin/single-request.php:57
 #: templates/admin/single-request.php:26 templates/admin/single-request.php:57
 msgid "Toggle panel: Order actions"
 msgstr ""
 
-#: build/templates/admin/single-request.php:29
 #: build/wc-return-warranty/templates/admin/single-request.php:29
 #: templates/admin/single-request.php:29
 msgid "Request actions"
 msgstr ""
 
-#: build/templates/admin/single-request.php:42
 #: build/wc-return-warranty/templates/admin/single-request.php:42
 #: templates/admin/single-request.php:42
 msgid "Delete Permanently"
 msgstr ""
 
-#: build/templates/admin/single-request.php:50
 #: build/wc-return-warranty/templates/admin/single-request.php:50
 #: templates/admin/single-request.php:50
 msgid "Update"
 msgstr ""
 
-#: build/templates/admin/single-request.php:60
 #: build/wc-return-warranty/templates/admin/single-request.php:60
 #: templates/admin/single-request.php:60
 msgid "Admin Notes"
 msgstr ""
 
-#: build/templates/admin/single-request.php:77
 #: build/wc-return-warranty/templates/admin/single-request.php:77
 #: templates/admin/single-request.php:77
 msgid "No note found"
 msgstr ""
 
-#: build/templates/admin/single-request.php:81
 #: build/wc-return-warranty/templates/admin/single-request.php:81
 #: templates/admin/single-request.php:81
 msgid "Notes"
 msgstr ""
 
-#: build/templates/admin/single-request.php:84
 #: build/wc-return-warranty/templates/admin/single-request.php:84
 #: templates/admin/single-request.php:84
 msgid "Add Note"
 msgstr ""
 
-#: build/templates/admin/single-request.php:109
-#: build/templates/view-requests.php:52
-#: build/wc-return-warranty/templates/admin/single-request.php:109
-#: build/wc-return-warranty/templates/view-requests.php:52
+#: build/wc-return-warranty/templates/admin/single-request.php:113
+#: build/wc-return-warranty/templates/view-requests.php:53
 #: templates/admin/single-request.php:113 templates/view-requests.php:53
 msgid "Reasons"
 msgstr ""
 
-#: build/templates/admin/single-request.php:123
-#: build/wc-return-warranty/templates/admin/single-request.php:123
+#: build/wc-return-warranty/templates/admin/single-request.php:128
 #: templates/admin/single-request.php:128
 msgid "Customer Basic Details"
 msgstr ""
 
-#: build/templates/admin/single-request.php:127
-#: build/wc-return-warranty/templates/admin/single-request.php:127
+#: build/wc-return-warranty/templates/admin/single-request.php:132
 #: templates/admin/single-request.php:132
 msgid "Email"
 msgstr ""
 
-#: build/templates/admin/single-request.php:129
-#: build/wc-return-warranty/templates/admin/single-request.php:129
+#: build/wc-return-warranty/templates/admin/single-request.php:134
 #: templates/admin/single-request.php:134
 msgid "Guest Customer"
 msgstr ""
 
-#: build/templates/admin/single-request.php:136
-#: build/wc-return-warranty/templates/admin/single-request.php:136
+#: build/wc-return-warranty/templates/admin/single-request.php:141
 #: templates/admin/single-request.php:141
 msgid "Customer Billing Details"
 msgstr ""
 
-#: build/templates/admin/single-request.php:151
-#: build/wc-return-warranty/templates/admin/single-request.php:151
+#: build/wc-return-warranty/templates/admin/single-request.php:156
 #: templates/admin/single-request.php:156
 msgid "Item"
 msgstr ""
 
-#: build/templates/admin/single-request.php:152
-#: build/wc-return-warranty/templates/admin/single-request.php:152
+#: build/wc-return-warranty/templates/admin/single-request.php:157
 #: templates/admin/single-request.php:157
 msgid "Unit Cost"
 msgstr ""
 
-#: build/templates/admin/single-request.php:153
-#: build/wc-return-warranty/templates/admin/single-request.php:153
+#: build/wc-return-warranty/templates/admin/single-request.php:158
 #: templates/admin/single-request.php:158
 msgid "Qty"
 msgstr ""
 
-#: build/templates/admin/single-request.php:154
-#: build/wc-return-warranty/templates/admin/single-request.php:154
+#: build/wc-return-warranty/templates/admin/single-request.php:159
 #: templates/admin/single-request.php:159
 msgid "Request Qty"
 msgstr ""
 
-#: build/templates/admin/single-request.php:155
-#: build/templates/new-requests.php:17
-#: build/wc-return-warranty/templates/admin/single-request.php:155
+#: build/wc-return-warranty/templates/admin/single-request.php:160
 #: build/wc-return-warranty/templates/new-requests.php:17
 #: templates/admin/single-request.php:160 templates/new-requests.php:17
 msgid "Expiry Date"
 msgstr ""
 
-#: build/templates/all-requests.php:36
 #: build/wc-return-warranty/templates/all-requests.php:36
 #: templates/all-requests.php:36
 msgid "No requests found"
 msgstr ""
 
-#: build/templates/emails/plain/wcrw-create-request-admin.php:18
-#: build/templates/emails/wcrw-create-request-admin.php:17
 #: build/wc-return-warranty/templates/emails/plain/wcrw-create-request-admin.php:18
 #: build/wc-return-warranty/templates/emails/wcrw-create-request-admin.php:17
 #: templates/emails/plain/wcrw-create-request-admin.php:18
@@ -944,15 +883,12 @@ msgstr ""
 msgid "A new return request ID #%d has beed created"
 msgstr ""
 
-#: build/templates/emails/plain/wcrw-update-request-status.php:18
 #: build/wc-return-warranty/templates/emails/plain/wcrw-update-request-status.php:18
 #: templates/emails/plain/wcrw-update-request-status.php:18
 #. translators: %s: Customer billing full name
 msgid "Your return request ID #%d is now %s"
 msgstr ""
 
-#: build/templates/emails/wcrw-create-request-admin.php:23
-#: build/templates/emails/wcrw-update-request-status.php:23
 #: build/wc-return-warranty/templates/emails/wcrw-create-request-admin.php:23
 #: build/wc-return-warranty/templates/emails/wcrw-update-request-status.php:23
 #: templates/emails/wcrw-create-request-admin.php:23
@@ -960,9 +896,6 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
-#: build/templates/emails/wcrw-create-request-admin.php:24
-#: build/templates/emails/wcrw-update-request-status.php:24
-#: build/templates/new-requests.php:18
 #: build/wc-return-warranty/templates/emails/wcrw-create-request-admin.php:24
 #: build/wc-return-warranty/templates/emails/wcrw-update-request-status.php:24
 #: build/wc-return-warranty/templates/new-requests.php:18
@@ -972,8 +905,6 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: build/templates/emails/wcrw-create-request-admin.php:25
-#: build/templates/emails/wcrw-update-request-status.php:25
 #: build/wc-return-warranty/templates/emails/wcrw-create-request-admin.php:25
 #: build/wc-return-warranty/templates/emails/wcrw-update-request-status.php:25
 #: templates/emails/wcrw-create-request-admin.php:25
@@ -981,37 +912,31 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: build/templates/emails/wcrw-update-request-status.php:17
 #: build/wc-return-warranty/templates/emails/wcrw-update-request-status.php:17
 #: templates/emails/wcrw-update-request-status.php:17
 msgid "Your return request ID #%d is now <strong>%s</strong>"
 msgstr ""
 
-#: build/templates/new-requests.php:8
 #: build/wc-return-warranty/templates/new-requests.php:8
 #: templates/new-requests.php:8
 msgid "Invalid order"
 msgstr ""
 
-#: build/templates/new-requests.php:16
 #: build/wc-return-warranty/templates/new-requests.php:16
 #: templates/new-requests.php:16
 msgid "Product Name"
 msgstr ""
 
-#: build/templates/new-requests.php:63
-#: build/wc-return-warranty/templates/new-requests.php:59
+#: build/wc-return-warranty/templates/new-requests.php:63
 #: templates/new-requests.php:63
 msgid "Send Request"
 msgstr ""
 
-#: build/templates/view-requests.php:8
 #: build/wc-return-warranty/templates/view-requests.php:8
 #: templates/view-requests.php:8
 msgid "No warranty request found"
 msgstr ""
 
-#: build/templates/view-requests.php:13
 #: build/wc-return-warranty/templates/view-requests.php:13
 #: templates/view-requests.php:13
 msgid ""
@@ -1021,97 +946,25 @@ msgid ""
 "class=\"order-status\">%s</mark>"
 msgstr ""
 
-#: build/templates/view-requests.php:15 build/templates/view-requests.php:47
 #: build/wc-return-warranty/templates/view-requests.php:15
 #: build/wc-return-warranty/templates/view-requests.php:47
 #: templates/view-requests.php:15 templates/view-requests.php:47
 msgid "Other details"
 msgstr ""
 
-#: build/templates/view-requests.php:20
 #: build/wc-return-warranty/templates/view-requests.php:20
 #: templates/view-requests.php:20
 msgid "Type :"
 msgstr ""
 
-#: build/templates/view-requests.php:24
 #: build/wc-return-warranty/templates/view-requests.php:24
 #: templates/view-requests.php:24
 msgid "Products :"
 msgstr ""
 
-#: build/templates/view-requests.php:37
 #: build/wc-return-warranty/templates/view-requests.php:37
 #: templates/view-requests.php:37
 msgid "Status :"
-msgstr ""
-
-#: build/wc-return-warranty/includes/functions.php:349
-#: includes/admin/class-ajax.php:122 includes/functions.php:956
-msgid "Reason for request"
-msgstr ""
-
-#: build/wc-return-warranty/includes/functions.php:353
-msgid "Write your reason for request"
-msgstr ""
-
-#: includes/admin/class-admin-settings.php:50
-#: templates/admin/form-builder.php:2
-msgid "Request Form"
-msgstr ""
-
-#: includes/admin/class-admin-settings.php:50
-msgid "Requests Form"
-msgstr ""
-
-#: includes/admin/class-ajax.php:86 includes/admin/class-ajax.php:111
-msgid "You are not allowed to do this"
-msgstr ""
-
-#: includes/admin/class-ajax.php:99
-msgid "Request form udpated successfully"
-msgstr ""
-
-#: includes/admin/class-ajax.php:133 includes/functions.php:967
-msgid "Write your valid reasons"
-msgstr ""
-
-#: includes/functions.php:391
-msgid "field is required"
-msgstr ""
-
-#: includes/functions.php:881
-msgid "Text input"
-msgstr ""
-
-#: includes/functions.php:890
-msgid "Text Field"
-msgstr ""
-
-#: includes/functions.php:894
-msgid "Textarea"
-msgstr ""
-
-#: includes/functions.php:904
-msgid "Textarea Field"
-msgstr ""
-
-#: includes/functions.php:908
-msgid "Checkbox"
-msgstr ""
-
-#: includes/functions.php:919
-msgid "Select Dropdown"
-msgstr ""
-
-#: includes/functions.php:932
-msgid "Html"
-msgstr ""
-
-#: includes/functions.php:935
-msgid ""
-"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, "
-"blanditiis."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
