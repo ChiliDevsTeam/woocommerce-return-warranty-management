@@ -1,5 +1,7 @@
 bin
 node_modules
+assets/src
+assets/less
 tests
 nbproject
 Gruntfile.js
@@ -23,6 +25,7 @@ build
 yarn.lock
 yarn-error.log
 mix-manifest.json
+webpack.mix.js
 webpack.config.js
 vendor
 composer.lock

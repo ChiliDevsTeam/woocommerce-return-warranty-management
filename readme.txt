@@ -2,9 +2,9 @@
 Contributors: wpeasysoft
 Tags: WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management
 Requires at least: 4.4
-Tested up to: 5.2.1
+Tested up to: 5.2.2
 WC requires at least: 3.0
-WC tested up to: 3.6.4
+WC tested up to: 3.6.5
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -29,7 +29,8 @@ There comes Return and Warranty management system. With this plugin, managing re
 * Define warranty cost for each product
 * Replace and refund manually
 * Feature Simple product for return and refund of the vast majority of your products
-* Give your customers a way to Create New Request via a form
+* Admin can create request form for cusomter using request form builder ( Availble fields: Text, Textarea, Select, Checkbox, HTML ) [**New**]
+* Give your customers a way to Create New Request via request form which is created by admin
 * Add notes for Admin on each request
 
 = How will WooCommerce Return and Warranty benefit you? =
@@ -87,6 +88,15 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 == Changelog ==
+
+v1.1.0 -> July 30, 2019
+--------------------------------------------
+- [new]   Added request form builder for admin. When admin can create request form for customers
+- [fix]   Admin notes table name issue
+- [fix]   Change textdomain `wc-return-warranty-management` to `wc-return-warranty`
+- [fix]   Warranty create issues for extra meta key values
+- [tweak] Added admin menu filter and scripts loaded
+- [tweak] Change grunt support to npm webpack mix
 
 v1.0.2 -> June 14, 2019
 --------------------------------------------
