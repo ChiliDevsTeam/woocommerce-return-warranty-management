@@ -1,8 +1,9 @@
 <div class="wcrw-view-request-wrapper">
     <?php
     try {
-        $request_id = get_query_var( 'view-warranty-request' );
-        $request    = wcrw_get_warranty_request( [ 'id' => $request_id ] );
+        $request_id  = get_query_var( 'view-warranty-request' );
+        $request     = wcrw_get_warranty_request( [ 'id' => $request_id ] );
+        $form_fields = wcrw_get_form_fields_data();
 
         if ( empty( $request ) ) {
             throw new Exception( __( 'No warranty request found', 'wc-return-warrranty' ) );
@@ -58,8 +59,8 @@
                         <?php if ( ! empty( $request['meta'] ) ): ?>
                             <?php foreach ( $request['meta'] as $meta ) : ?>
                                 <tr class="<?php echo $meta['key']; ?>">
-                                    <td><?php echo $meta['label']; ?></td>
-                                    <td><?php echo $meta['value'];; ?></td>
+                                    <td><?php echo apply_filters( 'wcrw_render_request_meta_label', $meta['label'], $meta, $form_fields ); ?></td>
+                                    <td><?php echo apply_filters( 'wcrw_render_request_meta_value', $meta['value'], $meta, $form_fields ); ?></td>
                                 </tr>
                             <?php endforeach ?>
                         <?php endif ?>

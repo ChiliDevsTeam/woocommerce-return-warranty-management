@@ -1,6 +1,7 @@
 <div class="wrap">
     <h1 class="wp-heading-inline"><?php _e( 'Request Details', 'wc-return-warrranty' ); ?></h1>
     <?php
+    $form_fields = wcrw_get_form_fields_data();
     if ( isset( $_GET['updated'] ) && $_GET['updated'] ) {
         ?>
             <div id="message" class="updated notice is-dismissible">
@@ -98,32 +99,32 @@
                             <?php echo sprintf( 'Created at %s, Customer IP: %s', date_i18n( get_option( 'date_format' ), strtotime( $request['created_at'] ) ), $request['customer']['ip_address'] ); ?>
                         </div>
                         <div class="content">
-                            <ul class="list-item">
-                                <li>
-                                    <span class="label"><?php _e( 'Status', 'wc-return-warrranty' ) ?></span>
-                                    <span class="value"><?php echo wcrw_warranty_request_status( $request['status'] ) ?></span>
-                                </li>
-                                <li>
-                                    <span class="label"><?php _e( 'Type', 'wc-return-warrranty' ) ?></span>
-                                    <span class="value"><?php echo wcrw_warranty_request_type( $request['type'] ); ?></span>
-                                </li>
-
-                                <?php if ( ! empty( $request['reasons'] ) ): ?>
-                                    <li>
-                                        <span class="label"><?php _e( 'Reasons', 'wc-return-warrranty' ) ?></span>
-                                        <span class="value"><?php echo $request['reasons']; ?></span>
-                                    </li>
-                                <?php endif ?>
-
-                                <?php if ( ! empty( $request['meta'] ) ): ?>
-                                    <?php foreach ( $request['meta'] as $meta ): ?>
-                                        <li class="<?php echo $meta['key']; ?>">
-                                            <span class="label"><?php echo $meta['label']; ?>:</span>
-                                            <span class="value"><?php echo $meta['value']; ?></span>
-                                        </li>
-                                    <?php endforeach ?>
-                                <?php endif ?>
-                            </ul>
+                            <table class="request-data-table wp-list-table widefat fixed striped">
+                                <tbody>
+                                    <tr class="request-type">
+                                        <td class="label"><?php _e( 'Status', 'wc-return-warrranty' ) ?></td>
+                                        <td class="value"><?php echo wcrw_warranty_request_status( $request['status'] ) ?></td>
+                                    </tr>
+                                    <tr class="request-type">
+                                        <td class="label"><?php _e( 'Type', 'wc-return-warrranty' ) ?></td>
+                                        <td class="value"><?php echo wcrw_warranty_request_type( $request['type'] ); ?></td>
+                                    </tr>
+                                    <?php if ( ! empty( $request['reasons'] ) ): ?>
+                                        <tr class="request-reasons">
+                                            <td class="label"><?php _e( 'Reasons', 'wc-return-warrranty' ) ?></td>
+                                            <td class="value"><?php echo $request['reasons']; ?></td>
+                                        </tr>
+                                    <?php endif ?>
+                                    <?php if ( ! empty( $request['meta'] ) ): ?>
+                                        <?php foreach ( $request['meta'] as $meta ): ?>
+                                            <tr class="<?php echo $meta['key']; ?>">
+                                                <td class="label"><?php echo apply_filters( 'wcrw_render_request_meta_label', $meta['label'], $meta, $form_fields ); ?>:</td>
+                                                <td class="value"><?php echo apply_filters( 'wcrw_render_request_meta_value', $meta['value'], $meta, $form_fields ); ?></td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+                                </tbody>
+                            </table>
                             <div class="left-content">
                                 <h3><?php _e( 'Customer Basic Details', 'wc-return-warrranty' ); ?></h3>
                                 <div class="customer-details">

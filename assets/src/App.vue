@@ -85,6 +85,18 @@
                             <input type="number" v-model="form[selectedFieldIndex].settings.paraFontSize" class="regular-text">
                         </div>
                     </template>
+                    <template v-if="form[selectedFieldIndex].type == 'file'">
+                        <div class="form-row">
+                            <label for="multiple-field" class="checkbox">
+                                <input type="checkbox" id="multiple-field" class="checkbox" v-model="form[selectedFieldIndex].settings.multiple">
+                                {{ __( 'Multiple file upload?', 'wc-return-warranty' ) }}
+                            </label>
+                        </div>
+                        <div class="form-row" v-if="form[selectedFieldIndex].settings.multiple">
+                            <label for="field-name">{{ __( 'Max file limit', 'wc-return-warranty' ) }}</label>
+                            <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.maxLimit">
+                        </div>
+                    </template>
                     <template v-if="form[selectedFieldIndex].type == 'number'">
                         <div class="form-row">
                             <label for="field-name">{{ __( 'Min value', 'wc-return-warranty' ) }}</label>

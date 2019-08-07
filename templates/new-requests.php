@@ -8,7 +8,7 @@
                 throw new Exception( __( 'Invalid order', 'wc-return-warrranty' ) );
             }
             ?>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders">
                     <thead>
                         <tr>

@@ -409,7 +409,11 @@ function wcrw_create_warranty_request( $postdata = [] ) {
         }
     }
 
-    if ( ! empty( $meta_field_errors ) ) {
+    $args['meta'] = apply_filters( 'wcrw_request_meta_data', $args['meta'], $extra_field_data, $args );
+
+    error_log( print_r( $args['meta'], true ) );
+
+    if ( ! empty( apply_filters( 'wcrw_create_warranty_request_error', $meta_field_errors, $extra_field_data ) ) ) {
         return new WP_Error( 'required-meta-data', $meta_field_errors[0] );
     }
 
@@ -876,7 +880,7 @@ function wcrw_order_has_any_item_warranty( $order ) {
  * @return void
  */
 function wcrw_get_form_fields() {
-    return apply_filters( 'wcrw_request_form_fields', [
+    return apply_filters( 'wcrw_get_request_form_fields', [
         [
             'label' => __( 'Text input', 'wc-return-warrranty' ),
             'type' => 'text',
@@ -1013,7 +1017,8 @@ function wcrw_get_warranty_request_form_fields() {
             'type'              => $fields_array['type'],
             'options'           => $options,
             'default'           => '',
-            'required'          => isset( $fields_array['settings']['required'] ) ? $fields_array['settings']['required'] : false,
+            'required'          => isset( $fields_array['settings']['required'] ) ? (bool)$fields_array['settings']['required'] : false,
+            'multiple'          => isset( $fields_array['settings']['multiple'] ) ? (bool)$fields_array['settings']['multiple'] : false,
             'placeholder'       => ! empty( $fields_array['settings']['placeholder'] ) ? $fields_array['settings']['placeholder'] : '',
             'row'               => ! empty( $fields_array['settings']['row'] ) ? $fields_array['settings']['row'] : '',
             'wrapper_class'     => $fields_array['settings']['wrapperClass'],
@@ -1027,7 +1032,7 @@ function wcrw_get_warranty_request_form_fields() {
 
     $all_fields = array_merge( $mandatory_fileds, $formatted_fields_array );
 
-    return apply_filters( 'wcrw_request_form_fields', $all_fields, $mandatory_fileds, $formatted_fields_array  );
+    return apply_filters( 'wcrw_get_request_form_fields', $all_fields, $mandatory_fileds, $formatted_fields_array  );
 }
 
 /**
@@ -1154,8 +1159,9 @@ function wcrw_render_request_form_field( $field ) {
             </div>
             <?php
             break;
+
         default:
-            do_action( 'wcrw_render_request_form_field', $field );
+            do_action( 'wcrw_render_request_form_field', $field, $args );
             break;
         return ob_get_clean();
     }
@@ -1235,4 +1241,36 @@ function wcrw_get_jed_locale_data( $domain, $language_dir = null ) {
     return $locale;
 }
 
+/**
+ * Upload handler
+ *
+ * @param string $filename
+ * @param string $file_url
+ *
+ * @return integer attachement_id
+ */
+function wcrw_handle_file_upload( $filename, $file_url ) {
+    $upload_file = wp_upload_bits( $filename, null, file_get_contents( $file_url ) );
 
+    if ( ! $upload_file['error'] ) {
+        $wp_filetype = wp_check_filetype( $filename, null );
+
+        $attachment = array(
+            'post_mime_type' => $wp_filetype['type'],
+            'post_parent'    => 0,
+            'post_title'     => preg_replace( '/\.[^.]+$/', '', $filename ),
+            'post_content'   => '',
+            'post_status'    => 'inherit'
+        );
+        $attachment_id = wp_insert_attachment( $attachment, $upload_file['file'] );
+
+        if ( ! is_wp_error( $attachment_id ) ) {
+            require_once( ABSPATH . "wp-admin" . '/includes/image.php' );
+            $attachment_data = wp_generate_attachment_metadata( $attachment_id, $upload_file['file'] );
+            wp_update_attachment_metadata( $attachment_id,  $attachment_data );
+            return $attachment_id;
+        }
+    }
+
+    return 0;
+}
