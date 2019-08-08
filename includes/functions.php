@@ -531,8 +531,6 @@ function wcrw_get_warranty_request( $args = [] ) {
         }
     }
 
-    error_log( print_r( $response, true ) );
-
     return $response;
 }
 
