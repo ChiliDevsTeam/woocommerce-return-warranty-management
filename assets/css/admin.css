@@ -94,6 +94,7 @@ table.wcrw-addon-table.wcrw-product-addon-table tbody tr td span.input-group-add
 }
 .wcrw-single-request-wrap #wcrw-request-detilas .content table.request-data-table .label {
   font-weight: bold;
+  width: 33%;
 }
 .wcrw-single-request-wrap #wcrw-request-detilas .content table.request-data-table .attacment-image {
   display: inline-block;

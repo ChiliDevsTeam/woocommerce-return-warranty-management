@@ -377,7 +377,7 @@ function wcrw_create_warranty_request( $postdata = [] ) {
 
     foreach ( $extra_field_data as $meta_field ) {
         // Bell out if not proper type of meta field
-        if ( in_array( $meta_field['type'] , [ 'html' ] ) ) {
+        if ( in_array( $meta_field['type'] , apply_filters( 'wcrw_except_request_form_fields', [ 'html' ] ) ) ) {
             continue;
         }
 
@@ -409,13 +409,13 @@ function wcrw_create_warranty_request( $postdata = [] ) {
         }
     }
 
-    $args['meta'] = apply_filters( 'wcrw_request_meta_data', $args['meta'], $extra_field_data, $args );
+    $errors = apply_filters( 'wcrw_create_warranty_request_error', $meta_field_errors, $extra_field_data );
 
-    error_log( print_r( $args['meta'], true ) );
-
-    if ( ! empty( apply_filters( 'wcrw_create_warranty_request_error', $meta_field_errors, $extra_field_data ) ) ) {
-        return new WP_Error( 'required-meta-data', $meta_field_errors[0] );
+    if ( ! empty( $errors ) ) {
+        return new WP_Error( 'required-meta-data', $errors[0] );
     }
+
+    $args['meta'] = apply_filters( 'wcrw_request_meta_data', $args['meta'], $extra_field_data, $args );
 
     $wpdb->insert(
         $request_table,
@@ -461,19 +461,19 @@ function wcrw_create_warranty_request( $postdata = [] ) {
  *
  * @return void
  */
-function wcrw_get_warranty_request( $data = [] ) {
+function wcrw_get_warranty_request( $args = [] ) {
     global $wpdb;
 
     $default = [
         'id'      => 0,
         'number'  => 20,
         'offset'  => 0,
-        'orderby' => 'created_at',
+        'orderby' => 'id',
         'order'   => 'desc',
         'count'   => false,
     ];
 
-    $data              = wcrw_parse_args( $data, $default );
+    $data              = wp_parse_args( $args, $default );
     $request_table     = $wpdb->prefix . 'wcrw_warranty_requests';
     $request_map_table = $wpdb->prefix . 'wcrw_request_product_map';
     $response          = [];
@@ -481,7 +481,7 @@ function wcrw_get_warranty_request( $data = [] ) {
     if ( $data['count'] ) {
         $sql = "SELECT count('id') as total_count FROM {$request_table} as rt WHERE 1=1";
     } else {
-        $sql = "SELECT rt.*, GROUP_CONCAT( rit.product_id SEPARATOR ',') AS 'products', GROUP_CONCAT( rit.quantity SEPARATOR ', ') AS 'quantity', GROUP_CONCAT( rit.item_id SEPARATOR ', ') AS 'item_id' FROM {$request_table} as rt INNER JOIN {$request_map_table} as rit ON rt.id=rit.request_id WHERE 1=1";
+        $sql = "SELECT rt.*, rt.`id` as `id`, rt.`created_at` as `created_at`, GROUP_CONCAT( rit.product_id SEPARATOR ',') AS 'products', GROUP_CONCAT( rit.quantity SEPARATOR ', ') AS 'quantity', GROUP_CONCAT( rit.item_id SEPARATOR ', ') AS 'item_id' FROM {$request_table} as rt INNER JOIN {$request_map_table} as rit ON rt.id=rit.request_id WHERE 1=1";
     }
 
     if ( ! empty( $data['type'] ) ) {
@@ -530,6 +530,8 @@ function wcrw_get_warranty_request( $data = [] ) {
             $response[] = wcrw_transformer_warranty_request( $result );
         }
     }
+
+    error_log( print_r( $response, true ) );
 
     return $response;
 }

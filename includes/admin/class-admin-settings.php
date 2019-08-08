@@ -45,10 +45,10 @@ class WCRW_Admin_Settings {
      */
     public function admin_menu() {
         $capability           = apply_filters( 'wcrw_menu_capability', 'manage_woocommerce' );
-        $return_warranty_page = add_menu_page( 'Return Request', __( 'Return Request', 'wc-return-warrranty' ), $capability, 'wc-return-warrranty', [ $this, 'return_warranty_html' ], 'dashicons-image-rotate', 56 );
-        $requests             = add_submenu_page( 'wc-return-warrranty', __( 'Requests', 'wc-return-warrranty' ), __( 'Requests', 'wc-return-warrranty' ), $capability, 'wc-return-warrranty', [ $this, 'return_warranty_html'] );
-        $form_builder         = add_submenu_page( 'wc-return-warrranty', __( 'Request Form', 'wc-return-warrranty' ), __( 'Requests Form', 'wc-return-warrranty' ), $capability, 'wc-return-request-form-builder', [ $this, 'return_form_builder'] );
-        $settings             = add_submenu_page( 'wc-return-warrranty', __( 'Settings', 'wc-return-warrranty' ), __( 'Settings', 'wc-return-warrranty' ), $capability, 'wc-return-warranty-management-settings', [ $this, 'settings_page'] );
+        $return_warranty_page = add_menu_page( 'Return Request', __( 'Return Request', 'wc-return-warrranty' ), $capability, 'wc-return-warranty', [ $this, 'return_warranty_html' ], 'dashicons-image-rotate', 56 );
+        $requests             = add_submenu_page( 'wc-return-warranty', __( 'Requests', 'wc-return-warrranty' ), __( 'Requests', 'wc-return-warrranty' ), $capability, 'wc-return-warranty', [ $this, 'return_warranty_html'] );
+        $form_builder         = add_submenu_page( 'wc-return-warranty', __( 'Request Form', 'wc-return-warrranty' ), __( 'Requests Form', 'wc-return-warrranty' ), $capability, 'wc-return-request-form-builder', [ $this, 'return_form_builder'] );
+        $settings             = add_submenu_page( 'wc-return-warranty', __( 'Settings', 'wc-return-warrranty' ), __( 'Settings', 'wc-return-warrranty' ), $capability, 'wc-return-warranty-management-settings', [ $this, 'settings_page'] );
 
         add_action( $requests, [ $this, 'load_admin_scripts' ], 10 );
         add_action( $settings, [ $this, 'load_admin_scripts' ], 10 );

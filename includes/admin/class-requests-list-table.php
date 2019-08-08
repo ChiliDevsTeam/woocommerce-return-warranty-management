@@ -151,8 +151,8 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
      * @return string
      */
     function column_id( $item ) {
-        $view_url   = add_query_arg( [ 'page' => 'wc-return-warrranty', 'request_id' => $item['id'] ], admin_url( 'admin.php' ) );
-        $delete_url = add_query_arg( [ 'page' => 'wc-return-warrranty', 'action' => 'delete', 'request_id' => $item['id'], '_wpnonce' => wp_create_nonce( 'request_delete' ) ], admin_url( 'admin.php' ) );
+        $view_url   = add_query_arg( [ 'page' => 'wc-return-warranty', 'request_id' => $item['id'] ], admin_url( 'admin.php' ) );
+        $delete_url = add_query_arg( [ 'page' => 'wc-return-warranty', 'action' => 'delete', 'request_id' => $item['id'], '_wpnonce' => wp_create_nonce( 'request_delete' ) ], admin_url( 'admin.php' ) );
         $title      = sprintf( '<a href="%s"><strong>Request #%d</strong></a>', esc_url( $view_url ), $item['id'] );
 
         $actions = [
@@ -204,7 +204,7 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
     protected function get_views() {
         $status_links = [];
         $current      = ( !empty( $_REQUEST['status'] ) ? $_REQUEST['status'] : 'all' );
-        $base_link    = admin_url( 'admin.php?page=wc-return-warranty-management' );
+        $base_link    = admin_url( 'admin.php?page=wc-return-warranty' );
 
         foreach ( wcrw_get_request_status_count() as $key => $value ) {
             $class                = ( $key == $current ) ? 'current' : 'status-' . $key;
@@ -282,7 +282,9 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
         $this->items = wcrw_get_warranty_request( $data );
         $count       = wcrw_get_warranty_request( [ 'count' => true ] );
 
-        usort( $this->items, array( &$this, 'usort_reorder' ) );
+        if ( isset( $_REQUEST['orderby'] ) ) {
+            usort( $this->items, array( &$this, 'usort_reorder' ) );
+        }
 
         // Set the pagination
         $this->set_pagination_args( array(
