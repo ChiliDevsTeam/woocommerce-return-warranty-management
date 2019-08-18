@@ -11,7 +11,4 @@ return [
 	__( 'ID attribute', 'wc-return-warranty' ),
 	__( 'Wrapper Class', 'wc-return-warranty' ),
 	__( 'Is required ?', 'wc-return-warranty' ),
-	__( 'Select a option', 'wc-return-warranty' ),
-	_n( ' + valueExpression + ' ),
-	_e( ' + (JSON.stringify(comment.text)) + ' ),
 ];

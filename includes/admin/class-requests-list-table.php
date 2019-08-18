@@ -14,8 +14,8 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
      */
     public function __construct() {
         parent::__construct( [
-            'singular' => __( 'Request', 'wc-return-warrranty' ),
-            'plural'   => __( 'Requests', 'wc-return-warrranty' ),
+            'singular' => __( 'Request', 'wc-return-warranty' ),
+            'plural'   => __( 'Requests', 'wc-return-warranty' ),
             'ajax'     => false
         ] );
 
@@ -48,7 +48,7 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
      * @return void [print html]
      */
     public function no_items() {
-        _e( 'No requests found.', 'wc-return-warrranty' );
+        _e( 'No requests found.', 'wc-return-warranty' );
     }
 
     /**
@@ -70,13 +70,13 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
     public function get_columns(){
         $columns = [
             'cb'         => '<input type="checkbox" />',
-            'id'         => __( 'Request ID', 'wc-return-warrranty' ),
-            'order_id'   => __( 'Order ID', 'wc-return-warrranty' ),
-            'items'      => __( 'Items', 'wc-return-warrranty' ),
-            'status'     => __( 'Status', 'wc-return-warrranty' ),
-            'customer'   => __( 'Customer', 'wc-return-warrranty' ),
-            'created_at' => __( 'Created Date', 'wc-return-warrranty' ),
-            'action'     => __( 'Action', 'wc-return-warrranty' )
+            'id'         => __( 'Request ID', 'wc-return-warranty' ),
+            'order_id'   => __( 'Order ID', 'wc-return-warranty' ),
+            'items'      => __( 'Items', 'wc-return-warranty' ),
+            'status'     => __( 'Status', 'wc-return-warranty' ),
+            'customer'   => __( 'Customer', 'wc-return-warranty' ),
+            'created_at' => __( 'Created Date', 'wc-return-warranty' ),
+            'action'     => __( 'Action', 'wc-return-warranty' )
         ];
 
         return $columns;
@@ -94,15 +94,15 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
         $actions = [
             'completed' => [
                 'icon' => '<span class="dashicons dashicons-yes"></span>',
-                'url'  => add_query_arg( [ 'page' => 'wc-return-warrranty', 'action' => 'change_status', 'request_id' => $item['id'], 'status' => 'completed', '_wpnonce' => wp_create_nonce( 'change_request_status' ) ], admin_url( 'admin.php' ) )
+                'url'  => add_query_arg( [ 'page' => 'wc-return-warranty', 'action' => 'change_status', 'request_id' => $item['id'], 'status' => 'completed', '_wpnonce' => wp_create_nonce( 'change_request_status' ) ], admin_url( 'admin.php' ) )
             ],
             'processing' => [
                 'icon' => '<span class="dashicons dashicons-marker"></span>',
-                'url'  => add_query_arg( [ 'page' => 'wc-return-warrranty', 'action' => 'change_status', 'request_id' => $item['id'], 'status' => 'processing', '_wpnonce' => wp_create_nonce( 'change_request_status' ) ], admin_url( 'admin.php' ) )
+                'url'  => add_query_arg( [ 'page' => 'wc-return-warranty', 'action' => 'change_status', 'request_id' => $item['id'], 'status' => 'processing', '_wpnonce' => wp_create_nonce( 'change_request_status' ) ], admin_url( 'admin.php' ) )
             ],
             'rejected' => [
                 'icon' => '<span class="dashicons dashicons-no"></span>',
-                'url'  => add_query_arg( [ 'page' => 'wc-return-warrranty', 'action' => 'change_status', 'request_id' => $item['id'], 'status' => 'rejected', '_wpnonce' => wp_create_nonce( 'change_request_status' ) ], admin_url( 'admin.php' ) )
+                'url'  => add_query_arg( [ 'page' => 'wc-return-warranty', 'action' => 'change_status', 'request_id' => $item['id'], 'status' => 'rejected', '_wpnonce' => wp_create_nonce( 'change_request_status' ) ], admin_url( 'admin.php' ) )
             ],
         ];
 
@@ -151,18 +151,18 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
      * @return string
      */
     function column_id( $item ) {
-        $view_url   = add_query_arg( [ 'page' => 'wc-return-warrranty', 'request_id' => $item['id'] ], admin_url( 'admin.php' ) );
-        $delete_url = add_query_arg( [ 'page' => 'wc-return-warrranty', 'action' => 'delete', 'request_id' => $item['id'], '_wpnonce' => wp_create_nonce( 'request_delete' ) ], admin_url( 'admin.php' ) );
+        $view_url   = add_query_arg( [ 'page' => 'wc-return-warranty', 'request_id' => $item['id'] ], admin_url( 'admin.php' ) );
+        $delete_url = add_query_arg( [ 'page' => 'wc-return-warranty', 'action' => 'delete', 'request_id' => $item['id'], '_wpnonce' => wp_create_nonce( 'request_delete' ) ], admin_url( 'admin.php' ) );
         $title      = sprintf( '<a href="%s"><strong>Request #%d</strong></a>', esc_url( $view_url ), $item['id'] );
 
         $actions = [
-            'view'   => sprintf( '<a href="%s">%s</a>', esc_url( $view_url ), __( 'View', 'wc-return-warrranty' ) ),
-            'delete' => sprintf( '<a href="%s" onclick="return confirm(\'Are you sure?\')">%s</a>', esc_url( $delete_url ), __( 'Delete', 'wc-return-warrranty' ) )
+            'view'   => sprintf( '<a href="%s">%s</a>', esc_url( $view_url ), __( 'View', 'wc-return-warranty' ) ),
+            'delete' => sprintf( '<a href="%s" onclick="return confirm(\'Are you sure?\')">%s</a>', esc_url( $delete_url ), __( 'Delete', 'wc-return-warranty' ) )
         ];
 
         if ( $item['type'] == 'refund' ) {
             $edit_order_url    = get_edit_post_link( $item['order_id'] );
-            $actions['refund'] = sprintf( '<a href="%s">%s</a>', esc_url( $edit_order_url ), __( 'Refund', 'wc-return-warrranty' ) );
+            $actions['refund'] = sprintf( '<a href="%s">%s</a>', esc_url( $edit_order_url ), __( 'Refund', 'wc-return-warranty' ) );
         }
 
         return $title . $this->row_actions( apply_filters( 'wcrw_request_table_row_actions', $actions, $item ) );
@@ -188,7 +188,7 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
      */
     function get_bulk_actions() {
         $actions = [
-            'request_delete'  => __( 'Delete', 'wc-return-warrranty' ),
+            'request_delete'  => __( 'Delete', 'wc-return-warranty' ),
         ];
 
         return $actions;
@@ -204,7 +204,7 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
     protected function get_views() {
         $status_links = [];
         $current      = ( !empty( $_REQUEST['status'] ) ? $_REQUEST['status'] : 'all' );
-        $base_link    = admin_url( 'admin.php?page=wc-return-warranty-management' );
+        $base_link    = admin_url( 'admin.php?page=wc-return-warranty' );
 
         foreach ( wcrw_get_request_status_count() as $key => $value ) {
             $class                = ( $key == $current ) ? 'current' : 'status-' . $key;
@@ -282,7 +282,9 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
         $this->items = wcrw_get_warranty_request( $data );
         $count       = wcrw_get_warranty_request( [ 'count' => true ] );
 
-        usort( $this->items, array( &$this, 'usort_reorder' ) );
+        if ( isset( $_REQUEST['orderby'] ) ) {
+            usort( $this->items, array( &$this, 'usort_reorder' ) );
+        }
 
         // Set the pagination
         $this->set_pagination_args( array(
@@ -314,13 +316,13 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
                         wcrw_delete_warranty_request( $request_id );
                     }
 
-                    $url = add_query_arg( [ 'page' => 'wc-return-warrranty', 'updated' => 1, 'message' => 'deleted' ], admin_url( 'admin.php' ) );
+                    $url = add_query_arg( [ 'page' => 'wc-return-warranty', 'updated' => 1, 'message' => 'deleted' ], admin_url( 'admin.php' ) );
                     wp_redirect( $url );
                     exit();
                 }
             }
 
-            $url = add_query_arg( [ 'page' => 'wc-return-warrranty' ], admin_url( 'admin.php' ) );
+            $url = add_query_arg( [ 'page' => 'wc-return-warranty' ], admin_url( 'admin.php' ) );
             wp_redirect( $url );
             exit();
         }

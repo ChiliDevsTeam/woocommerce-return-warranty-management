@@ -4,7 +4,7 @@
 **Requires at least:** 4.4<br>
 **Tested up to:** 5.2.2<br>
 **WC requires at least:** 3.0<br>
-**WC tested up to:** 3.6.5<br>
+**WC tested up to:** 3.7.0<br>
 **Requires PHP:** 5.6<br>
 **Stable tag:** trunk<br>
 **License:** GPLv2 or later<br>
@@ -88,6 +88,14 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 ## Changelog ##
+
+v1.1.1 -> August 19, 2019
+--------------------------------------------
+- [fix]   Transaltions issues for mismatch plugin slug
+- [fix]   Added some core hooks for extending functionalities
+- [fix]   Request listing ordering(ASC/DESC) issues in admin all request page
+- [fix]   Status filter broken link in all requests page
+- [tweak] Remove unwanted logger codes
 
 v1.1.0 -> July 30, 2019
 --------------------------------------------

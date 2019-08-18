@@ -29,13 +29,13 @@ class WCRW_Admin_Ajax {
         $postdata = wp_unslash( $_POST );
 
         if ( ! wp_verify_nonce( $postdata['nonce'], 'wcrw_admin_nonce' ) ) {
-            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warranty' ) );
         }
 
         wp_parse_str( $postdata['formData'], $data );
 
         if ( empty( $data['request_id'] ) ) {
-            wp_send_json_error( __( 'Request not found', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'Request not found', 'wc-return-warranty' ) );
         }
 
         $response = wcrw_add_request_note( $data );
@@ -58,11 +58,11 @@ class WCRW_Admin_Ajax {
         $postdata = wp_unslash( $_POST );
 
         if ( ! wp_verify_nonce( $postdata['nonce'], 'wcrw_admin_nonce' ) ) {
-            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warranty' ) );
         }
 
         if ( empty( $postdata['id'] ) ) {
-            wp_send_json_error( __( 'Request id not found', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'Request id not found', 'wc-return-warranty' ) );
         }
 
         $response = wcrw_delete_request_note( (int)$postdata['id'] );
@@ -71,7 +71,7 @@ class WCRW_Admin_Ajax {
             wp_send_json_error( $response->get_error_message() );
         }
 
-        wp_send_json_success( __( 'Note deleted successfully', 'wc-return-warrranty' ) );
+        wp_send_json_success( __( 'Note deleted successfully', 'wc-return-warranty' ) );
     }
 
     /**
@@ -83,20 +83,20 @@ class WCRW_Admin_Ajax {
      */
     public function save_form_builder_data() {
         if ( ! is_admin() ) {
-            wp_send_json_error( __( 'You are not allowed to do this', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'You are not allowed to do this', 'wc-return-warranty' ) );
         }
 
         $postdata = wp_unslash( $_POST );
 
         if ( ! wp_verify_nonce( $postdata['nonce'], 'wcrw_admin_nonce' ) ) {
-            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warranty' ) );
         }
 
         $data = json_decode( $postdata['formData'], true );
 
         update_option( 'wcrw_request_form_data', $data );
 
-        wp_send_json_success( __( 'Request form udpated successfully', 'wc-return-warrranty' ) );
+        wp_send_json_success( __( 'Request form udpated successfully', 'wc-return-warranty' ) );
     }
 
     /**
@@ -108,18 +108,18 @@ class WCRW_Admin_Ajax {
      */
     public function get_form_builder_data() {
         if ( ! is_admin() ) {
-            wp_send_json_error( __( 'You are not allowed to do this', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'You are not allowed to do this', 'wc-return-warranty' ) );
         }
 
         $postdata = wp_unslash( $_POST );
 
         if ( ! wp_verify_nonce( $postdata['nonce'], 'wcrw_admin_nonce' ) ) {
-            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warrranty' ) );
+            wp_send_json_error( __( 'Nonce verification faild', 'wc-return-warranty' ) );
         }
 
         $default_data = [
             [
-                'label' => __( 'Reason for request', 'wc-return-warrranty' ),
+                'label' => __( 'Reason for request', 'wc-return-warranty' ),
                 'name'  => 'request_reasons',
                 'type' => 'textarea',
                 'settings' => [
@@ -130,7 +130,7 @@ class WCRW_Admin_Ajax {
                     'size'         => '',
                     'required'     => false,
                     'row'          => '4',
-                    'placeholder'  => __( 'Write your valid reasons', 'wc-return-warrranty' ),
+                    'placeholder'  => __( 'Write your valid reasons', 'wc-return-warranty' ),
                 ]
             ]
         ];

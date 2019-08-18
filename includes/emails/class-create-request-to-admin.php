@@ -20,8 +20,8 @@ class WCRW_Create_Request_Admin extends WC_Email {
      */
     function __construct() {
         $this->id          = 'wcrw_create_request_to_admin';
-        $this->title       = __( 'New Request to Admin', 'wc-return-warrranty' );
-        $this->description = __( 'An email sent to the admin when a customer send a return request to admin', 'wc-return-warrranty' );
+        $this->title       = __( 'New Request to Admin', 'wc-return-warranty' );
+        $this->description = __( 'An email sent to the admin when a customer send a return request to admin', 'wc-return-warranty' );
 
         // Template paths.
         $this->template_html  = 'emails/wcrw-create-request-admin.php';
@@ -48,7 +48,7 @@ class WCRW_Create_Request_Admin extends WC_Email {
      * @return string
      */
     public function get_default_subject() {
-        return __( '[{site_name}] A New Return Request is submitted from ({customer_name})', 'wc-return-warrranty' );
+        return __( '[{site_name}] A New Return Request is submitted from ({customer_name})', 'wc-return-warranty' );
     }
 
     /**
@@ -59,7 +59,7 @@ class WCRW_Create_Request_Admin extends WC_Email {
      * @return string
      */
     public function get_default_heading() {
-        return __( 'New request created by {customer_name}', 'wc-return-warrranty' );
+        return __( 'New request created by {customer_name}', 'wc-return-warranty' );
     }
 
     /**

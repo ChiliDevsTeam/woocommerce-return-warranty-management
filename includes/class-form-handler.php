@@ -58,7 +58,7 @@ class WCRW_Handle_Form {
 
         do_action( 'wcrw_after_warranty_request_create', $postdata, $request );
 
-        wc_add_notice( __( 'Request has been submitted successfully', 'wc-return-warrranty' ), 'success' );
+        wc_add_notice( __( 'Request has been submitted successfully', 'wc-return-warranty' ), 'success' );
 
         wp_redirect( wc_get_account_endpoint_url( 'warranty-requests' ) );
         exit();
@@ -137,7 +137,7 @@ class WCRW_Handle_Form {
             return;
         }
 
-        $url = add_query_arg( [ 'page' => 'wc-return-warrranty', 'updated' => 1, 'message' => 'deleted' ], admin_url( 'admin.php' ) );
+        $url = add_query_arg( [ 'page' => 'wc-return-warranty', 'updated' => 1, 'message' => 'deleted' ], admin_url( 'admin.php' ) );
         wp_redirect( $url );
         exit();
     }
@@ -181,7 +181,7 @@ class WCRW_Handle_Form {
             return;
         }
 
-        $url = add_query_arg( [ 'page' => 'wc-return-warrranty', 'updated' => 1, 'message' => 'status_updated' ], admin_url( 'admin.php' ) );
+        $url = add_query_arg( [ 'page' => 'wc-return-warranty', 'updated' => 1, 'message' => 'status_updated' ], admin_url( 'admin.php' ) );
         wp_redirect( $url );
         exit();
     }

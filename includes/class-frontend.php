@@ -49,14 +49,14 @@ class WCRW_Frontend {
                 $duration   = wcrw_get_duration_value( $warranty['length_duration'], $value );
                 echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. $value .' '. $duration .'</p>';
             } else {
-                echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. __( 'Lifetime', 'wc-return-warrranty' ) .'</p>';
+                echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. __( 'Lifetime', 'wc-return-warranty' ) .'</p>';
             }
         } elseif ( $warranty['type'] == 'addon_warranty' )                    {
             $addons = $warranty['addon_settings'];
 
             if ( is_array($addons) && !empty($addons) ) {
                 echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .': </strong> <select name="wcrw_warranty">';
-                echo '<option value="-1">'. __( 'No warranty', 'wc-return-warrranty' ) .'</option>';
+                echo '<option value="-1">'. __( 'No warranty', 'wc-return-warranty' ) .'</option>';
 
                 foreach ( $addons as $x => $addon ) {
                     $price    = $addon['price'];
@@ -64,10 +64,10 @@ class WCRW_Frontend {
                     $duration = wcrw_get_duration_value( $addon['duration'], $value );
 
                     if ( $value == 0 && $price == 0 ) {
-                        echo '<option value="-1">'. __( 'No warranty', 'wc-return-warrranty' ) .'</option>';
+                        echo '<option value="-1">'. __( 'No warranty', 'wc-return-warranty' ) .'</option>';
                     } else {
                         if ( $price == 0 ) {
-                            $price = __( 'Free', 'wc-return-warrranty' );
+                            $price = __( 'Free', 'wc-return-warranty' );
                         } else {
                             $price = wc_price( $price );
                         }
@@ -150,7 +150,7 @@ class WCRW_Frontend {
         $warranty_label = $warranty['label'];
 
         if ( $warranty['type'] == 'addon_warranty' && ! isset( $_REQUEST['wcrw_warranty'] ) ) {
-            $error = sprintf( __( 'Please select your %s first.', 'wc-return-warrranty' ), $warranty_label );
+            $error = sprintf( __( 'Please select your %s first.', 'wc-return-warranty' ), $warranty_label );
             wc_add_notice( $error, 'error' );
             return false;
         }
@@ -220,7 +220,7 @@ class WCRW_Frontend {
                 if ( $warranty['length'] == 'lifetime' ) {
                     $other_data[] = array(
                         'name'      => $warranty_label,
-                        'value'     => __( 'Lifetime', 'wc-return-warrranty' ),
+                        'value'     => __( 'Lifetime', 'wc-return-warranty' ),
                         'display'   => ''
                     );
                 } elseif ( $warranty['length'] == 'limited' ) {

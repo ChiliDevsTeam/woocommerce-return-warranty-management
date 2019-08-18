@@ -39,11 +39,11 @@ function wcrw_parse_args( &$args, $defaults = [] ) {
  */
 function wcrw_warranty_request_status( $status = '' ) {
     $statuses = apply_filters( 'wcrw_warranty_request_status', [
-        'new'        => __( 'New', 'wc-return-warrranty' ),
-        'processing' => __( 'Processing', 'wc-return-warrranty' ),
-        'completed'  => __( 'Completed', 'wc-return-warrranty' ),
-        'rejected'   => __( 'Rejected', 'wc-return-warrranty' ),
-        'reviewing'  => __( 'Reviewing', 'wc-return-warrranty' ),
+        'new'        => __( 'New', 'wc-return-warranty' ),
+        'processing' => __( 'Processing', 'wc-return-warranty' ),
+        'completed'  => __( 'Completed', 'wc-return-warranty' ),
+        'rejected'   => __( 'Rejected', 'wc-return-warranty' ),
+        'reviewing'  => __( 'Reviewing', 'wc-return-warranty' ),
     ] );
 
     if ( ! empty( $status ) ) {
@@ -81,9 +81,9 @@ function wcrw_warranty_request_status_html( $status = '' ) {
  */
 function wcrw_warranty_types( $type = '' ) {
     $warranty_type = apply_filters( 'wcrw_warranty_types', [
-        'no_warranty'       => __( 'No Warranty', 'wc-return-warrranty' ),
-        'included_warranty' => __( 'Included Warranty', 'wc-return-warrranty' ),
-        'addon_warranty'    => __( 'Price base Warranty', 'wc-return-warrranty' )
+        'no_warranty'       => __( 'No Warranty', 'wc-return-warranty' ),
+        'included_warranty' => __( 'Included Warranty', 'wc-return-warranty' ),
+        'addon_warranty'    => __( 'Price base Warranty', 'wc-return-warranty' )
     ] );
 
     if ( ! empty( $type ) ) {
@@ -102,8 +102,8 @@ function wcrw_warranty_types( $type = '' ) {
  */
 function wcrw_warranty_length( $length = '' ) {
     $lengths = apply_filters( 'wcrw_warranty_length', [
-        'limited'  => __( 'Limited', 'wc-return-warrranty' ),
-        'lifetime' => __( 'Lifetime', 'wc-return-warrranty' )
+        'limited'  => __( 'Limited', 'wc-return-warranty' ),
+        'lifetime' => __( 'Lifetime', 'wc-return-warranty' )
     ] );
 
     if ( ! empty( $length ) ) {
@@ -122,10 +122,10 @@ function wcrw_warranty_length( $length = '' ) {
  */
 function wcrw_warranty_length_duration( $duration = '' ) {
     $length_duration = [
-        'days'   => __( 'Days', 'wc-return-warrranty' ),
-        'weeks'  => __( 'Weeks', 'wc-return-warrranty' ),
-        'months' => __( 'Months', 'wc-return-warrranty' ),
-        'years'  => __( 'Years', 'wc-return-warrranty' )
+        'days'   => __( 'Days', 'wc-return-warranty' ),
+        'weeks'  => __( 'Weeks', 'wc-return-warranty' ),
+        'months' => __( 'Months', 'wc-return-warranty' ),
+        'years'  => __( 'Years', 'wc-return-warranty' )
     ];
 
     if ( ! empty( $duration ) ) {
@@ -144,8 +144,8 @@ function wcrw_warranty_length_duration( $duration = '' ) {
  */
 function wcrw_warranty_request_type( $type = '' ) {
     $types = apply_filters( 'wcrw_warranty_request_types',  [
-        'replacement' => __( 'Replacement', 'wc-return-warrranty' ),
-        'refund'      => __( 'Refund', 'wc-return-warrranty' )
+        'replacement' => __( 'Replacement', 'wc-return-warranty' ),
+        'refund'      => __( 'Refund', 'wc-return-warranty' )
     ] );
 
     if ( ! empty( $type ) ) {
@@ -168,7 +168,7 @@ function wcrw_transform_warranty_settings( $request = [] ) {
 
     if ( ! empty( $request ) ) {
         $data = [
-            'label'           => !empty( $request['label'] ) ? $request['label'] : __( 'Warranty', 'wc-return-warrranty' ),
+            'label'           => !empty( $request['label'] ) ? $request['label'] : __( 'Warranty', 'wc-return-warranty' ),
             'type'            => !empty( $request['type'] ) ? $request['type'] : 'no_warranty',
             'length'          => '',
             'length_value'    => '',
@@ -219,7 +219,7 @@ function wcrw_get_warranty_settings( $product_id = 0 ) {
     $settings = [];
     $default      = [
         'from'            => 'default',
-        'label'           => __( 'Warranty', 'wc-return-warrranty' ),
+        'label'           => __( 'Warranty', 'wc-return-warranty' ),
         'type'            => 'no_warranty',
         'length'          => '',
         'length_value'    => '',
@@ -357,17 +357,17 @@ function wcrw_create_warranty_request( $postdata = [] ) {
 
     // If have any order
     if ( empty( $args['order_id'] ) ) {
-        return new WP_Error( 'no-order-id', __( 'No order found', 'wc-return-warrranty' ) );
+        return new WP_Error( 'no-order-id', __( 'No order found', 'wc-return-warranty' ) );
     }
 
     // Checking if customer select any items for sending request
     if ( empty( $args['items'] ) ) {
-        return new WP_Error( 'no-items', __( 'Please select any item for sending request', 'wc-return-warrranty' ) );
+        return new WP_Error( 'no-items', __( 'Please select any item for sending request', 'wc-return-warranty' ) );
     }
 
     // Check if type exist or not
     if ( empty( $args['type'] ) ) {
-        return new WP_Error( 'no-type', __( 'Request type must be required', 'wc-return-warrranty' ) );
+        return new WP_Error( 'no-type', __( 'Request type must be required', 'wc-return-warranty' ) );
     }
 
     $args = apply_filters( 'wcrw_warranty_request_postdata', $args, $postdata );
@@ -377,7 +377,7 @@ function wcrw_create_warranty_request( $postdata = [] ) {
 
     foreach ( $extra_field_data as $meta_field ) {
         // Bell out if not proper type of meta field
-        if ( in_array( $meta_field['type'] , [ 'html' ] ) ) {
+        if ( in_array( $meta_field['type'] , apply_filters( 'wcrw_except_request_form_fields', [ 'html' ] ) ) ) {
             continue;
         }
 
@@ -388,7 +388,7 @@ function wcrw_create_warranty_request( $postdata = [] ) {
                 || ( 'select' == $meta_field['type'] && $meta_value == '-1' )
                 || ( 'checkbox' == $meta_field['type'] && $meta_value == 'no' )
             ) {
-                $meta_field_errors[] = sprintf( "%s %s", $meta_field['label'], __( 'field is required', 'wc-return-warrranty' ) );
+                $meta_field_errors[] = sprintf( "%s %s", $meta_field['label'], __( 'field is required', 'wc-return-warranty' ) );
             }
         }
 
@@ -409,9 +409,13 @@ function wcrw_create_warranty_request( $postdata = [] ) {
         }
     }
 
-    if ( ! empty( $meta_field_errors ) ) {
-        return new WP_Error( 'required-meta-data', $meta_field_errors[0] );
+    $errors = apply_filters( 'wcrw_create_warranty_request_error', $meta_field_errors, $extra_field_data );
+
+    if ( ! empty( $errors ) ) {
+        return new WP_Error( 'required-meta-data', $errors[0] );
     }
+
+    $args['meta'] = apply_filters( 'wcrw_request_meta_data', $args['meta'], $extra_field_data, $args );
 
     $wpdb->insert(
         $request_table,
@@ -457,19 +461,19 @@ function wcrw_create_warranty_request( $postdata = [] ) {
  *
  * @return void
  */
-function wcrw_get_warranty_request( $data = [] ) {
+function wcrw_get_warranty_request( $args = [] ) {
     global $wpdb;
 
     $default = [
         'id'      => 0,
         'number'  => 20,
         'offset'  => 0,
-        'orderby' => 'created_at',
+        'orderby' => 'id',
         'order'   => 'desc',
         'count'   => false,
     ];
 
-    $data              = wcrw_parse_args( $data, $default );
+    $data              = wp_parse_args( $args, $default );
     $request_table     = $wpdb->prefix . 'wcrw_warranty_requests';
     $request_map_table = $wpdb->prefix . 'wcrw_request_product_map';
     $response          = [];
@@ -477,7 +481,7 @@ function wcrw_get_warranty_request( $data = [] ) {
     if ( $data['count'] ) {
         $sql = "SELECT count('id') as total_count FROM {$request_table} as rt WHERE 1=1";
     } else {
-        $sql = "SELECT rt.*, GROUP_CONCAT( rit.product_id SEPARATOR ',') AS 'products', GROUP_CONCAT( rit.quantity SEPARATOR ', ') AS 'quantity', GROUP_CONCAT( rit.item_id SEPARATOR ', ') AS 'item_id' FROM {$request_table} as rt INNER JOIN {$request_map_table} as rit ON rt.id=rit.request_id WHERE 1=1";
+        $sql = "SELECT rt.*, rt.`id` as `id`, rt.`created_at` as `created_at`, GROUP_CONCAT( rit.product_id SEPARATOR ',') AS 'products', GROUP_CONCAT( rit.quantity SEPARATOR ', ') AS 'quantity', GROUP_CONCAT( rit.item_id SEPARATOR ', ') AS 'item_id' FROM {$request_table} as rt INNER JOIN {$request_map_table} as rit ON rt.id=rit.request_id WHERE 1=1";
     }
 
     if ( ! empty( $data['type'] ) ) {
@@ -541,7 +545,7 @@ function wcrw_update_warranty_request( $data = [] ) {
     global $wpdb;
 
     if ( empty( $data['id'] ) ) {
-        return new WP_Error( 'no-request-id', __( 'No request id found', 'wc-return-warrranty' ) );
+        return new WP_Error( 'no-request-id', __( 'No request id found', 'wc-return-warranty' ) );
     }
 
     $statuses      = wcrw_warranty_request_status();
@@ -551,13 +555,13 @@ function wcrw_update_warranty_request( $data = [] ) {
     $data    = wcrw_parse_args( $data, $request );
 
     if ( ! in_array( $data['status'], array_keys( $statuses ) ) ) {
-        return new WP_Error( 'invalid-status', __( 'Invalid status', 'wc-return-warrranty' ) );
+        return new WP_Error( 'invalid-status', __( 'Invalid status', 'wc-return-warranty' ) );
     }
 
     $result = $wpdb->update( $request_table, $data, [ 'id' => $data['id'] ] );
 
     if ( ! $result ) {
-        return new WP_Error( 'status-not-updated', __( 'Request not updated successfully', 'wc-return-warrranty' ) );
+        return new WP_Error( 'status-not-updated', __( 'Request not updated successfully', 'wc-return-warranty' ) );
     }
 
     do_action( 'wcrw_update_warranty_request', $data['id'], $request, $data );
@@ -678,7 +682,7 @@ function wcrw_get_formatted_request_items( $items, $with_refund_label = false ) 
 function wcrw_get_request_status_count( $customer_id = 0 ) {
     global $wpdb;
 
-    $statuses = array( 'all' => __( 'All', 'wc-return-warrranty' ) ) + wcrw_warranty_request_status();
+    $statuses = array( 'all' => __( 'All', 'wc-return-warranty' ) ) + wcrw_warranty_request_status();
     $counts   = array();
 
     foreach ( $statuses as $status => $label ) {
@@ -727,11 +731,11 @@ function wcrw_add_request_note( $data = [] ) {
     $args = wcrw_parse_args( $data, $default );
 
     if ( empty( $args['request_id'] ) ) {
-        return new WP_Error( 'no-request', __( 'No request found', 'wc-return-warrranty' ), [ 'status' => 403 ] );
+        return new WP_Error( 'no-request', __( 'No request found', 'wc-return-warranty' ), [ 'status' => 403 ] );
     }
 
     if (  empty( $args['note'] ) ) {
-        return new WP_Error( 'no-notes', __( 'Note field is empty. Please write something', 'wc-return-warrranty' ), [ 'status' => 403 ] );
+        return new WP_Error( 'no-notes', __( 'Note field is empty. Please write something', 'wc-return-warranty' ), [ 'status' => 403 ] );
     }
 
     $wpdb->insert(
@@ -765,7 +769,7 @@ function wcrw_delete_warranty_request( $request_id = 0 ) {
     global $wpdb;
 
     if ( ! $request_id ) {
-        return new WP_Error( 'no-request-id', __( 'No Request found for delete', 'wc-return-warrranty' ), array( 'status' => 403 ) );
+        return new WP_Error( 'no-request-id', __( 'No Request found for delete', 'wc-return-warranty' ), array( 'status' => 403 ) );
     }
 
     $main_row = $wpdb->delete( $wpdb->prefix . 'wcrw_warranty_requests', [ 'id' => $request_id ], [ '%d' ] );
@@ -775,7 +779,7 @@ function wcrw_delete_warranty_request( $request_id = 0 ) {
     }
 
     if ( ! $main_row ) {
-        return new WP_Error( 'request-not-deleted', __( 'Request not deleted, Try again', 'wc-return-warrranty' ), array( 'status' => 403 ) );
+        return new WP_Error( 'request-not-deleted', __( 'Request not deleted, Try again', 'wc-return-warranty' ), array( 'status' => 403 ) );
     }
 
     return true;
@@ -830,13 +834,13 @@ function wcrw_delete_request_note( $id = 0 ) {
     global $wpdb;
 
     if ( empty( $id ) ) {
-        return new WP_Error( 'no-request', __( 'No request id found', 'wc-return-warrranty' ), [ 'status' => 403 ] );
+        return new WP_Error( 'no-request', __( 'No request id found', 'wc-return-warranty' ), [ 'status' => 403 ] );
     }
 
     $response = $wpdb->delete( $wpdb->prefix . 'wcrw_request_notes', [ 'id' => $id ], [ '%d' ] );
 
     if ( ! $response ) {
-        return new WP_Error( 'not-deleted', __( 'Request note not deleted. Please try again', 'wc-return-warrranty' ), [ 'status' => 403 ] );
+        return new WP_Error( 'not-deleted', __( 'Request note not deleted. Please try again', 'wc-return-warranty' ), [ 'status' => 403 ] );
     }
 
     return true;
@@ -876,9 +880,9 @@ function wcrw_order_has_any_item_warranty( $order ) {
  * @return void
  */
 function wcrw_get_form_fields() {
-    return apply_filters( 'wcrw_request_form_fields', [
+    return apply_filters( 'wcrw_get_request_form_fields', [
         [
-            'label' => __( 'Text input', 'wc-return-warrranty' ),
+            'label' => __( 'Text input', 'wc-return-warranty' ),
             'type' => 'text',
             'settings' => [
                 'description'  => '',
@@ -887,11 +891,11 @@ function wcrw_get_form_fields() {
                 'wrapperClass' => '',
                 'size'         => '',
                 'required'     => false,
-                'placeholder'  => __( 'Text Field', 'wc-return-warrranty' ),
+                'placeholder'  => __( 'Text Field', 'wc-return-warranty' ),
             ]
         ],
         [
-            'label' => __( 'Textarea', 'wc-return-warrranty' ),
+            'label' => __( 'Textarea', 'wc-return-warranty' ),
             'type' => 'textarea',
             'settings' => [
                 'description'  => '',
@@ -901,11 +905,11 @@ function wcrw_get_form_fields() {
                 'size'         => '',
                 'required'     => false,
                 'row'          => '4',
-                'placeholder'  => __( 'Textarea Field', 'wc-return-warrranty' ),
+                'placeholder'  => __( 'Textarea Field', 'wc-return-warranty' ),
             ]
         ],
         [
-            'label' => __( 'Checkbox', 'wc-return-warrranty' ),
+            'label' => __( 'Checkbox', 'wc-return-warranty' ),
             'type' => 'checkbox',
             'settings' => [
                 'description'  => '',
@@ -916,11 +920,11 @@ function wcrw_get_form_fields() {
             ]
         ],
         [
-            'label' => __( 'Select Dropdown', 'wc-return-warrranty' ),
+            'label' => __( 'Select Dropdown', 'wc-return-warranty' ),
             'type' => 'select',
             'settings' => [
                 'options'      => [],
-                'emptyOption'  => __( 'Select a option', 'wc-return-warrranty' ),
+                'emptyOption'  => __( 'Select a option', 'wc-return-warranty' ),
                 'description'  => '',
                 'class'        => '',
                 'id'           => '',
@@ -929,10 +933,10 @@ function wcrw_get_form_fields() {
             ]
         ],
         [
-            'label' => __( 'Html', 'wc-return-warrranty' ),
+            'label' => __( 'Html', 'wc-return-warranty' ),
             'type' => 'html',
             'settings' => [
-                'description'     => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, blanditiis.', 'wc-return-warrranty' ),
+                'description'     => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, blanditiis.', 'wc-return-warranty' ),
                 'class'           => '',
                 'id'              => '',
                 'wrapperClass'    => '',
@@ -953,7 +957,7 @@ function wcrw_get_form_fields() {
 function wcrw_get_form_fields_data() {
     $default_data = [
         [
-            'label' => __( 'Reason for request', 'wc-return-warrranty' ),
+            'label' => __( 'Reason for request', 'wc-return-warranty' ),
             'name'  => 'request_reasons',
             'type'  => 'textarea',
             'settings' => [
@@ -964,7 +968,7 @@ function wcrw_get_form_fields_data() {
                 'size'         => '',
                 'required'     => false,
                 'row'          => '4',
-                'placeholder'  => __( 'Write your valid reasons', 'wc-return-warrranty' ),
+                'placeholder'  => __( 'Write your valid reasons', 'wc-return-warranty' ),
             ]
         ]
     ];
@@ -980,12 +984,12 @@ function wcrw_get_form_fields_data() {
 function wcrw_get_warranty_request_form_fields() {
     $mandatory_fileds = [
         [
-            'label'   => __( 'Request for', 'wc-return-warrranty' ),
+            'label'   => __( 'Request for', 'wc-return-warranty' ),
             'name'    => 'type',
             'id'      => 'type',
             'class'   => 'wcrw-warranty-request-type',
             'type'    => 'select',
-            'options' => array_merge( [ '' => __( '-- Select type --', 'wc-return-warrranty' ) ], wcrw_warranty_request_type() )
+            'options' => array_merge( [ '' => __( '-- Select type --', 'wc-return-warranty' ) ], wcrw_warranty_request_type() )
         ]
     ];
 
@@ -1013,7 +1017,8 @@ function wcrw_get_warranty_request_form_fields() {
             'type'              => $fields_array['type'],
             'options'           => $options,
             'default'           => '',
-            'required'          => isset( $fields_array['settings']['required'] ) ? $fields_array['settings']['required'] : false,
+            'required'          => isset( $fields_array['settings']['required'] ) ? (bool)$fields_array['settings']['required'] : false,
+            'multiple'          => isset( $fields_array['settings']['multiple'] ) ? (bool)$fields_array['settings']['multiple'] : false,
             'placeholder'       => ! empty( $fields_array['settings']['placeholder'] ) ? $fields_array['settings']['placeholder'] : '',
             'row'               => ! empty( $fields_array['settings']['row'] ) ? $fields_array['settings']['row'] : '',
             'wrapper_class'     => $fields_array['settings']['wrapperClass'],
@@ -1027,7 +1032,7 @@ function wcrw_get_warranty_request_form_fields() {
 
     $all_fields = array_merge( $mandatory_fileds, $formatted_fields_array );
 
-    return apply_filters( 'wcrw_request_form_fields', $all_fields, $mandatory_fileds, $formatted_fields_array  );
+    return apply_filters( 'wcrw_get_request_form_fields', $all_fields, $mandatory_fileds, $formatted_fields_array  );
 }
 
 /**
@@ -1154,8 +1159,9 @@ function wcrw_render_request_form_field( $field ) {
             </div>
             <?php
             break;
+
         default:
-            do_action( 'wcrw_render_request_form_field', $field );
+            do_action( 'wcrw_render_request_form_field', $field, $args );
             break;
         return ob_get_clean();
     }
@@ -1235,4 +1241,36 @@ function wcrw_get_jed_locale_data( $domain, $language_dir = null ) {
     return $locale;
 }
 
+/**
+ * Upload handler
+ *
+ * @param string $filename
+ * @param string $file_url
+ *
+ * @return integer attachement_id
+ */
+function wcrw_handle_file_upload( $filename, $file_url ) {
+    $upload_file = wp_upload_bits( $filename, null, file_get_contents( $file_url ) );
 
+    if ( ! $upload_file['error'] ) {
+        $wp_filetype = wp_check_filetype( $filename, null );
+
+        $attachment = array(
+            'post_mime_type' => $wp_filetype['type'],
+            'post_parent'    => 0,
+            'post_title'     => preg_replace( '/\.[^.]+$/', '', $filename ),
+            'post_content'   => '',
+            'post_status'    => 'inherit'
+        );
+        $attachment_id = wp_insert_attachment( $attachment, $upload_file['file'] );
+
+        if ( ! is_wp_error( $attachment_id ) ) {
+            require_once( ABSPATH . "wp-admin" . '/includes/image.php' );
+            $attachment_data = wp_generate_attachment_metadata( $attachment_id, $upload_file['file'] );
+            wp_update_attachment_metadata( $attachment_id,  $attachment_data );
+            return $attachment_id;
+        }
+    }
+
+    return 0;
+}

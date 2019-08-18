@@ -32,6 +32,11 @@
             </div>
         </template>
 
+        <template v-if="'file' === field.type">
+            <label for="text_field_1">{{ field.label }}</label>
+            <input type="file" :multiple="field.settings.multiple" :name="field.name" class="regular-text" :class="field.settings.class" :id="field.settings.id" :placeholder="field.settings.placeholder">
+        </template>
+
         <p class="desc" v-if="field.settings.description && 'html' != field.type">{{ field.settings.description }}</p>
 
         <div class="action">

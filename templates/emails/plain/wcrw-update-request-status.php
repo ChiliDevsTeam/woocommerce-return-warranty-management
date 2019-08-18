@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 echo '= ' . esc_html( $email_heading ) . " =\n\n";
 
 /* translators: %s: Customer billing full name */
-echo sprintf( __( 'Your return request ID #%d is now %s', 'wc-return-warrranty' ), $request['id'], $request['status'] ) . "\n\n";
+echo sprintf( __( 'Your return request ID #%d is now %s', 'wc-return-warranty' ), $request['id'], $request['status'] ) . "\n\n";
 
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 

@@ -38,7 +38,7 @@ class WCRW_Customer {
                 && is_account_page()
             )
         {
-            $title = __( 'Request for a Warranty', 'wc-return-warrranty' );
+            $title = __( 'Request for a Warranty', 'wc-return-warranty' );
             remove_filter( 'the_title', array( $this, 'endpoint_title' ) );
         }
 
@@ -49,7 +49,7 @@ class WCRW_Customer {
                 && is_account_page()
             )
         {
-            $title = __( 'Create New Request', 'wc-return-warrranty' );
+            $title = __( 'Create New Request', 'wc-return-warranty' );
             remove_filter( 'the_title', array( $this, 'endpoint_title' ) );
         }
 
@@ -65,7 +65,7 @@ class WCRW_Customer {
      */
     public function warranty_requests_link( $menu_links ) {
         $frontend_settings = get_option( 'wcrw_frontend' );
-        $menu_title = ! empty( $frontend_settings['myaccount_menu_title'] ) ? $frontend_settings['myaccount_menu_title'] : __( 'Warranty Requests', 'wc-return-warrranty' );
+        $menu_title = ! empty( $frontend_settings['myaccount_menu_title'] ) ? $frontend_settings['myaccount_menu_title'] : __( 'Warranty Requests', 'wc-return-warranty' );
         $menu_links = array_slice( $menu_links, 0, 5, true )
         + array( 'warranty-requests' => $menu_title )
         + array_slice( $menu_links, 5, NULL, true );
@@ -104,8 +104,8 @@ class WCRW_Customer {
                 'base'      => add_query_arg( 'cpage', '%#%' ),
                 'format'    => '',
                 'type'      => 'array',
-                'prev_text' => __( '&laquo; Previous', 'wc-return-warrranty' ),
-                'next_text' => __( 'Next &raquo;', 'wc-return-warrranty' ),
+                'prev_text' => __( '&laquo; Previous', 'wc-return-warranty' ),
+                'next_text' => __( 'Next &raquo;', 'wc-return-warranty' ),
                 'total'     => $total_page,
                 'current'   => $page
             ) );
@@ -161,7 +161,7 @@ class WCRW_Customer {
             return $actions;
         }
 
-        $btn_text = ! empty( $frontend_settings['request_btn_label'] ) ? $frontend_settings['request_btn_label'] : __( 'Request Warranty', 'wc-return-warrranty' );
+        $btn_text = ! empty( $frontend_settings['request_btn_label'] ) ? $frontend_settings['request_btn_label'] : __( 'Request Warranty', 'wc-return-warranty' );
         $url = esc_url_raw( wc_get_account_endpoint_url( 'new-warranty-request' ) . $order->get_id() ) ;
         $actions['warranty_request'] = array( 'url' => $url, 'name' => $btn_text );
         return $actions;
