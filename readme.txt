@@ -4,7 +4,7 @@ Tags: WooCommerce Return, RMA, Warranty Management, Product Return System, WooCo
 Requires at least: 4.4
 Tested up to: 5.2.2
 WC requires at least: 3.0
-WC tested up to: 3.6.5
+WC tested up to: 3.7.0
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -88,6 +88,14 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 == Changelog ==
+
+v1.1.1 -> August 19, 2019
+--------------------------------------------
+- [fix]   Transaltions issues for mismatch plugin slug
+- [fix]   Added some core hooks for extending functionalities
+- [fix]   Request listing ordering(ASC/DESC) issues in admin all request page
+- [fix]   Status filter broken link in all requests page
+- [tweak] Remove unwanted logger codes
 
 v1.1.0 -> July 30, 2019
 --------------------------------------------
