@@ -532,7 +532,7 @@ class WCRW_Settings_API {
                         if ( isset( $this->settings_fields[ $form['id'] ] ) ):
                         ?>
                         <div>
-                            <?php submit_button( __( 'Save Settings', 'wc-return-warrranty' ), 'primary', 'submit', true, [ 'id' => $form['id'] ] ); ?>
+                            <?php submit_button( __( 'Save Settings', 'wc-return-warranty' ), 'primary', 'submit', true, [ 'id' => $form['id'] ] ); ?>
                         </div>
                         <?php endif; ?>
                     </form>

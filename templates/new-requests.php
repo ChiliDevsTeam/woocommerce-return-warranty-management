@@ -5,7 +5,7 @@
             $order    = wc_get_order( $order_id );
 
             if ( ! $order ) {
-                throw new Exception( __( 'Invalid order', 'wc-return-warrranty' ) );
+                throw new Exception( __( 'Invalid order', 'wc-return-warranty' ) );
             }
             ?>
             <form method="post" enctype="multipart/form-data">
@@ -13,9 +13,9 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th><?php _e( 'Product Name', 'wc-return-warrranty' ) ?></th>
-                            <th><?php _e( 'Expiry Date', 'wc-return-warrranty' ) ?></th>
-                            <th><?php _e( 'Quantity', 'wc-return-warrranty' ) ?></th>
+                            <th><?php _e( 'Product Name', 'wc-return-warranty' ) ?></th>
+                            <th><?php _e( 'Expiry Date', 'wc-return-warranty' ) ?></th>
+                            <th><?php _e( 'Quantity', 'wc-return-warranty' ) ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +60,7 @@
                     <p class="form-row form-row-wide form-submit-wrapper" id="wcrw-request-form-submit">
                         <input type="hidden" name="order_id" value="<?php echo $order->get_id(); ?>">
                         <?php wp_nonce_field( 'wcrw_request_form_nonce_action', 'wcrw_request_form_nonce' ); ?>
-                        <input type="submit" class="button" name="save_warranty_request" value="<?php _e( 'Send Request', 'wc-return-warrranty' ); ?>">
+                        <input type="submit" class="button" name="save_warranty_request" value="<?php _e( 'Send Request', 'wc-return-warranty' ); ?>">
                     </p>
                 </div>
             </form>

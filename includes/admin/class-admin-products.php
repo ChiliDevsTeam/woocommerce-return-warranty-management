@@ -25,7 +25,7 @@ class WCRW_Admin_Product {
      */
     public function add_warranty_tab( $default_tabs ) {
         $default_tabs['wcrw_warranty_tab'] = array(
-            'label'    =>  __( 'Warranty', 'wc-return-warrranty' ),
+            'label'    =>  __( 'Warranty', 'wc-return-warranty' ),
             'target'   =>  'wcrw_warranty_tab',
             'priority' => 71,
             'class'    => array( 'show_if_simple', 'show_if_grouped' )
@@ -55,28 +55,28 @@ class WCRW_Admin_Product {
                             'value'         => $override_warranty,
                             'cbvalue'       => 'yes',
                             'wrapper_class' => 'show_if_simple',
-                            'label'         => __( 'Override default', 'wc-return-warrranty' ),
-                            'description'   => __( 'If you want to override default warranty settings', 'wc-return-warrranty' ),
+                            'label'         => __( 'Override default', 'wc-return-warranty' ),
+                            'description'   => __( 'If you want to override default warranty settings', 'wc-return-warranty' ),
                         ]
                     );
 
                     woocommerce_wp_text_input(
                         [
                             'id'          => 'wcrw_product_warranty[label]',
-                            'label'       => __( 'Label', 'wc-return-warrranty' ),
-                            'placeholder' => __( 'Warranty', 'wc-return-warrranty' ),
+                            'label'       => __( 'Label', 'wc-return-warranty' ),
+                            'placeholder' => __( 'Warranty', 'wc-return-warranty' ),
                             'value'       => $settings['label'],
-                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warrranty' ),
+                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warranty' ),
                         ]
                     );
 
                     woocommerce_wp_select(
                         [
                             'id'          => 'wcrw_product_warranty[type]',
-                            'label'       => __( 'Type', 'wc-return-warrranty' ),
-                            'placeholder' => __( 'Warranty', 'wc-return-warrranty' ),
+                            'label'       => __( 'Type', 'wc-return-warranty' ),
+                            'placeholder' => __( 'Warranty', 'wc-return-warranty' ),
                             'value'       => $settings['type'],
-                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warrranty' ),
+                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warranty' ),
                             'options'     => wcrw_warranty_types()
                         ]
                     );
@@ -88,8 +88,8 @@ class WCRW_Admin_Product {
                     woocommerce_wp_select(
                         [
                             'id'          => 'wcrw_product_warranty[length]',
-                            'label'       => __( 'Length', 'wc-return-warrranty' ),
-                            'description' => __( 'Set your warranty lenght lifetime or limited', 'wc-return-warrranty' ),
+                            'label'       => __( 'Length', 'wc-return-warranty' ),
+                            'description' => __( 'Set your warranty lenght lifetime or limited', 'wc-return-warranty' ),
                             'value'       => $settings['length'],
                             'options'     => wcrw_warranty_length()
                         ]
@@ -99,9 +99,9 @@ class WCRW_Admin_Product {
                         [
                             'id'            => 'wcrw_product_warranty[length_value]',
                             'type'          => 'number',
-                            'label'         => __( 'Lenght value', 'wc-return-warrranty' ),
-                            'placeholder'   => __( '10', 'wc-return-warrranty' ),
-                            'description'   => __( 'Set your warranty length', 'wc-return-warrranty' ),
+                            'label'         => __( 'Lenght value', 'wc-return-warranty' ),
+                            'placeholder'   => __( '10', 'wc-return-warranty' ),
+                            'description'   => __( 'Set your warranty length', 'wc-return-warranty' ),
                             'wrapper_class' => 'hide_if_lifetime',
                             'value'         => $settings['length_value'],
                             'custom_attributes' => [
@@ -114,8 +114,8 @@ class WCRW_Admin_Product {
                     woocommerce_wp_select(
                         [
                             'id'            => 'wcrw_product_warranty[length_duration]',
-                            'label'         => __( 'Length duration', 'wc-return-warrranty' ),
-                            'description'   => __( 'Set your warranty lenght duration', 'wc-return-warrranty' ),
+                            'label'         => __( 'Length duration', 'wc-return-warranty' ),
+                            'description'   => __( 'Set your warranty lenght duration', 'wc-return-warranty' ),
                             'wrapper_class' => 'hide_if_lifetime',
                             'value'         => $settings['length_duration'],
                             'options'       => wcrw_warranty_length_duration()
@@ -128,8 +128,8 @@ class WCRW_Admin_Product {
                 <table class="form-table wcrw-addon-table wcrw-product-addon-table">
                     <thead>
                         <tr>
-                            <th class="cost"><?php _e( 'Cost', 'wc-return-warrranty' ) ?></th>
-                            <th class="duration"><?php _e( 'Duration', 'wc-return-warrranty' ) ?></th>
+                            <th class="cost"><?php _e( 'Cost', 'wc-return-warranty' ) ?></th>
+                            <th class="duration"><?php _e( 'Duration', 'wc-return-warranty' ) ?></th>
                             <th class="action"></th>
                         </tr>
                     </thead>
