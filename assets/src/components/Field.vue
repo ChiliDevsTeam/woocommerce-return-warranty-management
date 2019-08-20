@@ -33,14 +33,27 @@
         </template>
 
         <template v-if="'file' === field.type">
-            <label for="text_field_1">{{ field.label }}</label>
+            <label for="file_field">{{ field.label }}</label>
             <input type="file" :multiple="field.settings.multiple" :name="field.name" class="regular-text" :class="field.settings.class" :id="field.settings.id" :placeholder="field.settings.placeholder">
+        </template>
+
+        <template v-if="'number' === field.type">
+            <label for="text_field_1">{{ field.label }}</label>
+            <input type="number" :name="field.name" class="regular-text" :class="field.settings.class" :id="field.settings.id" :placeholder="field.settings.placeholder" :min="field.settings.min" :max="field.settings.max" :step="field.settings.step == '' ? 'any' : field.settings.step">
+        </template>
+
+        <template v-if="'multiselect' === field.type">
+            <label for="select_field">{{ field.label }}</label>
+            <select :name="field.name" :id="field.settings.id" class="select-field" :class="field.settings.class" multiple="true">
+                <option v-if="field.settings.emptyOption != ''" value="" v-html="field.settings.emptyOption"></option>
+                <option v-for="option in field.settings.options" :key="option.value" :value="option.value">{{ option.label }}</option>
+            </select>
         </template>
 
         <p class="desc" v-if="field.settings.description && 'html' != field.type">{{ field.settings.description }}</p>
 
         <div class="action">
-            <span class="dashicons dashicons-admin-generic" @click.prevent="$emit( 'loadsettings', field )"></span>
+            <span class="dashicons dashicons-admin-generic" @click.prevent="$emit( 'loadsettings', $vnode.key )"></span>
             <span class="dashicons dashicons-no-alt" v-if="!isloadsettings" @click.prevent="$emit( 'deletefield', field )"></span>
         </div>
     </div>
