@@ -1,4 +1,4 @@
-=== WooCommerce Return and Warranty Management System ===
+=== Return and Warranty Management System for WooCommerce ===
 Contributors: wpeasysoft
 Tags: WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management
 Requires at least: 4.4
@@ -10,7 +10,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce Return and Warranty Management (RMA) System
+Return and Warranty Management (RMA) System for WooCommerce
 
 == Description ==
 WooCommerce Return and Warranty management system (RMA) plugin allows eCommerce storeowners to process return and warranty. The WooCommerce RMA plugin makes helps manage customers’ request for product return. It’s a simple, yet powerful tool for your WooCommerce workflow.
@@ -88,6 +88,12 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 == Changelog ==
+
+v1.1.2 -> August 26, 2019
+--------------------------------------------
+- [fix]   Same filed duplication issue in request form builder
+- [fix]   Form builder settings not rendering appropriately for some fileds
+- [fix]   Compatibility with WC v3.7.0
 
 v1.1.1 -> August 19, 2019
 --------------------------------------------

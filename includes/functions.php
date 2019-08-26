@@ -880,7 +880,7 @@ function wcrw_order_has_any_item_warranty( $order ) {
  * @return void
  */
 function wcrw_get_form_fields() {
-    return apply_filters( 'wcrw_get_request_form_fields', [
+    return apply_filters( 'wcrw_request_form_fields', [
         [
             'label' => __( 'Text input', 'wc-return-warranty' ),
             'type' => 'text',
@@ -998,7 +998,7 @@ function wcrw_get_warranty_request_form_fields() {
 
     foreach ( $form_builder_fields as $fields_array ) {
         $options = [];
-        if ( 'select' == $fields_array['type'] && ! empty( $fields_array['settings']['options'] ) ) {
+        if ( in_array( $fields_array['type'], ['select', 'multiselect', 'multicheck' ] ) && ! empty( $fields_array['settings']['options'] ) ) {
             if ( ! empty( $fields_array['settings']['emptyOption'] ) ) {
                 $options[-1] = $fields_array['settings']['emptyOption'];
             }

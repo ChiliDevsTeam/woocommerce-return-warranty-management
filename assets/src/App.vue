@@ -37,7 +37,7 @@
                         <label for="field-name">{{ __( 'Description', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.description">
                     </div>
-                    <div class="form-row" v-if="['select', 'checkbox', 'html'].indexOf( form[selectedFieldIndex].type ) == '-1'">
+                    <div class="form-row" v-if="['select', 'multiselect', 'checkbox', 'html'].indexOf( form[selectedFieldIndex].type ) == '-1'">
                         <label for="field-name">{{ __( 'Placeholder', 'wc-return-warranty' ) }}</label>
                         <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.placeholder">
                     </div>
@@ -59,12 +59,12 @@
                             {{ __( 'Is required ?', 'wc-return-warranty' ) }}
                         </label>
                     </div>
-                    <template v-if="form[selectedFieldIndex].type == 'select'">
+                    <template v-if="form[selectedFieldIndex].type == 'select' || form[selectedFieldIndex].type == 'multiselect' || form[selectedFieldIndex].type == 'multicheck'">
                         <div class="form-row">
                             <label for="field-name">{{ __( 'Options (One option per line)', 'wc-return-warranty' ) }}</label>
                             <textarea rows="4" v-model="selectFieldOption" class="regular-text"></textarea>
                         </div>
-                        <div class="form-row">
+                        <div class="form-row" v-if="form[selectedFieldIndex].type != 'multicheck'">
                             <label for="empty-option">{{ __( 'Select option text (Leave empty of no need)', 'wc-return-warranty' ) }}</label>
                             <input type="text" id="empty-option" v-model="form[selectedFieldIndex].settings.emptyOption" class="regular-text">
                         </div>
@@ -100,15 +100,15 @@
                     <template v-if="form[selectedFieldIndex].type == 'number'">
                         <div class="form-row">
                             <label for="field-name">{{ __( 'Min value', 'wc-return-warranty' ) }}</label>
-                            <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.min">
+                            <input type="number" class="regular-text" v-model="form[selectedFieldIndex].settings.min">
                         </div>
                         <div class="form-row">
                             <label for="field-name">{{ __( 'Max value', 'wc-return-warranty' ) }}</label>
-                            <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.max">
+                            <input type="number" class="regular-text" v-model="form[selectedFieldIndex].settings.max">
                         </div>
                         <div class="form-row">
                             <label for="field-name">{{ __( 'Step', 'wc-return-warranty' ) }}</label>
-                            <input type="text" class="regular-text" v-model="form[selectedFieldIndex].settings.step">
+                            <input type="number" class="regular-text" v-model="form[selectedFieldIndex].settings.step" step="any">
                         </div>
                     </template>
                 </div>
@@ -188,22 +188,23 @@ export default {
         },
 
         addField( formField ) {
-            this.form.push( formField );
+            var field = jQuery.extend( true, {}, formField );
+            this.form.push( field );
         },
 
-        loadSettings( field ) {
+        loadSettings( key ) {
             this.isLoadSettings = true;
-            var index = this.form.indexOf(field);
-            this.selectedFieldIndex = index;
+            var field = this.form[key];
+            this.selectedFieldIndex = key;
             this.form.forEach( ( form ) => {
                 form.isedit = false;
             } );
-            this.form[index].isedit = true;
+            this.form[this.selectedFieldIndex].isedit = true;
 
             // If filed is select then handle options and default values
-            if ( field.type == 'select' ) {
+            if ( field.type == 'select' || field.type == 'multiselect' || field.type == 'multicheck' ) {
                 var optionString = '';
-                this.form[index].settings.options.forEach( ( form, key ) => {
+                this.form[this.selectedFieldIndex].settings.options.forEach( ( form, key ) => {
                     optionString += form.label + '\n';
                 } );
                 this.selectFieldOption = optionString;

@@ -70,3 +70,8 @@
         }
     ?>
 </div>
+<script>
+    jQuery(document).ready( function() {
+        jQuery('.wcrw-select2').select2();
+    });
+</script>
