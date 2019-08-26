@@ -689,7 +689,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.form[this.selectedFieldIndex].isedit = true; // If filed is select then handle options and default values
 
-      if (field.type == 'select' || field.type == 'multiselect') {
+      if (field.type == 'select' || field.type == 'multiselect' || field.type == 'multicheck') {
         var optionString = '';
         this.form[this.selectedFieldIndex].settings.options.forEach(function (form, key) {
           optionString += form.label + '\n';
@@ -745,6 +745,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4932,7 +4946,8 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.form[_vm.selectedFieldIndex].type == "select" ||
-                _vm.form[_vm.selectedFieldIndex].type == "multiselect"
+                _vm.form[_vm.selectedFieldIndex].type == "multiselect" ||
+                _vm.form[_vm.selectedFieldIndex].type == "multicheck"
                   ? [
                       _c("div", { staticClass: "form-row" }, [
                         _c("label", { attrs: { for: "field-name" } }, [
@@ -4969,51 +4984,53 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "form-row" }, [
-                        _c("label", { attrs: { for: "empty-option" } }, [
-                          _vm._v(
-                            _vm._s(
-                              _vm.__(
-                                "Select option text (Leave empty of no need)",
-                                "wc-return-warranty"
+                      _vm.form[_vm.selectedFieldIndex].type != "multicheck"
+                        ? _c("div", { staticClass: "form-row" }, [
+                            _c("label", { attrs: { for: "empty-option" } }, [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.__(
+                                    "Select option text (Leave empty of no need)",
+                                    "wc-return-warranty"
+                                  )
+                                )
                               )
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value:
-                                _vm.form[_vm.selectedFieldIndex].settings
-                                  .emptyOption,
-                              expression:
-                                "form[selectedFieldIndex].settings.emptyOption"
-                            }
-                          ],
-                          staticClass: "regular-text",
-                          attrs: { type: "text", id: "empty-option" },
-                          domProps: {
-                            value:
-                              _vm.form[_vm.selectedFieldIndex].settings
-                                .emptyOption
-                          },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value:
+                                    _vm.form[_vm.selectedFieldIndex].settings
+                                      .emptyOption,
+                                  expression:
+                                    "form[selectedFieldIndex].settings.emptyOption"
+                                }
+                              ],
+                              staticClass: "regular-text",
+                              attrs: { type: "text", id: "empty-option" },
+                              domProps: {
+                                value:
+                                  _vm.form[_vm.selectedFieldIndex].settings
+                                    .emptyOption
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form[_vm.selectedFieldIndex].settings,
+                                    "emptyOption",
+                                    $event.target.value
+                                  )
+                                }
                               }
-                              _vm.$set(
-                                _vm.form[_vm.selectedFieldIndex].settings,
-                                "emptyOption",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ])
+                            })
+                          ])
+                        : _vm._e()
                     ]
                   : _vm._e(),
                 _vm._v(" "),
@@ -5666,6 +5683,51 @@ var render = function() {
               ],
               2
             )
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      "multicheck" === _vm.field.type
+        ? [
+            _c(
+              "label",
+              {
+                staticStyle: { "margin-bottom": "10px" },
+                attrs: { for: "multicheck_field" }
+              },
+              [_vm._v(_vm._s(_vm.field.label))]
+            ),
+            _vm._v(" "),
+            _vm.field.settings.options.length > 0
+              ? _vm._l(_vm.field.settings.options, function(option) {
+                  return _c("label", { attrs: { for: option.value } }, [
+                    _c("input", {
+                      staticClass: "checkbox-field",
+                      class: _vm.field.settings.class,
+                      attrs: {
+                        type: "checkbox",
+                        name: _vm.field.name + "[]",
+                        id: option.value
+                      },
+                      domProps: { value: option.value }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "checkbox-label" }, [
+                      _vm._v(_vm._s(option.label))
+                    ])
+                  ])
+                })
+              : [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.__(
+                          "Type some options per line",
+                          "wc-return-warranty"
+                        )
+                      )
+                    )
+                  ])
+                ]
           ]
         : _vm._e(),
       _vm._v(" "),

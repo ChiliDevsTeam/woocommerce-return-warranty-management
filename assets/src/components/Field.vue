@@ -50,6 +50,20 @@
             </select>
         </template>
 
+        <template v-if="'multicheck' === field.type">
+            <label for="multicheck_field" style="margin-bottom:10px;">{{ field.label }}</label>
+
+            <template v-if="field.settings.options.length > 0">
+                <label :for="option.value" v-for="option in field.settings.options">
+                    <input type="checkbox" :name="`${field.name}[]`" :id="option.value" class="checkbox-field" :class="field.settings.class" :value="option.value">
+                    <span class="checkbox-label">{{ option.label }}</span>
+                </label>
+            </template>
+            <template v-else>
+                <p>{{ __( 'Type some options per line', 'wc-return-warranty' ) }}</p>
+            </template>
+        </template>
+
         <p class="desc" v-if="field.settings.description && 'html' != field.type">{{ field.settings.description }}</p>
 
         <div class="action">

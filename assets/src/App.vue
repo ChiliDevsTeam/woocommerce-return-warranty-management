@@ -59,12 +59,12 @@
                             {{ __( 'Is required ?', 'wc-return-warranty' ) }}
                         </label>
                     </div>
-                    <template v-if="form[selectedFieldIndex].type == 'select' || form[selectedFieldIndex].type == 'multiselect'">
+                    <template v-if="form[selectedFieldIndex].type == 'select' || form[selectedFieldIndex].type == 'multiselect' || form[selectedFieldIndex].type == 'multicheck'">
                         <div class="form-row">
                             <label for="field-name">{{ __( 'Options (One option per line)', 'wc-return-warranty' ) }}</label>
                             <textarea rows="4" v-model="selectFieldOption" class="regular-text"></textarea>
                         </div>
-                        <div class="form-row">
+                        <div class="form-row" v-if="form[selectedFieldIndex].type != 'multicheck'">
                             <label for="empty-option">{{ __( 'Select option text (Leave empty of no need)', 'wc-return-warranty' ) }}</label>
                             <input type="text" id="empty-option" v-model="form[selectedFieldIndex].settings.emptyOption" class="regular-text">
                         </div>
@@ -202,7 +202,7 @@ export default {
             this.form[this.selectedFieldIndex].isedit = true;
 
             // If filed is select then handle options and default values
-            if ( field.type == 'select' || field.type == 'multiselect' ) {
+            if ( field.type == 'select' || field.type == 'multiselect' || field.type == 'multicheck' ) {
                 var optionString = '';
                 this.form[this.selectedFieldIndex].settings.options.forEach( ( form, key ) => {
                     optionString += form.label + '\n';

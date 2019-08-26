@@ -998,7 +998,7 @@ function wcrw_get_warranty_request_form_fields() {
 
     foreach ( $form_builder_fields as $fields_array ) {
         $options = [];
-        if ( in_array( $fields_array['type'], ['select', 'multiselect' ] ) && ! empty( $fields_array['settings']['options'] ) ) {
+        if ( in_array( $fields_array['type'], ['select', 'multiselect', 'multicheck' ] ) && ! empty( $fields_array['settings']['options'] ) ) {
             if ( ! empty( $fields_array['settings']['emptyOption'] ) ) {
                 $options[-1] = $fields_array['settings']['emptyOption'];
             }
