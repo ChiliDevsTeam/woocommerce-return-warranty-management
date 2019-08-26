@@ -89,6 +89,12 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 
 ## Changelog ##
 
+v1.1.2 -> August 26, 2019
+--------------------------------------------
+- [fix]   Same filed duplication issue in request form builder
+- [fix]   Form builder settings not rendering appropriately for some fileds
+- [fix]   Compatibility with WC v3.7.0
+
 v1.1.1 -> August 19, 2019
 --------------------------------------------
 - [fix]   Transaltions issues for mismatch plugin slug
