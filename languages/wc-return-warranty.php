@@ -11,4 +11,5 @@ return [
 	__( 'ID attribute', 'wc-return-warranty' ),
 	__( 'Wrapper Class', 'wc-return-warranty' ),
 	__( 'Is required ?', 'wc-return-warranty' ),
+	__( 'Type some options per line', 'wc-return-warranty' ),
 ];
