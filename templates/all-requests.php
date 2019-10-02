@@ -1,4 +1,5 @@
-<div class="wcrw-all-request-wrapper">
+<div class="wcrw-all-request-wrapper <?php echo ( ! empty( $attributes['is_shortcode'] ) && $attributes['is_shortcode'] ) ? 'wcrw-shortcode-all-requests' : ''; ?>">
+
     <table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders">
         <thead>
             <tr>
@@ -9,13 +10,16 @@
                 <th><?php _e( 'Created Date', 'wc-return-warranty' ) ?></th>
             </tr>
         </thead>
-
         <tbody>
             <?php if ( ! empty( $requests ) ): ?>
                 <?php foreach ( $requests as $request ): ?>
                     <tr>
                         <td>
-                            <?php echo sprintf( '<a href="%s">%s #%d</a>', esc_url( wc_get_account_endpoint_url( 'view-warranty-request' ) . $request['id'] ), __( 'Request', 'wc-return-warranty' ), $request['id'] ); ?>
+                            <?php if ( ! empty( $attributes['is_shortcode'] ) && $attributes['is_shortcode'] ): ?>
+                                <?php echo sprintf( '<a href="%s">%s #%d</a>', esc_url( add_query_arg( ['request_id' => $request['id'] ], get_permalink() ) ), __( 'Request', 'wc-return-warranty' ), $request['id'] ); ?>
+                            <?php else: ?>
+                                <?php echo sprintf( '<a href="%s">%s #%d</a>', esc_url( wc_get_account_endpoint_url( 'view-warranty-request' ) . $request['id'] ), __( 'Request', 'wc-return-warranty' ), $request['id'] ); ?>
+                            <?php endif ?>
                         </td>
                         <td>
                             <a href="<?php echo esc_url( wc_get_account_endpoint_url( 'view-order' ) . $request['order_id'] ); ?>"><?php echo 'Order #' . $request['order_id']; ?></a>
