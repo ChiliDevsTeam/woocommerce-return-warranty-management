@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.1.2\n"
+"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.1.3\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-return-warranty\n"
-"POT-Creation-Date: 2019-08-26 16:09:29+00:00\n"
+"POT-Creation-Date: 2019-10-02 18:06:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -369,7 +369,7 @@ msgstr ""
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:17
 #: build/wc-return-warranty/templates/all-requests.php:18
 #: includes/admin/class-requests-list-table.php:17
-#: templates/all-requests.php:18
+#: templates/all-requests.php:19 templates/all-requests.php:21
 msgid "Request"
 msgstr ""
 
@@ -380,19 +380,19 @@ msgstr ""
 
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:73
 #: build/wc-return-warranty/templates/all-requests.php:5
-#: includes/admin/class-requests-list-table.php:73 templates/all-requests.php:5
+#: includes/admin/class-requests-list-table.php:73 templates/all-requests.php:6
 msgid "Request ID"
 msgstr ""
 
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:74
 #: build/wc-return-warranty/templates/all-requests.php:6
-#: includes/admin/class-requests-list-table.php:74 templates/all-requests.php:6
+#: includes/admin/class-requests-list-table.php:74 templates/all-requests.php:7
 msgid "Order ID"
 msgstr ""
 
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:75
 #: build/wc-return-warranty/templates/all-requests.php:7
-#: includes/admin/class-requests-list-table.php:75 templates/all-requests.php:7
+#: includes/admin/class-requests-list-table.php:75 templates/all-requests.php:8
 msgid "Items"
 msgstr ""
 
@@ -400,7 +400,7 @@ msgstr ""
 #: build/wc-return-warranty/templates/admin/single-request.php:105
 #: build/wc-return-warranty/templates/all-requests.php:8
 #: includes/admin/class-requests-list-table.php:76
-#: templates/admin/single-request.php:105 templates/all-requests.php:8
+#: templates/admin/single-request.php:105 templates/all-requests.php:9
 msgid "Status"
 msgstr ""
 
@@ -411,7 +411,8 @@ msgstr ""
 
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:78
 #: build/wc-return-warranty/templates/all-requests.php:9
-#: includes/admin/class-requests-list-table.php:78 templates/all-requests.php:9
+#: includes/admin/class-requests-list-table.php:78
+#: templates/all-requests.php:10
 msgid "Created Date"
 msgstr ""
 
@@ -456,12 +457,12 @@ msgid "Warranty Requests"
 msgstr ""
 
 #: build/wc-return-warranty/includes/class-customer.php:107
-#: includes/class-customer.php:107
+#: includes/class-customer.php:107 includes/class-frontend.php:369
 msgid "&laquo; Previous"
 msgstr ""
 
 #: build/wc-return-warranty/includes/class-customer.php:108
-#: includes/class-customer.php:108
+#: includes/class-customer.php:108 includes/class-frontend.php:370
 msgid "Next &raquo;"
 msgstr ""
 
@@ -473,24 +474,24 @@ msgstr ""
 #: build/wc-return-warranty/includes/class-frontend.php:52
 #: build/wc-return-warranty/includes/class-frontend.php:223
 #: build/wc-return-warranty/includes/functions.php:106
-#: includes/class-frontend.php:52 includes/class-frontend.php:223
+#: includes/class-frontend.php:53 includes/class-frontend.php:224
 #: includes/functions.php:106
 msgid "Lifetime"
 msgstr ""
 
 #: build/wc-return-warranty/includes/class-frontend.php:59
 #: build/wc-return-warranty/includes/class-frontend.php:67
-#: includes/class-frontend.php:59 includes/class-frontend.php:67
+#: includes/class-frontend.php:60 includes/class-frontend.php:68
 msgid "No warranty"
 msgstr ""
 
 #: build/wc-return-warranty/includes/class-frontend.php:70
-#: includes/class-frontend.php:70
+#: includes/class-frontend.php:71
 msgid "Free"
 msgstr ""
 
 #: build/wc-return-warranty/includes/class-frontend.php:153
-#: includes/class-frontend.php:153
+#: includes/class-frontend.php:154
 msgid "Please select your %s first."
 msgstr ""
 
@@ -854,7 +855,7 @@ msgid "Expiry Date"
 msgstr ""
 
 #: build/wc-return-warranty/templates/all-requests.php:36
-#: templates/all-requests.php:36
+#: templates/all-requests.php:40
 msgid "No requests found"
 msgstr ""
 
