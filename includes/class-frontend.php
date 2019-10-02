@@ -23,6 +23,7 @@ class WCRW_Frontend {
         add_action( 'woocommerce_add_to_cart', [ $this, 'add_warranty_index' ], 10, 6 );
         add_action( 'woocommerce_checkout_create_order_line_item', [ $this, 'order_item_meta' ], 10, 3 );
         add_action( 'woocommerce_order_status_changed', [ $this, 'order_status_changed' ], 10, 4 );
+        add_shortcode( 'warranty-requests', [ $this, 'render_warranty_request' ] );
     }
 
     /**
@@ -323,6 +324,71 @@ class WCRW_Frontend {
                 break;
             }
         }
+    }
+
+    /**
+     * Show Warranty Requests via shortcodes
+     *
+     * @since 1.1.3
+     *
+     * @return void
+     */
+    public function render_warranty_request( $atts ) {
+        $frontend_settings = get_option( 'wcrw_frontend' );
+
+        $attributes = shortcode_atts( [
+            'user_id'  => get_current_user_id(),
+            'order_by' => 'id',
+            'order'    => 'desc',
+            'per_page' => ! empty( $frontend_settings['requests_per_page'] ) ? $frontend_settings['requests_per_page'] : 20
+        ], $atts );
+
+        $attributes['is_shortcode'] = true;
+
+        $data              = [];
+        $pagination_html   = '';
+        $total_count       = wcrw_get_warranty_request( [ 'count' => true, 'customer_id' => $attributes['user_id'] ] );
+        $page              = isset( $_GET['cpage'] ) ? abs( (int) $_GET['cpage'] ) : 1;
+        $offset            = ( $page * $attributes['per_page'] ) - $attributes['per_page'];
+        $total_page        = ceil( $total_count['total_count']/$attributes['per_page'] );
+
+        if ( ! empty( $_GET['status'] ) ) {
+            $data['status'] = $_GET['status'];
+        }
+
+        $data['number']      = $attributes['per_page'];
+        $data['offset']      = $offset;
+        $data['customer_id'] = $attributes['user_id'];
+
+        if( $total_page > 1 ){
+            $pagination_html = '<div class="pagination-wrap">';
+            $page_links = paginate_links( array(
+                'base'      => add_query_arg( 'cpage', '%#%' ),
+                'format'    => '',
+                'type'      => 'array',
+                'prev_text' => __( '&laquo; Previous', 'wc-return-warranty' ),
+                'next_text' => __( 'Next &raquo;', 'wc-return-warranty' ),
+                'total'     => $total_page,
+                'current'   => $page
+            ) );
+            $pagination_html .= '<ul class="pagination"><li>';
+            $pagination_html .= join( "</li>\n\t<li>", $page_links );
+            $pagination_html .= "</li>\n</ul>\n";
+            $pagination_html .= '</div>';
+        };
+
+        $requests = wcrw_get_warranty_request( $data );
+
+        do_action( 'wcrw_load_before_shortcode_render', $requests, $attributes, $data );
+
+        ob_start();
+        if ( ! empty( $_GET['request_id'] ) ) {
+            $id = $_GET[ 'request_id' ];
+            require_once WCRW_TEMPLATE_PATH . '/view-requests.php';
+        } else {
+            require_once WCRW_TEMPLATE_PATH . '/all-requests.php';
+        }
+        return ob_get_clean();
     }
 
 }

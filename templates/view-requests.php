@@ -1,7 +1,7 @@
-<div class="wcrw-view-request-wrapper">
+<div class="wcrw-view-request-wrapper <?php echo ( ! empty( $attributes['is_shortcode'] ) && $attributes['is_shortcode'] ) ? 'wcrw-shortcode-single-requests' : ''; ?>">
     <?php
     try {
-        $request_id  = get_query_var( 'view-warranty-request' );
+        $request_id  = ( ! empty( $attributes['is_shortcode'] ) && $attributes['is_shortcode'] ) ? $id : get_query_var( 'view-warranty-request' );
         $request     = wcrw_get_warranty_request( [ 'id' => $request_id ] );
         $form_fields = wcrw_get_form_fields_data();
 
