@@ -15,6 +15,8 @@ Return and Warranty Management (RMA) System for WooCommerce
 == Description ==
 WooCommerce Return and Warranty management system (RMA) plugin allows eCommerce storeowners to process return and warranty. The WooCommerce RMA plugin makes helps manage customers’ request for product return. It’s a simple, yet powerful tool for your WooCommerce workflow.
 
+> [Demo](http://demo.wpeasysoft.com/rma/) | [Get Premium Version](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/)  |  [Support](https://wpeasysoft.com/account/tickets/)
+
 With an easy-to-use interface, an Admin can change warranty options endlessly, or close all return and warranty requests at once. eCommerce storeowners have to deal with returns and refunds on a daily basis. Customers are likely to return a product they purchased for refund or request you to replace the original product.
 
 Then, you will have to replace or provide a refund for the returned product. When you are considering an eCommerce business model, you have to design your website including warranty, refund, or no warranty options.
@@ -23,7 +25,7 @@ There comes Return and Warranty management system. With this plugin, managing re
 
 = WooCommerce RMA Basic Features =
 
-* Process warranties for your products
+* Process warranties for your simple products
 * Display warranty management details on the product single page
 * Define warranty periods and terms for products individually or globally
 * Define warranty cost for each product
@@ -32,6 +34,14 @@ There comes Return and Warranty management system. With this plugin, managing re
 * Admin can create request form for cusomter using request form builder ( Availble fields: Text, Textarea, Select, Checkbox, HTML ) [**New**]
 * Give your customers a way to Create New Request via request form which is created by admin
 * Add notes for Admin on each request
+
+= WooCommerce RMA **Premium** Features =
+
+* Set Variable product warranty for different variations
+* Instant refund from return requests. Admin will be able to process refund for your products instantly from request table.
+* Refund as a **Store Credits**. Admin can send coupon to the customer in their billing email equivalent to request amount in exchange of their previous purchase.
+* Store Admin can message smoothly with your customers regarding products replacement or refund.
+* Add some extra fields for customer request form builder ( Like: Image uplaod field, Number, Multiselect, Multicheckbox, HTML ) [**New**]
 
 = How will WooCommerce Return and Warranty benefit you? =
 
