@@ -1274,3 +1274,12 @@ function wcrw_handle_file_upload( $filename, $file_url ) {
 
     return 0;
 }
+
+/**
+ * Check has pro version isntalled or not
+ *
+ * @return boolean
+ */
+function wcrw_has_pro() {
+    return class_exists( 'WC_Return_Warranty_Pro' );
+}

@@ -56,6 +56,10 @@ class WCRW_Admin_Settings {
         add_action( 'admin_print_scripts-post-new.php', [ $this, 'product_admin_script' ], 11 );
         add_action( 'admin_print_scripts-post.php', [ $this, 'product_admin_script' ], 11 );
 
+        if ( ! wcrw_has_pro() ) {
+            $get_pro = add_submenu_page( 'wc-return-warranty', __( 'Get Pro', 'wc-return-warranty' ), '<span style="color: orange">Get pro <span style="font-size:17px;" class="dashicons dashicons-star-filled"></span></span>', $capability, 'wc-return-warranty-get-pro', [ $this, 'get_pro_page'] );
+        }
+
         do_action( 'wcrw_admin_menu', $return_warranty_page, $capability );
     }
 
@@ -418,5 +422,9 @@ class WCRW_Admin_Settings {
             </tbody>
         </table>
         <?php
+    }
+
+    function get_pro_page() {
+        require_once WCRW_TEMPLATE_PATH . '/admin/get-pro.php';
     }
 }
