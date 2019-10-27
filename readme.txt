@@ -103,6 +103,11 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 
 == Changelog ==
 
+v1.1.4 -> October 27, 2019
+--------------------------------------------
+- [new]   Admin can set multiple email in new request email template
+- [new]   Added request type column in request lists
+
 v1.1.3 -> October 02, 2019
 --------------------------------------------
 - [new]   Added shortcode supports `[warranty-requests per_page=20 order_by='id', order='desc']` for showing warranties
