@@ -16,6 +16,7 @@ class WCRW_Admin_Ajax {
         add_action( 'wp_ajax_delete_request_note', [ $this, 'delete_request_note' ], 10, 1 );
         add_action( 'wp_ajax_wcrw_save_builder_form_data', [ $this, 'save_form_builder_data' ], 10, 1 );
         add_action( 'wp_ajax_wcrw_get_builder_form_data', [ $this, 'get_form_builder_data' ], 10, 1 );
+        add_action( 'wp_ajax_wcrw-promotional-offer-notice', array( $this, 'dismiss_promotional_offer' ) );
     }
 
     /**
@@ -139,4 +140,29 @@ class WCRW_Admin_Ajax {
 
         wp_send_json_success( $data );
     }
+
+    /**
+     * Dismiss promotion notice
+     *
+     * @since  2.5.6
+     *
+     * @return void
+     */
+    public function dismiss_promotional_offer() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( __( 'You have no permission to do that', 'wc-return-warranty' ) );
+        }
+
+        $nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+
+        if ( ! wp_verify_nonce( $nonce, 'wcrw_promo' ) ) {
+            wp_send_json_error( __( 'Invalid nonce', 'wc-return-warranty' ) );
+        }
+
+        if ( ! empty( $_POST['wcrw_promo_dismissed'] ) ) {
+            $offer_key = 'wcrw_promotional_offer';
+            update_option( $offer_key, 'hide' );
+        }
+    }
+
 }

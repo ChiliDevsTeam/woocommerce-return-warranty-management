@@ -17,6 +17,8 @@ class WCRW_Admin_Settings {
         add_action( 'admin_init', [ $this, 'admin_init' ] );
         add_action( 'admin_menu', [ $this, 'admin_menu' ] );
         add_action( 'wcwr_settings_form_bottom_wcrw_default_warranty', [ $this, 'load_default_warranty_settings' ], 10 );
+
+        add_action( 'admin_notices', [ $this, 'promotional_offer' ] );
     }
 
 
@@ -424,7 +426,86 @@ class WCRW_Admin_Settings {
         <?php
     }
 
+    /**
+     * Get pro page content
+     *
+     * @return boolean
+     */
     function get_pro_page() {
         require_once WCRW_TEMPLATE_PATH . '/admin/get-pro.php';
     }
+
+    /**
+     * Added promotion notice
+     *
+     * @since  2.5.6
+     *
+     * @return void
+     */
+    public function promotional_offer() {
+
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+
+        // check if it has already been dismissed
+        $offer_key       = 'wcrw_promotional_offer';
+        $offer_last_date = strtotime( '2019-11-27 12:00:00' );
+        $hide_notice     = get_option( $offer_key, 'show' );
+        $offer_link      = 'https://wpeasysoft.com/checkout?edd_action=add_to_cart&download_id=1473&edd_options[price_id]=1&discount=BEHAPPYWITH30';
+
+        $allowed_html = array(
+            'p'       => array(),
+            'strong'  => array(),
+            'a'       => array(
+                'href'   => array(),
+                'title'  => array(),
+                'target' => array()
+            )
+        );
+        $content = __( '<p>Great Offer! We are offering <strong>30%% discount</strong> for all <strong>WooCommerce Return and Warranty Premium</strong> plan till ⌛ November 27, 2019. You can use Coupon Code: <strong><code>BEHAPPYWITH30</code></strong> on checkout or You can directly <a target="_blank" href="%s">Grab The Deal</a></p>', 'wc-return-warranty' );
+
+        if ( current_time( 'timestamp' ) > $offer_last_date ) {
+            return;
+        }
+
+        if ( 'hide' == $hide_notice || wcrw_has_pro() ) {
+            return;
+        }
+        ?>
+            <div class="notice notice-success is-dismissible" id="wcrw-promotional-notice">
+                <img class="wcrw-thumbnail" src="https://ps.w.org/wc-return-warrranty/assets/icon-256x256.png?rev=2073507" alt="WooCommerce Return and Warranty">
+                <?php printf( wp_kses( $content, $allowed_html ), esc_url( $offer_link ) ); ?>
+            </div>
+
+            <style>
+                #wcrw-promotional-notice p {
+                    font-size: 14px;
+                    line-height: 26px;
+                    word-spacing: 1px;
+                    padding-left: 76px;
+                }
+
+                #wcrw-promotional-notice img.wcrw-thumbnail {
+                    position: absolute;
+                    width: 72px;
+                    height: auto;
+                    top: 0px;
+                    left: -4px;
+                }
+            </style>
+
+            <script type='text/javascript'>
+                jQuery('body').on('click', '#wcrw-promotional-notice .notice-dismiss', function(e) {
+                    e.preventDefault();
+
+                    wp.ajax.post( 'wcrw-promotional-offer-notice', {
+                        wcrw_promo_dismissed: true,
+                        nonce: '<?php echo esc_attr( wp_create_nonce( 'wcrw_promo' ) ); ?>'
+                    });
+                });
+            </script>
+        <?php
+    }
+
 }
