@@ -4,7 +4,7 @@ Tags: WooCommerce Return, RMA, Warranty Management, Product Return System, WooCo
 Requires at least: 4.4
 Tested up to: 5.2.4
 WC requires at least: 3.0
-WC tested up to: 3.7.0
+WC tested up to: 3.7.1
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
