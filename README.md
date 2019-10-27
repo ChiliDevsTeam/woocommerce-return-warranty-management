@@ -2,7 +2,7 @@
 **Contributors:** [wpeasysoft](https://profiles.wordpress.org/wpeasysoft)<br>
 **Tags:** WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management<br>
 **Requires at least:** 4.4<br>
-**Tested up to:** 5.2.3<br>
+**Tested up to:** 5.2.4<br>
 **WC requires at least:** 3.0<br>
 **WC tested up to:** 3.7.0<br>
 **Requires PHP:** 5.6<br>
@@ -14,6 +14,8 @@ WooCommerce Return and Warranty Management (RMA) System
 
 ## Description ##
 WooCommerce Return and Warranty management system (RMA) plugin allows eCommerce storeowners to process return and warranty. The WooCommerce RMA plugin makes helps manage customers’ request for product return. It’s a simple, yet powerful tool for your WooCommerce workflow.
+
+> [Demo](http://demo.wpeasysoft.com/rma/) | [Get Premium Version](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/)  |  [Support](https://wpeasysoft.com/account/tickets/)
 
 With an easy-to-use interface, an Admin can change warranty options endlessly, or close all return and warranty requests at once. eCommerce storeowners have to deal with returns and refunds on a daily basis. Customers are likely to return a product they purchased for refund or request you to replace the original product.
 
@@ -32,6 +34,18 @@ There comes Return and Warranty management system. With this plugin, managing re
 * Admin can create request form for cusomter using request form builder ( Availble fields: Text, Textarea, Select, Checkbox, HTML ) [**New**]
 * Give your customers a way to Create New Request via request form which is created by admin
 * Add notes for Admin on each request
+
+### WooCommerce RMA [Premium](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/) Features ###
+
+* Set Variable product warranty for different variations
+* Instant refund from return requests. Admin will be able to process refund for your products instantly from request table.
+* Refund as a **Store Credits**. Admin can send coupon to the customer in their billing email equivalent to request amount in exchange of their previous purchase.
+* Store Admin can message smoothly with your customers regarding products replacement or refund.
+* Add some extra fields for customer request form builder ( Like: Image uplaod field, Number, Multiselect, Multicheckbox, HTML ) [**New**]
+
+*Check the [Premium](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/) features in short video*
+
+[![WooCommerce Return and Warranty Management Pro](http://img.youtube.com/vi/shKx__iLVwg/0.jpg)](http://www.youtube.com/watch?v=shKx__iLVwg "WooCommerce Return and Warranty Management Pro")
 
 ### How will WooCommerce Return and Warranty benefit you? ###
 
@@ -88,6 +102,11 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 ## Changelog ##
+
+v1.1.4 -> October 27, 2019
+--------------------------------------------
+- [new]   Admin can set multiple email in new request email template
+- [new]   Added request type column in request lists
 
 v1.1.3 -> October 02, 2019
 --------------------------------------------
