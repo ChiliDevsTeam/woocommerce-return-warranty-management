@@ -112,5 +112,64 @@ class WCRW_Create_Request_Admin extends WC_Email {
         ), '', $this->template_base );
     }
 
+    /**
+     * Initialise settings form fields.
+     */
+    public function init_form_fields() {
+        /* translators: %s: list of placeholders */
+        $placeholder_text  = sprintf( __( 'Available placeholders: %s', 'wc-return-warranty' ), '<code>' . implode( '</code>, <code>', array_keys( $this->placeholders ) ) . '</code>' );
+        $this->form_fields = array(
+            'enabled'    => array(
+                'title'   => __( 'Enable/Disable', 'wc-return-warranty' ),
+                'type'    => 'checkbox',
+                'label'   => __( 'Enable this email notification', 'wc-return-warranty' ),
+                'default' => 'yes',
+            ),
+            'recipient'  => array(
+                'title'       => __( 'Recipient(s)', 'wc-return-warranty' ),
+                'type'        => 'text',
+                /* translators: %s: WP admin email */
+                'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'wc-return-warranty' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
+                'placeholder' => '',
+                'default'     => $this->get_recipient(),
+                'desc_tip'    => true,
+            ),
+            'subject'    => array(
+                'title'       => __( 'Subject', 'wc-return-warranty' ),
+                'type'        => 'text',
+                'desc_tip'    => true,
+                'description' => $placeholder_text,
+                'placeholder' => $this->get_default_subject(),
+                'default'     => '',
+            ),
+            'heading'    => array(
+                'title'       => __( 'Email heading', 'wc-return-warranty' ),
+                'type'        => 'text',
+                'desc_tip'    => true,
+                'description' => $placeholder_text,
+                'placeholder' => $this->get_default_heading(),
+                'default'     => '',
+            ),
+            'additional_content' => array(
+                'title'       => __( 'Additional content', 'wc-return-warranty' ),
+                'description' => __( 'Text to appear below the main email content.', 'wc-return-warranty' ) . ' ' . $placeholder_text,
+                'css'         => 'width:400px; height: 75px;',
+                'placeholder' => __( 'N/A', 'wc-return-warranty' ),
+                'type'        => 'textarea',
+                'default'     => $this->get_default_additional_content(),
+                'desc_tip'    => true,
+            ),
+            'email_type' => array(
+                'title'       => __( 'Email type', 'wc-return-warranty' ),
+                'type'        => 'select',
+                'description' => __( 'Choose which format of email to send.', 'wc-return-warranty' ),
+                'default'     => 'html',
+                'class'       => 'email_type wc-enhanced-select',
+                'options'     => $this->get_email_type_options(),
+                'desc_tip'    => true,
+            ),
+        );
+    }
+
 }
 

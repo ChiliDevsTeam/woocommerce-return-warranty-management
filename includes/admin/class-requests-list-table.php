@@ -29,13 +29,13 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
      */
     function table_css() {
         echo '<style type="text/css">';
-        echo '.request-list-table .column-id { width: 18%; }';
+        echo '.request-list-table .column-id { width: 20%; }';
         echo '.request-list-table .column-order_id { width: 13%; }';
+        echo '.request-list-table .column-type { width: 15%; }';
         echo '.request-list-table .column-items { width: 25%; }';
         echo '.request-list-table .column-status { width: 14%; }';
-        echo '.request-list-table .column-customer { width: 16%; }';
-        echo '.request-list-table .column-created_at { width: 14%; }';
-        echo '.request-list-table .column-action { width: 15%; }';
+        echo '.request-list-table .column-created_at { width: 13%; }';
+        echo '.request-list-table .column-action { width: 16%; }';
         echo '.request-list-table .column-action a.button{ padding: 3px 5px; color: #7b7b7b ; margin-right: 4px; }';
         echo '</style>';
     }
@@ -72,9 +72,9 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
             'cb'         => '<input type="checkbox" />',
             'id'         => __( 'Request ID', 'wc-return-warranty' ),
             'order_id'   => __( 'Order ID', 'wc-return-warranty' ),
+            'type'       => __( 'Request Type', 'wc-return-warranty' ),
             'items'      => __( 'Items', 'wc-return-warranty' ),
             'status'     => __( 'Status', 'wc-return-warranty' ),
-            'customer'   => __( 'Customer', 'wc-return-warranty' ),
             'created_at' => __( 'Created Date', 'wc-return-warranty' ),
             'action'     => __( 'Action', 'wc-return-warranty' )
         ];
@@ -122,12 +122,12 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
             case 'order_id':
                 $edit_order_url = get_edit_post_link( $item['order_id'] );
                 return '<a href="' . esc_url( $edit_order_url ). '">Order #' . $item['order_id'] . '</a>';
+            case 'type':
+                return wcrw_warranty_request_type( $item['type'] );
             case 'items':
                 return wcrw_get_formatted_request_items( $item['items'] );
             case 'status':
                 return wcrw_warranty_request_status_html( $item['status'] );
-            case 'customer':
-                return '<a href="' . get_edit_user_link( $item['customer']['id'] ) . '">' . $item['customer']['first_name']. ' ' . $item['customer']['last_name'] . '</a>';
             case 'created_at':
                 return date_i18n( get_option( 'date_format' ), strtotime( $item['created_at'] ) );
             case 'action':
@@ -153,7 +153,8 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
     function column_id( $item ) {
         $view_url   = add_query_arg( [ 'page' => 'wc-return-warranty', 'request_id' => $item['id'] ], admin_url( 'admin.php' ) );
         $delete_url = add_query_arg( [ 'page' => 'wc-return-warranty', 'action' => 'delete', 'request_id' => $item['id'], '_wpnonce' => wp_create_nonce( 'request_delete' ) ], admin_url( 'admin.php' ) );
-        $title      = sprintf( '<a href="%s"><strong>Request #%d</strong></a>', esc_url( $view_url ), $item['id'] );
+        $user_name  = $item['customer']['first_name']. ' ' . $item['customer']['last_name'];
+        $title      = sprintf( '<a href="%s"><strong>Request #%d</strong></a> by <a href="%s"><strong>%s</strong><a>', esc_url( $view_url ), $item['id'], get_edit_user_link( $item['customer']['id'] ), $user_name );
 
         $actions = [
             'view'   => sprintf( '<a href="%s">%s</a>', esc_url( $view_url ), __( 'View', 'wc-return-warranty' ) ),
