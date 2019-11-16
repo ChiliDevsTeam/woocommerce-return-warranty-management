@@ -173,6 +173,7 @@ function wcrw_transform_warranty_settings( $request = [] ) {
             'length'          => '',
             'length_value'    => '',
             'length_duration' => '',
+            'hide_warranty'   => 'no',
             'addon_settings'  => [],
         ];
 
@@ -180,6 +181,7 @@ function wcrw_transform_warranty_settings( $request = [] ) {
             $data['length']          = $request['length'];
             $data['length_value']    = $request['length_value'];
             $data['length_duration'] = $request['length_duration'];
+            $data['hide_warranty']   = ! empty( $request['hide_warranty'] ) ? $request['hide_warranty'] : 'no';
             $data['addon_settings']  = [];
 
             if ( 'lifetime' == $data['length'] ) {
@@ -224,6 +226,7 @@ function wcrw_get_warranty_settings( $product_id = 0 ) {
         'length'          => '',
         'length_value'    => '',
         'length_duration' => '',
+        'hide_warranty'   => 'no',
         'addon_settings'  => []
     ];
 

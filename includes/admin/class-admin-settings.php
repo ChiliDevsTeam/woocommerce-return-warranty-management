@@ -313,6 +313,7 @@ class WCRW_Admin_Settings {
         $default_warranty_length          = ! empty( $default_warranty['length'] ) ? $default_warranty['length'] : '';
         $default_warranty_length_value    = ! empty( $default_warranty['length_value'] ) ? $default_warranty['length_value'] : '';
         $default_warranty_length_duration = ! empty( $default_warranty['length_duration'] ) ? $default_warranty['length_duration'] : '';
+        $default_warranty_hide            = ! empty( $default_warranty['hide_warranty'] ) ? $default_warranty['hide_warranty'] : 'no';
         ?>
         <table class="form-table show_if_included_warranty">
             <tbody>
@@ -351,6 +352,20 @@ class WCRW_Admin_Settings {
                             <?php endforeach ?>
                         </select>
                         <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warranty' ) ?></p>
+                    </td>
+                </tr>
+
+                <tr class="length_duration">
+                    <th scope="row">
+                        <label for="wcrw_default_warranty[hide_warranty]"><?php _e( 'Hide Warranty Text', 'wc-return-warranty' ); ?></label>
+                    </th>
+                    <td>
+                        <label for="wcrw_default_warranty[hide_warranty]">
+                            <input type="hidden" name="wcrw_default_warranty[hide_warranty]" value="no">
+                            <input type="checkbox" id="wcrw_default_warranty[hide_warranty]" name="wcrw_default_warranty[hide_warranty]" value="yes" <?php checked( $default_warranty_hide, 'yes' ); ?>>
+                            <?php _e( 'Hide warranty text from product, cart and checkout page', 'wc-return-warranty' ) ?>
+                        </label>
+                        <p class="description"><?php _e( 'If checked, then warranty text will be hidden on product, cart and checkout page. Admin and customer can see warranty only order page', 'wc-return-warranty' ) ?></p>
                     </td>
                 </tr>
             </tbody>

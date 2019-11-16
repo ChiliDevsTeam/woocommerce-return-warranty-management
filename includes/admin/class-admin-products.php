@@ -121,6 +121,17 @@ class WCRW_Admin_Product {
                             'options'       => wcrw_warranty_length_duration()
                         ]
                     );
+
+                    woocommerce_wp_checkbox(
+                        [
+                            'id'            => 'wcrw_product_warranty[hide_warranty]',
+                            'value'         => $settings['hide_warranty'],
+                            'cbvalue'       => 'yes',
+                            'wrapper_class' => 'show_if_simple',
+                            'label'         => __( 'Hide warranty Text', 'wc-return-warranty' ),
+                            'description'   => __( 'If checked, then warranty text will be hidden on product, cart and checkout page. Admin and customer can see warranty only order page', 'wc-return-warranty' ),
+                        ]
+                    );
                 ?>
             </div>
 
