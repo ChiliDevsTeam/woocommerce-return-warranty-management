@@ -190,7 +190,7 @@ class WCRW_Admin_Settings {
                     'label'   => __( 'Order Status to allow Warranty Request', 'wc-return-warranty' ),
                     'desc'    => __( 'What status do you want to allow the warranty request button for your customer', 'wc-return-warranty' ),
                     'type'    => 'multicheck',
-                    'default' => 'wc-completed',
+                    'default' => [ 'wc-completed' ],
                     'options' => $allowed_status
                 ),
                 array(
@@ -200,6 +200,15 @@ class WCRW_Admin_Settings {
                     'type'    => 'select',
                     'default' => 'new',
                     'options' => wcrw_warranty_request_status()
+                ),
+
+                array(
+                    'name'  => 'default_return_request_type',
+                    'label' => __( 'Return Request Types', 'wc-return-warranty' ),
+                    'desc'    => __( 'Select return request types for customer. Customer can create such types of warranty request', 'wc-return-warranty' ),
+                    'type'    => 'multicheck',
+                    'default' => [ 'replacement', 'refund' ],
+                    'options' => wcrw_warranty_request_type()
                 ),
             ),
             'wcrw_default_warranty' => array(

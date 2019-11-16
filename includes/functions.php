@@ -985,6 +985,16 @@ function wcrw_get_form_fields_data() {
  * @return array
  */
 function wcrw_get_warranty_request_form_fields() {
+    $general_settings  = get_option( 'wcrw_basic' );
+    $settings_types    = ! empty( $general_settings['default_return_request_type'] ) ? $general_settings['default_return_request_type'] : [ 'replacement', 'refund' ];
+    $allowed_types = [];
+
+    foreach ( wcrw_warranty_request_type() as $key => $value ) {
+        if ( in_array( $key, $settings_types ) ) {
+            $allowed_types[$key] = $value;
+        }
+    }
+
     $mandatory_fileds = [
         [
             'label'   => __( 'Request for', 'wc-return-warranty' ),
@@ -992,7 +1002,7 @@ function wcrw_get_warranty_request_form_fields() {
             'id'      => 'type',
             'class'   => 'wcrw-warranty-request-type',
             'type'    => 'select',
-            'options' => array_merge( [ '' => __( '-- Select type --', 'wc-return-warranty' ) ], wcrw_warranty_request_type() )
+            'options' => array_merge( [ '' => __( '-- Select type --', 'wc-return-warranty' ) ], $allowed_types )
         ]
     ];
 
