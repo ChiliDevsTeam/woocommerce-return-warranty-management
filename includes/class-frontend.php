@@ -45,12 +45,14 @@ class WCRW_Frontend {
         $warranty_label = $warranty['label'];
 
         if ( $warranty['type'] == 'included_warranty' ) {
-            if ( $warranty['length'] == 'limited' ) {
-                $value      = $warranty['length_value'];
-                $duration   = wcrw_get_duration_value( $warranty['length_duration'], $value );
-                echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. $value .' '. $duration .'</p>';
-            } else {
-                echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. __( 'Lifetime', 'wc-return-warranty' ) .'</p>';
+            if ( 'no' == $warranty['hide_warranty'] ) {
+                if ( $warranty['length'] == 'limited' ) {
+                    $value      = $warranty['length_value'];
+                    $duration   = wcrw_get_duration_value( $warranty['length_duration'], $value );
+                    echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. $value .' '. $duration .'</p>';
+                } else {
+                    echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. __( 'Lifetime', 'wc-return-warranty' ) .'</p>';
+                }
             }
         } elseif ( $warranty['type'] == 'addon_warranty' )                    {
             $addons = $warranty['addon_settings'];
@@ -218,20 +220,22 @@ class WCRW_Frontend {
                     );
                 }
             } elseif ( $warranty['type'] == 'included_warranty' ) {
-                if ( $warranty['length'] == 'lifetime' ) {
-                    $other_data[] = array(
-                        'name'      => $warranty_label,
-                        'value'     => __( 'Lifetime', 'wc-return-warranty' ),
-                        'display'   => ''
-                    );
-                } elseif ( $warranty['length'] == 'limited' ) {
-                    $duration_unit = wcrw_get_duration_value( $warranty['length_duration'], $warranty['length_value'] );
-                    $string = $warranty['length_value'] . ' ' . $duration_unit;
-                    $other_data[] = array(
-                        'name'      => $warranty_label,
-                        'value'     => $string,
-                        'display'   => ''
-                    );
+                if ( 'no' == $warranty['hide_warranty'] ) {
+                    if ( $warranty['length'] == 'lifetime' ) {
+                        $other_data[] = array(
+                            'name'      => $warranty_label,
+                            'value'     => __( 'Lifetime', 'wc-return-warranty' ),
+                            'display'   => ''
+                        );
+                    } elseif ( $warranty['length'] == 'limited' ) {
+                        $duration_unit = wcrw_get_duration_value( $warranty['length_duration'], $warranty['length_value'] );
+                        $string = $warranty['length_value'] . ' ' . $duration_unit;
+                        $other_data[] = array(
+                            'name'      => $warranty_label,
+                            'value'     => $string,
+                            'display'   => ''
+                        );
+                    }
                 }
             }
         }

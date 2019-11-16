@@ -151,7 +151,7 @@ class WCRW_Customer {
     public function warranty_request_button( $actions, $order ) {
         $general_settings  = get_option( 'wcrw_basic' );
         $frontend_settings = get_option( 'wcrw_frontend' );
-        $allowed_status    = ! empty( $general_settings['allowed_order_status'] ) ? $general_settings['allowed_order_status'] : [];
+        $allowed_status    = ! empty( $general_settings['allowed_order_status'] ) ? $general_settings['allowed_order_status'] : [ 'wc-completed' ];
 
         if ( ! in_array( 'wc-' . $order->get_status() , $allowed_status ) ) {
             return $actions;
