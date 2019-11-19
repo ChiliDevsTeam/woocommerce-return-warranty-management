@@ -103,6 +103,10 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 
 == Changelog ==
 
+v1.1.6 -> November 19, 2019
+--------------------------------------------
+- [fix]   Handle request when order is completed deleted and trashed
+
 v1.1.5 -> November 16, 2019
 --------------------------------------------
 - [new]   Added request types( Replacement, Refund ) settings, so that admin can choose which types are allowed for customer
