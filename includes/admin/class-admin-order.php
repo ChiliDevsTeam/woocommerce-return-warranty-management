@@ -14,6 +14,7 @@ class WCRW_Admin_Order {
         add_action( 'woocommerce_before_order_itemmeta', [ $this, 'render_item_warranty' ], 10, 3 );
         add_action( 'woocommerce_order_item_meta_end', [ $this, 'render_item_warranty' ], 10, 3 );
         add_filter( 'woocommerce_hidden_order_itemmeta', [ $this, 'hidden_warranty_meta' ], 10, 1 );
+        add_action( 'delete_post', [ $this, 'admin_on_delete_order' ] );
     }
 
     /**
@@ -114,6 +115,28 @@ class WCRW_Admin_Order {
     public function hidden_warranty_meta( $hidden_meta ) {
         $hidden_meta[] = '_wcrw_item_warranty_selected';
         return $hidden_meta;
+    }
+
+    /**
+     * On delete order delete the return requests
+     *
+     * @since 1.1.6
+     *
+     * @return void
+     */
+    public function admin_on_delete_order( $post_id ) {
+        global $wpdb;
+
+        $post = get_post( $post_id );
+
+        if ( 'shop_order' == $post->post_type ) {
+            $request_ids = $wpdb->get_results( $wpdb->prepare( "SELECT `id` from `{$wpdb->prefix}wcrw_warranty_requests` WHERE `order_id`='%d'", intval( $post_id ) ) );
+            if ( ! empty( $request_ids) ) {
+                foreach ( $request_ids as $request ) {
+                    wcrw_delete_warranty_request( $request->id );
+                }
+            }
+        }
     }
 
 }
