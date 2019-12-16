@@ -12,7 +12,6 @@ class WCRW_Admin_Order {
      */
     public function __construct() {
         add_action( 'woocommerce_before_order_itemmeta', [ $this, 'render_item_warranty' ], 10, 3 );
-        add_action( 'woocommerce_order_item_meta_end', [ $this, 'render_item_warranty' ], 10, 3 );
         add_filter( 'woocommerce_hidden_order_itemmeta', [ $this, 'hidden_warranty_meta' ], 10, 1 );
         add_action( 'delete_post', [ $this, 'admin_on_delete_order' ] );
     }
