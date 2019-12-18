@@ -2,9 +2,9 @@
 Contributors: wpeasysoft
 Tags: WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management
 Requires at least: 4.4
-Tested up to: 5.3.0
+Tested up to: 5.3.1
 WC requires at least: 3.0
-WC tested up to: 3.8.0
+WC tested up to: 3.8.1
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -34,6 +34,7 @@ There comes Return and Warranty management system. With this plugin, managing re
 * Admin can create request form for cusomter using request form builder ( Availble fields: Text, Textarea, Select, Checkbox, HTML ) [**New**]
 * Give your customers a way to Create New Request via request form which is created by admin
 * Add notes for Admin on each request
+* Integrated with [WooCommerce PDF Invoices](https://wordpress.org/plugins/woocommerce-pdf-invoices/) by [Bas Elbers](http://wcpdfinvoices.com/).
 
 = WooCommerce RMA Premium Features =
 
@@ -102,6 +103,11 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 == Changelog ==
+
+v1.1.7 -> December 18, 2019
+--------------------------------------------
+- [new]   Added warranty data in email and thank you page
+- [new]   Added integration with WooCommerce PDF Invoices plugin. So that warranty data also showing on pdf.
 
 v1.1.6 -> November 19, 2019
 --------------------------------------------

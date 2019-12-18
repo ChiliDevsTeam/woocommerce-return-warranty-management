@@ -23,7 +23,9 @@ class WCRW_Frontend {
         add_action( 'woocommerce_add_to_cart', [ $this, 'add_warranty_index' ], 10, 6 );
         add_action( 'woocommerce_checkout_create_order_line_item', [ $this, 'order_item_meta' ], 10, 3 );
         add_action( 'woocommerce_order_status_changed', [ $this, 'order_status_changed' ], 10, 4 );
+        add_action( 'woocommerce_order_item_meta_end', [ $this, 'show_warranty_details' ], 11, 4 );
         add_shortcode( 'warranty-requests', [ $this, 'render_warranty_request' ] );
+
     }
 
     /**
@@ -327,6 +329,82 @@ class WCRW_Frontend {
                 $order->save();
                 break;
             }
+        }
+    }
+
+    /**
+     * Show warranty details with order item meta
+     *
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function show_warranty_details( $item_id, $item, $order, $plain_text = false ) {
+        if ( $item['type'] != 'line_item' ) {
+            return;
+        }
+
+        $warranty = wc_get_order_item_meta( $item_id, '_wcrw_item_warranty', true );
+
+        if ( $warranty && ! empty( $order->get_id() ) ) {
+            $name = $value = $expiry = false;
+            $order_date = $order->get_date_completed() ? $order->get_date_completed()->date( 'Y-m-d H:i:s' ) : false;
+
+            if ( empty( $warranty['label'] ) ) {
+                $product_warranty = wcrw_get_warranty_settings( $item['product_id'] );
+                $warranty['label'] = $product_warranty['label'];
+            }
+            if ( $warranty['type'] == 'addon_warranty' ) {
+                $addons         = $warranty['addon_settings'];
+                $warranty_index = wc_get_order_item_meta( $item_id, '_wcrw_item_warranty_selected', true );
+
+                if ( $warranty_index !== false && isset( $addons[$warranty_index] ) && !empty( $addons[$warranty_index] ) ) {
+                    $addon  = $addons[$warranty_index];
+                    $name   = $warranty['label'];
+                    $unit  = wcrw_get_duration_value( $addon['duration'], $addon['length'] );
+                    $value = $addon['length'] . ' ' . $unit;
+
+                    if ( $order_date ) {
+                        $expiry = wcrw_get_warranty_date( $order_date, $addon['length'], $addon['duration'] );
+                    }
+
+                }
+            } elseif ( $warranty['type'] == 'included_warranty' ) {
+                if ( $warranty['length'] == 'limited' ) {
+                    $name   = $warranty['label'];
+                    $unit  = wcrw_get_duration_value( $warranty['length_duration'], $warranty['length_value'] );
+                    $value = $warranty['length_value'] . ' ' . $unit;
+
+                    if ( $order_date ) {
+                        $expiry = wcrw_get_warranty_date( $order_date, $warranty['length_value'], $warranty['length_duration'] );
+                    }
+                }
+            }
+
+            if ( ! $name || ! $value ) {
+                return;
+            }
+
+            ?>
+            <div class="view">
+                <p>
+                    <strong><?php echo wp_kses_post( $name ); ?></strong>:
+                    <span>
+                        <?php
+                            echo wp_kses_post( $value );
+
+                            if ( $expiry ) {
+                                if ( current_time('timestamp') > strtotime( $expiry ) ) {
+                                    echo ' <small>(expired on '. $expiry .')</small>';
+                                } else {
+                                    echo ' <small>(expires '. $expiry .')</small>';
+                                }
+                            }
+                        ?>
+                    </span>
+                </p>
+            </div>
+            <?php
         }
     }
 
