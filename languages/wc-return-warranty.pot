@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.1.6\n"
+"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.1.7\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-return-warranty\n"
-"POT-Creation-Date: 2019-11-19 11:07:15+00:00\n"
+"POT-Creation-Date: 2019-12-18 17:23:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -400,11 +400,11 @@ msgstr ""
 msgid "Warranty Requests"
 msgstr ""
 
-#: includes/class-customer.php:107 includes/class-frontend.php:373
+#: includes/class-customer.php:107 includes/class-frontend.php:451
 msgid "&laquo; Previous"
 msgstr ""
 
-#: includes/class-customer.php:108 includes/class-frontend.php:374
+#: includes/class-customer.php:108 includes/class-frontend.php:452
 msgid "Next &raquo;"
 msgstr ""
 
@@ -412,20 +412,20 @@ msgstr ""
 msgid "Request has been submitted successfully"
 msgstr ""
 
-#: includes/class-frontend.php:54 includes/class-frontend.php:227
+#: includes/class-frontend.php:56 includes/class-frontend.php:229
 #: includes/functions.php:106
 msgid "Lifetime"
 msgstr ""
 
-#: includes/class-frontend.php:62 includes/class-frontend.php:70
+#: includes/class-frontend.php:64 includes/class-frontend.php:72
 msgid "No warranty"
 msgstr ""
 
-#: includes/class-frontend.php:73
+#: includes/class-frontend.php:75
 msgid "Free"
 msgstr ""
 
-#: includes/class-frontend.php:156
+#: includes/class-frontend.php:158
 msgid "Please select your %s first."
 msgstr ""
 
