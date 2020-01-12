@@ -2,7 +2,7 @@
 **Contributors:** [wpeasysoft](https://profiles.wordpress.org/wpeasysoft)<br>
 **Tags:** WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management<br>
 **Requires at least:** 4.4<br>
-**Tested up to:** 5.3.1<br>
+**Tested up to:** 5.3.2<br>
 **WC requires at least:** 3.0<br>
 **WC tested up to:** 3.8.1<br>
 **Requires PHP:** 5.6<br>
@@ -39,10 +39,13 @@ There comes Return and Warranty management system. With this plugin, managing re
 ### WooCommerce RMA [Premium](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/) Features ###
 
 * Set Variable product warranty for different variations
+* Admin can set warranty per category wise[**New**]
 * Instant refund from return requests. Admin will be able to process refund for your products instantly from request table.
 * Refund as a **Store Credits**. Admin can send coupon to the customer in their billing email equivalent to request amount in exchange of their previous purchase.
 * Store Admin can message smoothly with your customers regarding products replacement or refund.
 * Add some extra fields for customer request form builder ( Like: Image uplaod field, Number, Multiselect, Multicheckbox, HTML ) [**New**]
+* Integrated with [WooCommerce PDF Invoices & Packing Slips](https://wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/) by [Ewout Fernhout](http://www.wpovernight.com/)[**New**]
+* Integrated with [WooCommerce PDF Invoices](https://woocommerce.com/products/pdf-invoices/) by [Andrew Benbow](http://www.chromeorange.co.uk)[**New**]
 
 *Check the [Premium](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/) features in short video*
 
@@ -103,6 +106,10 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 ## Changelog ##
+
+v1.1.8 -> January 12, 2020
+--------------------------------------------
+- [Tweak]   Added some filters for better extending core.
 
 v1.1.7 -> December 18, 2019
 --------------------------------------------
