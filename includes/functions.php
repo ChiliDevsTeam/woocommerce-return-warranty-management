@@ -207,7 +207,7 @@ function wcrw_transform_warranty_settings( $request = [] ) {
         }
     }
 
-    return $data;
+    return apply_filters( 'wcrw_transform_warranty_settings', $data );
 }
 
 /**
@@ -248,7 +248,7 @@ function wcrw_get_warranty_settings( $product_id = 0 ) {
         $settings         = wcrw_parse_args( $default_settings, $default );
     }
 
-    return $settings;
+    return apply_filters( 'wcrw_get_warranty_settings_data', $settings, $product_id );
 }
 
 /**
@@ -621,20 +621,20 @@ function wcrw_transformer_warranty_request( $data ) {
     }
 
     return apply_filters( 'wcrw_get_warranty_single_data', [
-        'id'          => $data['id'],
-        'order_id'    => $data['order_id'],
+        'id'       => $data['id'],
+        'order_id' => $data['order_id'],
         'customer' => [
             'billing' => [
                 'first_name' => $order->get_billing_first_name(),
-                'last_name' => $order->get_billing_last_name(),
-                'email' => $order->get_billing_email(),
-                'address' => $order->get_formatted_billing_address()
+                'last_name'  => $order->get_billing_last_name(),
+                'email'      => $order->get_billing_email(),
+                'address'    => $order->get_formatted_billing_address()
             ],
             'first_name' => $customer ? $customer->first_name : '',
-            'last_name' => $customer ? $customer->last_name: '',
-            'email' => $customer ? $customer->user_email: '',
-            'id'   => $order->get_customer_id(),
-            'ip_address'   => $order->get_customer_ip_address(),
+            'last_name'  => $customer ? $customer->last_name: '',
+            'email'      => $customer ? $customer->user_email: '',
+            'id'         => $order->get_customer_id(),
+            'ip_address' => $order->get_customer_ip_address(),
             'user_agent' => $order->get_customer_user_agent()
         ],
         'items'       => $items,
