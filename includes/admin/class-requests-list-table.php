@@ -171,6 +171,11 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
             $actions['refund'] = sprintf( '<a href="%s">%s</a>', esc_url( $edit_order_url ), __( 'Refund', 'wc-return-warranty' ) );
         }
 
+        if ( $item['type'] == 'cancel' ) {
+            $edit_order_url    = get_edit_post_link( $item['order_id'] );
+            $actions['refund'] = sprintf( '<a href="%s">%s</a>', esc_url( $edit_order_url ), __( 'Cancel & Refund', 'wc-return-warranty' ) );
+        }
+
         return $title . $this->row_actions( apply_filters( 'wcrw_request_table_row_actions', $actions, $item ) );
     }
 

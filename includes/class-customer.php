@@ -151,19 +151,20 @@ class WCRW_Customer {
     public function warranty_request_button( $actions, $order ) {
         $general_settings  = get_option( 'wcrw_basic' );
         $frontend_settings = get_option( 'wcrw_frontend' );
-        $allowed_status    = ! empty( $general_settings['allowed_order_status'] ) ? $general_settings['allowed_order_status'] : [ 'wc-completed' ];
+        $request_types    = ! empty( $general_settings['default_return_request_type'] ) ? $general_settings['default_return_request_type'] : [ 'replacement', 'refund' ];
 
-        if ( ! in_array( 'wc-' . $order->get_status() , $allowed_status ) ) {
-            return $actions;
+        if ( wcrw_order_has_any_item_warranty( $order ) ) {
+            $btn_text = ! empty( $frontend_settings['request_btn_label'] ) ? $frontend_settings['request_btn_label'] : __( 'Request Warranty', 'wc-return-warranty' );
+            $url      = esc_url_raw( wc_get_account_endpoint_url( 'new-warranty-request' ) . $order->get_id() ) ;
+            $actions['warranty_request'] = array( 'url' => $url, 'name' => $btn_text );
         }
 
-        if ( ! wcrw_order_has_any_item_warranty( $order ) ) {
-            return $actions;
+        if ( in_array( 'cancel', $request_types ) ) {
+            $url                             = add_query_arg( [ 'order_id' => $order->get_id(), 'action' => 'wcrw_cancel_order', 'nonce' => wp_create_nonce( 'wcrw_cancel_order' ) ], wc_get_account_endpoint_url( 'orders' ) );
+            $cancel_btn_text                 = ! empty( $frontend_settings['cancel_btn_text'] ) ? $frontend_settings['cancel_btn_text'] : __( 'Cancel Order', 'wc-return-warranty' );
+            $actions['cancel_order_request'] = array( 'url' => esc_url_raw( $url ) , 'name' => $cancel_btn_text );
         }
 
-        $btn_text = ! empty( $frontend_settings['request_btn_label'] ) ? $frontend_settings['request_btn_label'] : __( 'Request Warranty', 'wc-return-warranty' );
-        $url = esc_url_raw( wc_get_account_endpoint_url( 'new-warranty-request' ) . $order->get_id() ) ;
-        $actions['warranty_request'] = array( 'url' => $url, 'name' => $btn_text );
         return $actions;
     }
 
