@@ -598,9 +598,9 @@ function wcrw_transformer_warranty_request( $data ) {
     $order       = wc_get_order( $data['order_id'] );
 
     foreach ( $item_ids as $key => $item_id ) {
-        $item = new WC_Order_Item_Product( $item_id );
+        $item    = new WC_Order_Item_Product( $item_id );
         $product = wc_get_product( $item->get_product_id() );
-        $image = wp_get_attachment_url( $product->get_image_id() );
+        $image   = wp_get_attachment_url( $product->get_image_id() );
 
         $items[] = [
             'id'             => $product->get_id(),
