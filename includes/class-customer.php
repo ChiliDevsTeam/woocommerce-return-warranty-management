@@ -16,6 +16,7 @@ class WCRW_Customer {
         add_filter( 'woocommerce_account_menu_items', [ $this, 'warranty_requests_link' ], 50 );
         add_action( 'woocommerce_account_warranty-requests_endpoint', [ $this, 'warranty_requests_content' ] );
         add_filter( 'woocommerce_my_account_my_orders_actions', [ $this, 'warranty_request_button' ], 10, 2 );
+        add_filter( 'woocommerce_order_details_after_order_table', [ $this, 'show_warranty_btn_in_order_details' ], 10 );
         add_action( 'woocommerce_account_new-warranty-request_endpoint', [ $this, 'new_warranty_request_content' ] );
         add_action( 'woocommerce_account_view-warranty-request_endpoint', [ $this, 'content_warranty_requests_view' ] );
     }
@@ -166,6 +167,39 @@ class WCRW_Customer {
         }
 
         return $actions;
+    }
+
+    /**
+     * Show warranty button in order details page
+     *
+     * @since 1.1.9
+     *
+     * @return void
+     */
+    public function show_warranty_btn_in_order_details( $order ) {
+        $general_settings  = get_option( 'wcrw_basic' );
+        $frontend_settings = get_option( 'wcrw_frontend' );
+        $request_types    = ! empty( $general_settings['default_return_request_type'] ) ? $general_settings['default_return_request_type'] : [ 'replacement', 'refund' ];
+
+        if ( wcrw_order_has_any_item_warranty( $order ) ) {
+            $btn_text = ! empty( $frontend_settings['request_btn_label'] ) ? $frontend_settings['request_btn_label'] : __( 'Request Warranty', 'wc-return-warranty' );
+            $url      = esc_url_raw( wc_get_account_endpoint_url( 'new-warranty-request' ) . $order->get_id() ) ;
+            ?>
+            <p class="request-warranty">
+                <a href="<?php echo esc_url( $url ); ?>" class="button"><?php echo esc_html( $btn_text ); ?></a>
+            </p>
+            <?php
+        }
+
+        if ( in_array( 'cancel', $request_types ) && in_array( $order->get_status(), [ 'processing', 'completed' ] ) ) {
+            $url                             = add_query_arg( [ 'order_id' => $order->get_id(), 'action' => 'wcrw_cancel_order', 'nonce' => wp_create_nonce( 'wcrw_cancel_order' ) ], wc_get_account_endpoint_url( 'orders' ) );
+            $cancel_btn_text                 = ! empty( $frontend_settings['cancel_btn_text'] ) ? $frontend_settings['cancel_btn_text'] : __( 'Cancel Order', 'wc-return-warranty' );
+            ?>
+            <p class="request-warranty">
+                <a href="<?php echo esc_url( $url ); ?>" class="button"><?php echo esc_html( $cancel_btn_text ); ?></a>
+            </p>
+            <?php
+        }
     }
 
 }
