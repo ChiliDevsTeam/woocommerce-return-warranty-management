@@ -4,7 +4,7 @@
 **Requires at least:** 4.4<br>
 **Tested up to:** 5.3.2<br>
 **WC requires at least:** 3.0<br>
-**WC tested up to:** 3.8.1<br>
+**WC tested up to:** 4.0.1<br>
 **Requires PHP:** 5.6<br>
 **Stable tag:** trunk<br>
 **License:** GPLv2 or later<br>
@@ -30,6 +30,7 @@ There comes Return and Warranty management system. With this plugin, managing re
 * Define warranty periods and terms for products individually or globally
 * Define warranty cost for each product
 * Replace and refund manually
+* Customer can cancel their order when the order is already proceed or completed
 * Feature Simple product for return and refund of the vast majority of your products
 * Admin can create request form for cusomter using request form builder ( Availble fields: Text, Textarea, Select, Checkbox, HTML ) [**New**]
 * Give your customers a way to Create New Request via request form which is created by admin
@@ -106,6 +107,13 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 ## Changelog ##
+
+v1.1.9 -> March 25, 2020
+--------------------------------------------
+- [New]   Request warranty and Cancel button will be shown in customer order details page
+- [New]   Introduce cancel order feature from customer end
+- [Fix]   Added some helper text in settings page
+- [Fix]   Fatal error fix when order item(product) already deleted
 
 v1.1.8 -> January 12, 2020
 --------------------------------------------

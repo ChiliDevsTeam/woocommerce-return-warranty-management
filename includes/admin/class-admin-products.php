@@ -76,7 +76,7 @@ class WCRW_Admin_Product {
                             'label'       => __( 'Type', 'wc-return-warranty' ),
                             'placeholder' => __( 'Warranty', 'wc-return-warranty' ),
                             'value'       => $settings['type'],
-                            'description' => __( 'Enter your warranty label for override defaults', 'wc-return-warranty' ),
+                            'description' => __( 'Set your warranty types for override defaults', 'wc-return-warranty' ),
                             'options'     => wcrw_warranty_types()
                         ]
                     );
@@ -115,7 +115,7 @@ class WCRW_Admin_Product {
                         [
                             'id'            => 'wcrw_product_warranty[length_duration]',
                             'label'         => __( 'Length duration', 'wc-return-warranty' ),
-                            'description'   => __( 'Set your warranty lenght duration', 'wc-return-warranty' ),
+                            'description'   => __( 'Set your warranty length duration', 'wc-return-warranty' ),
                             'wrapper_class' => 'hide_if_lifetime',
                             'value'         => $settings['length_duration'],
                             'options'       => wcrw_warranty_length_duration()

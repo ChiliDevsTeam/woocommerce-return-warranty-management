@@ -3,11 +3,11 @@
 Plugin Name: WooCommerce Return and Warrranty (RMA)
 Plugin URI: https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/
 Description: An extension for manage return and warranty system for WooCommerce shop
-Version: 1.1.8
+Version: 1.1.9
 Author: wpeasysoft
 Author URI: https://wpeasysoft.com/
 WC requires at least: 3.0
-WC tested up to: 3.8.1
+WC tested up to: 4.0.1
 Text Domain: wc-return-warranty
 Domain Path: /languages/
 License: GPL2
@@ -54,7 +54,7 @@ class WC_Return_Warranty {
      *
      * @var string
      */
-    public $version = '1.1.8';
+    public $version = '1.1.9';
 
     /**
      * Minimum PHP version required
@@ -321,9 +321,11 @@ class WC_Return_Warranty {
      */
     public function register_email( $emails ) {
         require_once WCRW_PATH . '/includes/emails/class-create-request-to-admin.php';
+        require_once WCRW_PATH . '/includes/emails/class-cancel-request.php';
         require_once WCRW_PATH . '/includes/emails/class-update-status.php';
 
         $emails['WCRW_Create_Request_Admin'] = new WCRW_Create_Request_Admin();
+        $emails['WCRW_Cancel_Order_Request'] = new WCRW_Cancel_Order_Request();
         $emails['WCRW_Update_Request']       = new WCRW_Update_Request();
 
         return $emails;
@@ -339,6 +341,7 @@ class WC_Return_Warranty {
     public function register_email_actions( $actions ) {
         $email_actions = apply_filters( 'wcrw_email_actions', array(
             'wcrw_created_warranty_request',
+            'wcrw_created_cancel_order_request',
             'wcrw_update_request_status'
         ) );
 

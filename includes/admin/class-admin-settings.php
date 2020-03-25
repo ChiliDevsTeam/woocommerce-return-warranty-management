@@ -186,14 +186,6 @@ class WCRW_Admin_Settings {
         $settings_fields = array(
             'wcrw_basic' => array(
                 array(
-                    'name'    => 'allowed_order_status',
-                    'label'   => __( 'Order Status to allow Warranty Request', 'wc-return-warranty' ),
-                    'desc'    => __( 'What status do you want to allow the warranty request button for your customer', 'wc-return-warranty' ),
-                    'type'    => 'multicheck',
-                    'default' => [ 'wc-completed' ],
-                    'options' => $allowed_status
-                ),
-                array(
                     'name'  => 'default_refund_status',
                     'label' => __( 'Returned Status', 'wc-return-warranty' ),
                     'desc'  => __( 'Default status for return request when customer first create a return request', 'wc-return-warranty' ),
@@ -236,6 +228,13 @@ class WCRW_Admin_Settings {
                     'desc'    => __( 'Select button text for request a warranty from customer my order page', 'wc-return-warranty' ),
                     'type'    => 'text',
                     'default' => __( 'Request Warranty', 'wc-return-warranty' )
+                ),
+                array(
+                    'name'    => 'cancel_btn_text',
+                    'label'   => __( 'Cancel order button text', 'wc-return-warranty' ),
+                    'desc'    => __( 'Enter your cancel order button text', 'wc-return-warranty' ),
+                    'type'    => 'text',
+                    'default' => __( 'Cancel Order', 'wc-return-warranty' )
                 ),
                 array(
                     'name'    => 'myaccount_menu_title',
