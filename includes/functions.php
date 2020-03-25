@@ -598,20 +598,37 @@ function wcrw_transformer_warranty_request( $data ) {
     $item_ids    = explode( ',', $data['item_id'] );
     $order       = wc_get_order( $data['order_id'] );
 
+    if ( empty( $order ) ) {
+        return [];
+    }
+
     foreach ( $item_ids as $key => $item_id ) {
         $item    = new WC_Order_Item_Product( $item_id );
-        $product = wc_get_product( $item->get_product_id() );
-        $image   = !empty( $product ) ? wp_get_attachment_url( $product->get_image_id() ) : '';
-        $items[] = [
-            'id'             => $product->get_id(),
-            'title'          => $product->get_title(),
-            'thumbnail'      => $image ? $image : wc_placeholder_img_src(),
-            'quantity'       => $quantites[$key],
-            'url'            => $product->get_permalink(),
-            'price'          => $order->get_item_subtotal( $item, false ),
-            'item_id'        => $item_id,
-            'order_quantity' => $item->get_quantity(),
-        ];
+        if ( $item->get_product_id() ) {
+            $product = wc_get_product( $item->get_product_id() );
+            $image   = !empty( $product ) ? wp_get_attachment_url( $product->get_image_id() ) : '';
+            $items[] = [
+                'id'             => $product->get_id(),
+                'title'          => $product->get_title(),
+                'thumbnail'      => $image ? $image : wc_placeholder_img_src(),
+                'quantity'       => $quantites[$key],
+                'url'            => $product->get_permalink(),
+                'price'          => $order->get_item_subtotal( $item, false ),
+                'item_id'        => $item_id,
+                'order_quantity' => $item->get_quantity(),
+            ];
+        } else {
+            $items[] = [
+                'id'             => $item->get_product_id(),
+                'title'          => $item->get_name(),
+                'thumbnail'      => wc_placeholder_img_src(),
+                'quantity'       => $quantites[$key],
+                'url'            => '#',
+                'price'          => $order->get_item_subtotal( $item, false ),
+                'item_id'        => $item_id,
+                'order_quantity' => $item->get_quantity(),
+            ];
+        }
     }
 
     if ( ! empty( $data['customer_id'] ) ) {

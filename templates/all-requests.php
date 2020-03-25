@@ -5,6 +5,7 @@
             <tr>
                 <th><?php _e( 'Request ID', 'wc-return-warranty' ) ?></th>
                 <th><?php _e( 'Order ID', 'wc-return-warranty' ) ?></th>
+                <th><?php _e( 'Type', 'wc-return-warranty' ) ?></th>
                 <th><?php _e( 'Items', 'wc-return-warranty' ) ?></th>
                 <th><?php _e( 'Status', 'wc-return-warranty' ) ?></th>
                 <th><?php _e( 'Created Date', 'wc-return-warranty' ) ?></th>
@@ -23,6 +24,9 @@
                         </td>
                         <td>
                             <a href="<?php echo esc_url( wc_get_account_endpoint_url( 'view-order' ) . $request['order_id'] ); ?>"><?php echo 'Order #' . $request['order_id']; ?></a>
+                        </td>
+                        <td>
+                            <?php echo wcrw_warranty_request_type( $request['type'] ); ?>
                         </td>
                         <td>
                             <?php echo wcrw_get_formatted_request_items( $request['items'] ); ?>
