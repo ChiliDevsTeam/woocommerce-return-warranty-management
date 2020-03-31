@@ -5,6 +5,7 @@ secret.json
 log.txt
 package-lock.json
 plugin-deploy.sh
+yarn.lock
 
 # Compiled output #
 ###################

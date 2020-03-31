@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.1.9\n"
+"Project-Id-Version: WooCommerce Return and Warrranty (RMA) 1.1.10\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-return-warranty\n"
-"POT-Creation-Date: 2020-03-25 07:43:08+00:00\n"
+"POT-Creation-Date: 2020-03-31 12:48:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -417,13 +417,13 @@ msgstr ""
 
 #: build/wc-return-warranty/includes/admin/class-ajax.php:123
 #: build/wc-return-warranty/includes/functions.php:963
-#: includes/admin/class-ajax.php:123 includes/functions.php:980
+#: includes/admin/class-ajax.php:123 includes/functions.php:985
 msgid "Reason for request"
 msgstr ""
 
 #: build/wc-return-warranty/includes/admin/class-ajax.php:134
 #: build/wc-return-warranty/includes/functions.php:974
-#: includes/admin/class-ajax.php:134 includes/functions.php:991
+#: includes/admin/class-ajax.php:134 includes/functions.php:996
 msgid "Write your valid reasons"
 msgstr ""
 
@@ -452,7 +452,8 @@ msgstr ""
 
 #: build/wc-return-warranty/includes/admin/class-requests-list-table.php:73
 #: build/wc-return-warranty/templates/all-requests.php:6
-#: includes/admin/class-requests-list-table.php:73 templates/all-requests.php:6
+#: includes/admin/class-requests-list-table.php:73
+#: templates/admin/single-request.php:96 templates/all-requests.php:6
 msgid "Request ID"
 msgstr ""
 
@@ -813,110 +814,110 @@ msgid "Request type must be required"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:395
-#: includes/functions.php:395
+#: includes/functions.php:400
 msgid "field is required"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:552
 #: build/wc-return-warranty/includes/functions.php:840
-#: includes/functions.php:552 includes/functions.php:857
+#: includes/functions.php:557 includes/functions.php:862
 msgid "No request id found"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:562
-#: includes/functions.php:562
+#: includes/functions.php:567
 msgid "Invalid status"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:568
-#: includes/functions.php:568
+#: includes/functions.php:573
 msgid "Request not updated successfully"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:688
-#: includes/functions.php:705
+#: includes/functions.php:710
 msgid "All"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:737
-#: includes/functions.php:754
+#: includes/functions.php:759
 msgid "No request found"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:741
-#: includes/functions.php:758
+#: includes/functions.php:763
 msgid "Note field is empty. Please write something"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:775
-#: includes/functions.php:792
+#: includes/functions.php:797
 msgid "No Request found for delete"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:785
-#: includes/functions.php:802
+#: includes/functions.php:807
 msgid "Request not deleted, Try again"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:846
-#: includes/functions.php:863
+#: includes/functions.php:868
 msgid "Request note not deleted. Please try again"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:888
-#: includes/functions.php:905
+#: includes/functions.php:910
 msgid "Text input"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:897
-#: includes/functions.php:914
+#: includes/functions.php:919
 msgid "Text Field"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:901
-#: includes/functions.php:918
+#: includes/functions.php:923
 msgid "Textarea"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:911
-#: includes/functions.php:928
+#: includes/functions.php:933
 msgid "Textarea Field"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:915
-#: includes/functions.php:932
+#: includes/functions.php:937
 msgid "Checkbox"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:926
-#: includes/functions.php:943
+#: includes/functions.php:948
 msgid "Select Dropdown"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:930
-#: includes/functions.php:947
+#: includes/functions.php:952
 msgid "Select a option"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:939
-#: includes/functions.php:956
+#: includes/functions.php:961
 msgid "Html"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:942
-#: includes/functions.php:959
+#: includes/functions.php:964
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, "
 "blanditiis."
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:1000
-#: includes/functions.php:1017
+#: includes/functions.php:1022
 msgid "Request for"
 msgstr ""
 
 #: build/wc-return-warranty/includes/functions.php:1005
-#: includes/functions.php:1022
+#: includes/functions.php:1027
 msgid "-- Select type --"
 msgstr ""
 
@@ -1004,7 +1005,7 @@ msgstr ""
 
 #: build/wc-return-warranty/templates/admin/single-request.php:114
 #: build/wc-return-warranty/templates/view-requests.php:54
-#: templates/admin/single-request.php:114 templates/view-requests.php:54
+#: templates/admin/single-request.php:114 templates/view-requests.php:52
 msgid "Reasons"
 msgstr ""
 
@@ -1142,23 +1143,45 @@ msgstr ""
 
 #: build/wc-return-warranty/templates/view-requests.php:16
 #: build/wc-return-warranty/templates/view-requests.php:48
-#: templates/view-requests.php:16 templates/view-requests.php:48
+#: templates/view-requests.php:46
 msgid "Other details"
 msgstr ""
 
 #: build/wc-return-warranty/templates/view-requests.php:21
-#: templates/view-requests.php:21
+#: templates/view-requests.php:19
 msgid "Type :"
 msgstr ""
 
 #: build/wc-return-warranty/templates/view-requests.php:25
-#: templates/view-requests.php:25
+#: templates/view-requests.php:23
 msgid "Products :"
 msgstr ""
 
 #: build/wc-return-warranty/templates/view-requests.php:38
-#: templates/view-requests.php:38
+#: templates/view-requests.php:36
 msgid "Status :"
+msgstr ""
+
+#: includes/admin/class-admin-order.php:93
+msgid "expired on"
+msgstr ""
+
+#: includes/admin/class-admin-order.php:95
+msgid "expires"
+msgstr ""
+
+#: includes/admin/class-requests-list-table.php:125
+#: includes/admin/class-requests-list-table.php:129
+#: templates/all-requests.php:26
+msgid "Order #"
+msgstr ""
+
+#: templates/admin/single-request.php:99
+msgid "Created at"
+msgstr ""
+
+#: templates/admin/single-request.php:99
+msgid "Customer IP"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
