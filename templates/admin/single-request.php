@@ -93,10 +93,10 @@
                 <div id="wcrw-request-detilas" class="postbox">
                     <div class="inside">
                         <div class="heading">
-                            <?php echo sprintf( 'Request ID #%d', $request['id'] ); ?>
+                            <?php echo sprintf( '%s #%d', __( 'Request ID', 'wc-return-warranty' ), $request['id'] ); ?>
                         </div>
                         <div class="heading-meta">
-                            <?php echo sprintf( 'Created at %s, Customer IP: %s', date_i18n( get_option( 'date_format' ), strtotime( $request['created_at'] ) ), $request['customer']['ip_address'] ); ?>
+                            <?php echo sprintf( '%1$s %2$s, %3$s: %4$s', __( 'Created at', 'wc-return-warranty' ), date_i18n( get_option( 'date_format' ), strtotime( $request['created_at'] ) ), __( 'Customer IP', 'wc-return-warranty' ), $request['customer']['ip_address'] ); ?>
                         </div>
                         <div class="content">
                             <table class="request-data-table wp-list-table widefat fixed striped">
