@@ -122,11 +122,11 @@ class WCRW_Admin_Requests_List extends WP_List_Table {
             case 'order_id':
                 $order = wc_get_order( $item['order_id'] );
                 if ( 'trash' == $order->get_status() ) {
-                    return 'Order #' . $item['order_id'] . '<br>(' . __( 'Trash order', 'wc-return-warranty' ) . ')';
+                    return __( 'Order #', 'wc-return-warranty' ) . $item['order_id'] . '<br>(' . __( 'Trash order', 'wc-return-warranty' ) . ')';
                 }
 
                 $edit_order_url = get_edit_post_link( $item['order_id'] );
-                return '<a href="' . esc_url( $edit_order_url ). '">Order #' . $item['order_id'] . '</a>';
+                return '<a href="' . esc_url( $edit_order_url ). '">' . __( 'Order #', 'wc-return-warranty' ) . $item['order_id'] . '</a>';
             case 'type':
                 return wcrw_warranty_request_type( $item['type'] );
             case 'items':

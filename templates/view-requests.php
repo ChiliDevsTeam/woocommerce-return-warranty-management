@@ -13,8 +13,6 @@
 
             <p><?php echo sprintf( __( 'Request ID is #<mark>%s</mark> for Order #<mark class="order-number">%s</mark> was placed on <mark class="order-date">%s</mark> is currently <mark class="order-status">%s</mark>', 'wc-return-warranty' ), $request['id'], $request['order_id'], date_i18n( get_option( 'date_format' ), strtotime( $request['created_at'] ) ), wcrw_warranty_request_status( $request['status'] ) ); ?></p>
             <section class="woocommerce-order-details">
-                <h2 class="woocommerce-order-details__title"><?php _e( 'Other details', 'wc-return-warranty' ); ?></h2>
-
                 <table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders" style="margin-top: 10px;">
                     <tbody>
                         <tr>

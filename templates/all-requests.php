@@ -23,7 +23,7 @@
                             <?php endif ?>
                         </td>
                         <td>
-                            <a href="<?php echo esc_url( wc_get_account_endpoint_url( 'view-order' ) . $request['order_id'] ); ?>"><?php echo 'Order #' . $request['order_id']; ?></a>
+                            <a href="<?php echo esc_url( wc_get_account_endpoint_url( 'view-order' ) . $request['order_id'] ); ?>"><?php echo __( 'Order #', 'wc-return-warranty' ) . $request['order_id']; ?></a>
                         </td>
                         <td>
                             <?php echo wcrw_warranty_request_type( $request['type'] ); ?>

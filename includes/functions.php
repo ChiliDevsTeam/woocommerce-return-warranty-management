@@ -374,10 +374,15 @@ function wcrw_create_warranty_request( $postdata = [] ) {
         return new WP_Error( 'no-type', __( 'Request type must be required', 'wc-return-warranty' ) );
     }
 
+    $general_settings      = get_option( 'wcrw_basic' );
+    $default_refund_status = ! empty( $general_settings['default_refund_status'] ) ? $general_settings['default_refund_status'] : 'new';
+    $args['status']        = $default_refund_status;
+
     $args = apply_filters( 'wcrw_warranty_request_postdata', $args, $postdata );
 
     $meta_field_errors = [];
     $extra_field_data  = wcrw_get_form_fields_data();
+
 
     foreach ( $extra_field_data as $meta_field ) {
         // Bell out if not proper type of meta field
