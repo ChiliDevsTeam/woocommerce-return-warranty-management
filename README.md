@@ -108,6 +108,12 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 
 ## Changelog ##
 
+v1.1.10 -> March 31, 2020
+--------------------------------------------
+- [Fix]   Add some missing text domain
+- [Fix]   Render same heading twice in customer dashboard
+- [Fix]   Fix new return request status settings when created a new return request
+
 v1.1.9 -> March 25, 2020
 --------------------------------------------
 - [New]   Request warranty and Cancel button will be shown in customer order details page
