@@ -3,7 +3,7 @@
   "version": "1.1.10",
   "slug": "wc-return-warranty",
   "description": "An extension for manage return and warranty (RMA) system for WooCommerce shop",
-  "author": "wpeasysoft",
+  "author": "chilidevs",
   "license": "GPL",
   "private": true,
   "scripts": {
@@ -17,18 +17,18 @@
     "zip": "node build/"
   },
   "dependencies": {
-    "vuedraggable": "^2.23.0"
+    "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
-    "archiver": "^3.0.3",
-    "cross-env": "^5.2.0",
-    "file-loader": "^4.1.0",
-    "filesize": "^4.1.2",
-    "laravel-mix": "^4.0.16",
-    "less": "^3.9.0",
+    "archiver": "^3.1.1",
+    "cross-env": "^5.2.1",
+    "file-loader": "^4.3.0",
+    "filesize": "^4.2.1",
+    "laravel-mix": "^4.1.4",
+    "less": "^3.12.2",
     "less-loader": "^5.0.0",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
+    "vue": "^2.6.12",
+    "vue-template-compiler": "^2.6.12",
     "wp-vue-i18n": "^1.1.4"
   }
 }
