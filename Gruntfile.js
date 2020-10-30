@@ -39,8 +39,8 @@ module.exports = function(grunt) {
                     potFilename: package.slug + '.pot',
                     type: 'wp-plugin',
                     potHeaders: {
-                        'report-msgid-bugs-to': 'https://wpeasysoft.com/',
-                        'language-team': 'LANGUAGE <wpeasysoft@gmail.com>'
+                        'report-msgid-bugs-to': 'https://chilidevs.com/',
+                        'language-team': 'LANGUAGE <info@chilidevs.com>'
                     }
                 }
             }

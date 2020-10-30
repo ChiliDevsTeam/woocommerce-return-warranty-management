@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WooCommerce Return and Warrranty (RMA)
-Plugin URI: https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/
+Plugin URI: https://chilidevs.com/downloads/woocommerce-return-warranty-management/
 Description: An extension for manage return and warranty system for WooCommerce shop
 Version: 1.1.10
-Author: wpeasysoft
-Author URI: https://wpeasysoft.com/
+Author: chilidevs
+Author URI: https://chilidevs.com/
 WC requires at least: 3.0
 WC tested up to: 4.0.1
 Text Domain: wc-return-warranty
@@ -14,7 +14,7 @@ License: GPL2
 */
 
 /**
- * Copyright (c) YEAR wpeasysoft (email: wpeasysoft@gmail.com). All rights reserved.
+ * Copyright (c) YEAR chilidevs (email: info@chilidevs.com). All rights reserved.
  *
  * Released under the GPL license
  * http://www.opensource.org/licenses/gpl-license.php
@@ -80,7 +80,7 @@ class WC_Return_Warranty {
             return;
         }
 
-        add_action( 'init', [ $this, 'add_myaccount_endpoint' ], 1 );
+        add_action('init', [$this, 'add_myaccount_endpoint'], 1 );
         add_filter( 'query_vars', [ $this, 'add_query_vars' ], 1 );
         add_action( 'admin_notices', [ $this, 'installation_notice' ], 10 );
         add_action( 'woocommerce_loaded', [ $this, 'init_plugin' ] );
@@ -161,6 +161,12 @@ class WC_Return_Warranty {
         foreach ( $tables as $key => $table ) {
             dbDelta( $table );
         }
+
+        add_rewrite_endpoint('warranty-requests', EP_ROOT | EP_PAGES);
+        add_rewrite_endpoint('new-warranty-request', EP_ROOT | EP_PAGES);
+        add_rewrite_endpoint('view-warranty-request', EP_ROOT | EP_PAGES);
+
+        flush_rewrite_rules();
     }
 
     /**
@@ -207,10 +213,10 @@ class WC_Return_Warranty {
      *
      * @return void
      */
-    public function add_myaccount_endpoint( $value='' ) {
-        add_rewrite_endpoint( 'warranty-requests', EP_ROOT | EP_PAGES );
-        add_rewrite_endpoint( 'new-warranty-request', EP_ROOT | EP_PAGES );
-        add_rewrite_endpoint( 'view-warranty-request', EP_ROOT | EP_PAGES );
+    public function add_myaccount_endpoint($value = '') {
+        add_rewrite_endpoint('warranty-requests', EP_ROOT | EP_PAGES);
+        add_rewrite_endpoint('new-warranty-request', EP_ROOT | EP_PAGES);
+        add_rewrite_endpoint('view-warranty-request', EP_ROOT | EP_PAGES);
     }
 
     /**
@@ -321,12 +327,14 @@ class WC_Return_Warranty {
      */
     public function register_email( $emails ) {
         require_once WCRW_PATH . '/includes/emails/class-create-request-to-admin.php';
+        require_once WCRW_PATH . '/includes/emails/class-create-request-to-customer.php';
         require_once WCRW_PATH . '/includes/emails/class-cancel-request.php';
         require_once WCRW_PATH . '/includes/emails/class-update-status.php';
 
-        $emails['WCRW_Create_Request_Admin'] = new WCRW_Create_Request_Admin();
-        $emails['WCRW_Cancel_Order_Request'] = new WCRW_Cancel_Order_Request();
-        $emails['WCRW_Update_Request']       = new WCRW_Update_Request();
+        $emails['WCRW_Create_Request_Admin']    = new WCRW_Create_Request_Admin();
+        $emails['WCRW_Create_Request_Customer'] = new WCRW_Create_Request_Customer();
+        $emails['WCRW_Cancel_Order_Request']    = new WCRW_Cancel_Order_Request();
+        $emails['WCRW_Update_Request']          = new WCRW_Update_Request();
 
         return $emails;
     }
