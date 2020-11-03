@@ -111,6 +111,11 @@ A. Just install and activate the PRO version without deleting the free plugin. A
 
 == Changelog ==
 
+v1.2.0 -> November 03, 2020
+--------------------------------------------
+- [New]   Added customer email notification templates when customer make a return request
+- [Fix]   404 Page not found issue fixed after install plugin
+
 v1.1.10 -> March 31, 2020
 --------------------------------------------
 - [Fix]   Add some missing text domain
