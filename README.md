@@ -1,5 +1,5 @@
 # WooCommerce Return and Warranty Management System #
-**Contributors:** [wpeasysoft](https://profiles.wordpress.org/wpeasysoft)<br>
+**Contributors:** [chilidevs](https://profiles.wordpress.org/chilidevs)<br>
 **Tags:** WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management<br>
 **Requires at least:** 4.4<br>
 **Tested up to:** 5.3.2<br>
@@ -15,7 +15,7 @@ WooCommerce Return and Warranty Management (RMA) System
 ## Description ##
 WooCommerce Return and Warranty management system (RMA) plugin allows eCommerce storeowners to process return and warranty. The WooCommerce RMA plugin makes helps manage customers’ request for product return. It’s a simple, yet powerful tool for your WooCommerce workflow.
 
-> [Demo](http://demo.wpeasysoft.com/rma/) | [Get Premium Version](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/)  |  [Support](https://wpeasysoft.com/account/tickets/)
+> [Demo](http://demo.chilidevs.com/) | [Get Premium Version](https://chilidevs.com/downloads/woocommerce-return-warranty-management/)  |  [Support](https://chilidevs.com/dashboard/tickets/)
 
 With an easy-to-use interface, an Admin can change warranty options endlessly, or close all return and warranty requests at once. eCommerce storeowners have to deal with returns and refunds on a daily basis. Customers are likely to return a product they purchased for refund or request you to replace the original product.
 
@@ -37,7 +37,7 @@ There comes Return and Warranty management system. With this plugin, managing re
 * Add notes for Admin on each request
 * Integrated with [WooCommerce PDF Invoices](https://wordpress.org/plugins/woocommerce-pdf-invoices/) by [Bas Elbers](http://wcpdfinvoices.com/).
 
-### WooCommerce RMA [Premium](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/) Features ###
+### WooCommerce RMA [Premium](https://chilidevs.com/downloads/woocommerce-return-warranty-management/) Features ###
 
 * Set Variable product warranty for different variations
 * Admin can set warranty per category wise[**New**]
@@ -48,7 +48,7 @@ There comes Return and Warranty management system. With this plugin, managing re
 * Integrated with [WooCommerce PDF Invoices & Packing Slips](https://wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/) by [Ewout Fernhout](http://www.wpovernight.com/)[**New**]
 * Integrated with [WooCommerce PDF Invoices](https://woocommerce.com/products/pdf-invoices/) by [Andrew Benbow](http://www.chromeorange.co.uk)[**New**]
 
-*Check the [Premium](https://wpeasysoft.com/downloads/woocommerce-return-warranty-management/) features in short video*
+*Check the [Premium](https://chilidevs.com/downloads/woocommerce-return-warranty-management/) features in short video*
 
 [![WooCommerce Return and Warranty Management Pro](http://img.youtube.com/vi/shKx__iLVwg/0.jpg)](http://www.youtube.com/watch?v=shKx__iLVwg "WooCommerce Return and Warranty Management Pro")
 
@@ -72,10 +72,10 @@ On the General tab in the Settings page, there are two groups – Order Status t
 On to the Default Warranty tab, you can set Label, Type, and Add-On Warranty. Label carries the name to show in place of Warranty. Type has three options – No Warranty, Included Warranty, and Price base warranty.
 
 ### Contribute ###
-If you find bugs, plase make issues on [Github](https://github.com/wpeasysoft/woocommerce-return-warranty-management). Any pull requests are welcomed.
+If you find bugs, plase make issues on [Github](https://github.com/chilidevs/woocommerce-return-warranty-management). Any pull requests are welcomed.
 
 ### Author ###
-Created by [wpeasysoft](https://wpeasysoft.com)
+Created by [chilidevs](https://chilidevs.com)
 
 ## Installation ##
 
@@ -95,6 +95,9 @@ A. Yes, they will. After the admin updates the return request, the customer will
 ### Q. Can the admin add price-based warranty to the product? ###
 A. Yes, he can. For this, the admin needs to set the warranty type to Price Base Warranty”. Under this setting, the admin can easily add price-based warranties to the products.
 
+### Q. How to upgrade to the Pro version? ###
+A. Just install and activate the PRO version without deleting the free plugin. All your data will be safe on the database and some extra features will be added. If you feel something may go wrong, please consult with our [support](https://chilidevs.com/contact-us/) staff first.
+
 ## Screenshots ##
 1. Main Settings
 2. Default Warranty Settings
@@ -107,6 +110,11 @@ A. Yes, he can. For this, the admin needs to set the warranty type to Price Base
 9. Customer request details view
 
 ## Changelog ##
+
+v1.2.0 -> November 03, 2020
+--------------------------------------------
+- [New]   Added customer email notification templates when customer make a return request
+- [Fix]   404 Page not found issue fixed after install plugin
 
 v1.1.10 -> March 31, 2020
 --------------------------------------------
