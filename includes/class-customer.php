@@ -160,7 +160,7 @@ class WCRW_Customer {
             $actions['warranty_request'] = array( 'url' => $url, 'name' => $btn_text );
         }
 
-        if ( in_array( 'cancel', $request_types ) && in_array( $order->get_status(), [ 'processing' ] ) ) {
+        if ( in_array( 'cancel', $request_types ) && in_array( $order->get_status(), [ 'processing', 'on-hold' ] ) ) {
             $url                             = add_query_arg( [ 'order_id' => $order->get_id(), 'action' => 'wcrw_cancel_order', 'nonce' => wp_create_nonce( 'wcrw_cancel_order' ) ], wc_get_account_endpoint_url( 'orders' ) );
             $cancel_btn_text                 = ! empty( $frontend_settings['cancel_btn_text'] ) ? $frontend_settings['cancel_btn_text'] : __( 'Cancel Order', 'wc-return-warranty' );
             $actions['cancel_order_request'] = array( 'url' => esc_url_raw( $url ) , 'name' => $cancel_btn_text );
@@ -191,7 +191,7 @@ class WCRW_Customer {
             <?php
         }
 
-        if ( in_array( 'cancel', $request_types ) && in_array( $order->get_status(), [ 'processing' ] ) ) {
+        if ( in_array( 'cancel', $request_types ) && in_array( $order->get_status(), [ 'processing', 'on-hold' ] ) ) {
             $url                             = add_query_arg( [ 'order_id' => $order->get_id(), 'action' => 'wcrw_cancel_order', 'nonce' => wp_create_nonce( 'wcrw_cancel_order' ) ], wc_get_account_endpoint_url( 'orders' ) );
             $cancel_btn_text                 = ! empty( $frontend_settings['cancel_btn_text'] ) ? $frontend_settings['cancel_btn_text'] : __( 'Cancel Order', 'wc-return-warranty' );
             ?>
