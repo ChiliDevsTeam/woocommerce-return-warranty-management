@@ -1,13 +1,13 @@
 <?php
 /*
-Plugin Name: WooCommerce Return and Warrranty (RMA)
+Plugin Name: WooCommerce Return and Warranty (RMA)
 Plugin URI: https://chilidevs.com/downloads/woocommerce-return-warranty-management/
 Description: An extension for manage return and warranty system for WooCommerce shop
-Version: 1.2.0
+Version: 1.2.1
 Author: chilidevs
 Author URI: https://chilidevs.com/
 WC requires at least: 3.0
-WC tested up to: 4.6.1
+WC tested up to: 5.1.0
 Text Domain: wc-return-warranty
 Domain Path: /languages/
 License: GPL2
@@ -54,7 +54,7 @@ class WC_Return_Warranty {
      *
      * @var string
      */
-    public $version = '1.2.0';
+    public $version = '1.2.1';
 
     /**
      * Minimum PHP version required
