@@ -2,9 +2,9 @@
 **Contributors:** [chilidevs](https://profiles.wordpress.org/chilidevs)<br>
 **Tags:** WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management<br>
 **Requires at least:** 4.4<br>
-**Tested up to:** 5.3.2<br>
+**Tested up to:** 5.7<br>
 **WC requires at least:** 3.0<br>
-**WC tested up to:** 4.0.1<br>
+**WC tested up to:** 5.1.0<br>
 **Requires PHP:** 5.6<br>
 **Stable tag:** trunk<br>
 **License:** GPLv2 or later<br>
@@ -110,6 +110,11 @@ A. Just install and activate the PRO version without deleting the free plugin. A
 9. Customer request details view
 
 ## Changelog ##
+
+v1.2.1 -> April 12, 2021
+--------------------------------------------
+- [fix]   Cancel button is showing for reverse order status.
+- [Fix]   Fix textdomain issues
 
 v1.2.0 -> November 03, 2020
 --------------------------------------------
