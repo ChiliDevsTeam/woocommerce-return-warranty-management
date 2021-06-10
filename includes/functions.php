@@ -183,6 +183,9 @@ function wcrw_transform_warranty_settings( $request = [] ) {
             $data['length_value']    = $request['length_value'];
             $data['length_duration'] = $request['length_duration'];
             $data['hide_warranty']   = ! empty( $request['hide_warranty'] ) ? $request['hide_warranty'] : 'no';
+            $data['hide_order_warranty']   = ! empty( $request['hide_order_warranty'] ) ? $request['hide_order_warranty'] : 'no';
+            $data['hide_email_warranty']   = ! empty( $request['hide_email_warranty'] ) ? $request['hide_email_warranty'] : 'no';
+
             $data['addon_settings']  = [];
 
             if ( 'lifetime' == $data['length'] ) {
