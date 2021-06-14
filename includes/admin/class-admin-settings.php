@@ -322,6 +322,9 @@ class WCRW_Admin_Settings {
         $default_warranty_length_value    = ! empty( $default_warranty['length_value'] ) ? $default_warranty['length_value'] : '';
         $default_warranty_length_duration = ! empty( $default_warranty['length_duration'] ) ? $default_warranty['length_duration'] : '';
         $default_warranty_hide            = ! empty( $default_warranty['hide_warranty'] ) ? $default_warranty['hide_warranty'] : 'no';
+        $order_warranty_hide            = ! empty( $default_warranty['hide_order_warranty'] ) ? $default_warranty['hide_order_warranty'] : 'no';
+        $email_warranty_hide            = ! empty( $default_warranty['hide_email_warranty'] ) ? $default_warranty['hide_email_warranty'] : 'no';
+
         ?>
         <table class="form-table show_if_included_warranty">
             <tbody>
@@ -376,6 +379,35 @@ class WCRW_Admin_Settings {
                         <p class="description"><?php _e( 'If checked, then warranty text will be hidden on product, cart and checkout page. Admin and customer can see warranty only order page', 'wc-return-warranty' ) ?></p>
                     </td>
                 </tr>
+
+                <tr class="length_duration">
+                    <th scope="row">
+                        <label for="wcrw_default_warranty[hide_order_warranty]"><?php _e( 'Hide Warranty Text From Order', 'wc-return-warranty' ); ?></label>
+                    </th>
+                    <td>
+                        <label for="wcrw_default_warranty[hide_order_warranty]">
+                            <input type="hidden" name="wcrw_default_warranty[hide_order_warranty]" value="no">
+                            <input type="checkbox" id="wcrw_default_warranty[hide_order_warranty]" name="wcrw_default_warranty[hide_order_warranty]" value="yes" <?php checked(  $order_warranty_hide, 'yes'); ?>>
+                            <?php _e( 'Hide warranty details from order details', 'wc-return-warranty') ?>
+                        </label>
+                        <p class="description"><?php _e( 'If checked, then warranty details will be hidden from order page', 'wc-return-warranty' ) ?></p>
+                    </td>
+                </tr>
+
+                <tr class="length_duration">
+                    <th scope="row">
+                        <label for="wcrw_default_warranty[hide_email_warranty]"><?php _e( 'Hide Warranty Text From Email', 'wc-return-warranty' ); ?></label>
+                    </th>
+                    <td>
+                        <label for="wcrw_default_warranty[hide_email_warranty]">
+                            <input type="hidden" name="wcrw_default_warranty[hide_email_warranty]" value="no">
+                            <input type="checkbox" id="wcrw_default_warranty[hide_email_warranty]" name="wcrw_default_warranty[hide_email_warranty]" value="yes" <?php checked( $email_warranty_hide, 'yes'); ?>>
+                            <?php _e( 'Hide warranty details in email details', 'wc-return-warranty') ?>
+                        </label>
+                        <p class="description"><?php _e( 'If checked, then warranty details will be hidden from Email  details', 'wc-return-warranty' ) ?></p>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
 
