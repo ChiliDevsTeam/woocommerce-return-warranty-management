@@ -53,7 +53,7 @@ class WCRW_Frontend {
                     $duration   = wcrw_get_duration_value( $warranty['length_duration'], $value );
                     echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. $value .' '. $duration .'</p>';
                 } else {
-                    echo '<p class="wcrw_warranty_info"><strong>'. "hello" .$warranty_label .':</strong> '. __( 'Lifetime', 'wc-return-warranty' ) .'</p>';
+                    echo '<p class="wcrw_warranty_info"><strong>'. $warranty_label .':</strong> '. __( 'Lifetime', 'wc-return-warranty' ) .'</p>';
                 }
             }
         } elseif ( $warranty['type'] == 'addon_warranty' )                    {
@@ -194,11 +194,9 @@ class WCRW_Frontend {
      * @return array $other_data
      */
     function get_item_data( $other_data, $cart_item ) {
-        $_product   = $cart_item['data'];
-        $product_id = $_product->get_id();
-
+        $_product       = $cart_item['data'];
+        $product_id     = $_product->get_id();
         $warranty       = wcrw_get_warranty_settings( $product_id );
-
         $warranty_label = $warranty['label'];
 
         if ( $warranty ) {
@@ -372,7 +370,7 @@ class WCRW_Frontend {
 
                 }
             } elseif ( $warranty['type'] == 'included_warranty' ) {
-                if ('no' == $warranty['hide_order_warranty'] ) {
+                if ('no' === $warranty['hide_order_warranty'] ) {
                     if ( $warranty['length'] == 'limited' ) {
                         $name   = $warranty['label'];
                         $unit  = wcrw_get_duration_value( $warranty['length_duration'], $warranty['length_value'] );
