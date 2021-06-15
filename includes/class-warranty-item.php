@@ -60,13 +60,16 @@ class WCRW_Warranty_Item {
         if ( 'addon_warranty' === $warranty['type'] ) {
             $this->type = 'addon_warranty';
 
-            $selected_warranty = $warranty['addon_settings'][$selected];
+            $selected_warranty = ! empty( $warranty['addon_settings'][$selected] ) ?
+            $warranty['addon_settings'][$selected] : '';
 
+            if ( ! empty( $selected_warranty ) ) {
             $this->data = [
                 'length' => 'limited',
                 'value'  => $selected_warranty['length'],
                 'duration' => $selected_warranty['duration'],
             ];
+            }
             return;
         }
     }

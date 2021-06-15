@@ -1015,6 +1015,7 @@ function wcrw_get_warranty_request_form_fields() {
         if ( in_array( $key, $settings_types ) ) {
             $allowed_types[$key] = $value;
         }
+        unset($allowed_types['cancel']);
     }
 
     $mandatory_fileds = [
