@@ -2,9 +2,9 @@
 **Contributors:** [chilidevs](https://profiles.wordpress.org/chilidevs)<br>
 **Tags:** WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management<br>
 **Requires at least:** 4.4<br>
-**Tested up to:** 5.7<br>
+**Tested up to:** 5.8.1<br>
 **WC requires at least:** 3.0<br>
-**WC tested up to:** 5.1.0<br>
+**WC tested up to:** 5.7.1<br>
 **Requires PHP:** 5.6<br>
 **Stable tag:** trunk<br>
 **License:** GPLv2 or later<br>
@@ -41,6 +41,7 @@ There comes Return and Warranty management system. With this plugin, managing re
 
 * Set Variable product warranty for different variations
 * Admin can set warranty per category wise[**New**]
+* Allow guest user to sync their order after creating an account and can make return warranty request easily[**New**]
 * Instant refund from return requests. Admin will be able to process refund for your products instantly from request table.
 * Refund as a **Store Credits**. Admin can send coupon to the customer in their billing email equivalent to request amount in exchange of their previous purchase.
 * Store Admin can message smoothly with your customers regarding products replacement or refund.
@@ -110,6 +111,12 @@ A. Just install and activate the PRO version without deleting the free plugin. A
 9. Customer request details view
 
 ## Changelog ##
+
+v1.2.2 -> September 30, 2021
+--------------------------------------------
+- [Fix]   Fixed some escaping html issues
+- [Tweak] Tested latest version with WooCommerce and WordPress.
+- [Tweak] Minifined all scripts and styles.
 
 v1.2.1 -> April 12, 2021
 --------------------------------------------
