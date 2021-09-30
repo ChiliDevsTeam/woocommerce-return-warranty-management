@@ -139,8 +139,8 @@ class WCRW_Admin_Product {
                 <table class="form-table wcrw-addon-table wcrw-product-addon-table">
                     <thead>
                         <tr>
-                            <th class="cost"><?php _e( 'Cost', 'wc-return-warranty' ) ?></th>
-                            <th class="duration"><?php _e( 'Duration', 'wc-return-warranty' ) ?></th>
+                            <th class="cost"><?php esc_html_e( 'Cost', 'wc-return-warranty' ); ?></th>
+                            <th class="duration"><?php esc_html_e( 'Duration', 'wc-return-warranty' ); ?></th>
                             <th class="action"></th>
                         </tr>
                     </thead>

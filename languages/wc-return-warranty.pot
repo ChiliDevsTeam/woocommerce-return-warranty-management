@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Return and Warranty (RMA) 1.2.1\n"
+"Project-Id-Version: WooCommerce Return and Warranty (RMA) 1.2.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-return-warranty\n"
-"POT-Creation-Date: 2021-04-12 13:28:24+00:00\n"
+"POT-Creation-Date: 2021-09-30 08:30:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,27 +16,6 @@ msgstr ""
 
 #: includes/admin/class-admin-products.php:103
 msgid "10"
-msgstr ""
-
-#: assets/js/builder.js:636 includes/functions.php:952
-msgid "Select a option"
-msgstr ""
-
-#: assets/js/builder.js:5743 assets/js/builder.js:6716
-#: assets/js/builder.js:18076
-msgid "div"
-msgstr ""
-
-#: assets/js/builder.js:18112
-msgid " + (data ? ("
-msgstr ""
-
-#: assets/js/builder.js:18532
-msgid " + (JSON.stringify(comment.text)) + "
-msgstr ""
-
-#: assets/js/builder.js:18567
-msgid " + componentName + "
 msgstr ""
 
 #: assets/src/App.vue:15
@@ -750,6 +729,10 @@ msgstr ""
 
 #: includes/functions.php:948
 msgid "Select Dropdown"
+msgstr ""
+
+#: includes/functions.php:952
+msgid "Select a option"
 msgstr ""
 
 #: includes/functions.php:961

@@ -277,7 +277,7 @@ class WCRW_Admin_Settings {
     public function settings_page() {
         ?>
         <div class="wrap">
-            <h1 class="wp-heading-inline"><?php _e( 'Settings', 'wc-return-warranty' ) ?></h1><br>
+            <h1 class="wp-heading-inline"><?php esc_html_e( 'Settings', 'wc-return-warranty' ); ?></h1><br>
             <div class="wcrw-settings-wrap">
                 <?php
                     $this->settings_api->show_navigation();
@@ -327,7 +327,7 @@ class WCRW_Admin_Settings {
             <tbody>
                 <tr class="length">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[length]"><?php _e( 'Length', 'wc-return-warranty' ); ?></label>
+                        <label for="wcrw_default_warranty[length]"><?php esc_html_e( 'Length', 'wc-return-warranty' ); ?></label>
                     </th>
                     <td>
                         <select name="wcrw_default_warranty[length]" id="wcrw_default_warranty[length]" class="wcrw_default_warranty[length]">
@@ -341,17 +341,17 @@ class WCRW_Admin_Settings {
 
                 <tr class="length_value hide_if_lifetime">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[length_value]"><?php _e( 'Length Value', 'wc-return-warranty' ); ?></label>
+                        <label for="wcrw_default_warranty[length_value]"><?php esc_html_e( 'Length Value', 'wc-return-warranty' ); ?></label>
                     </th>
                     <td>
                         <input type="number" class="regular-text" min="0" step="1" name="wcrw_default_warranty[length_value]" value="<?php echo esc_html( $default_warranty_length_value ); ?>">
-                        <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warranty' ) ?></p>
+                        <p class="description"><?php esc_html_e( 'Choose your number of day or week or month or year', 'wc-return-warranty' ) ?></p>
                     </td>
                 </tr>
 
                 <tr class="length_duration hide_if_lifetime">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[length_duration]"><?php _e( 'Length Duration', 'wc-return-warranty' ); ?></label>
+                        <label for="wcrw_default_warranty[length_duration]"><?php esc_html_e( 'Length Duration', 'wc-return-warranty' ); ?></label>
                     </th>
                     <td>
                         <select name="wcrw_default_warranty[length_duration]" id="wcrw_default_warranty[length_duration]" class="wcrw_default_warranty[length_duration]">
@@ -359,21 +359,21 @@ class WCRW_Admin_Settings {
                                 <option value="<?php echo esc_attr( $length_duration_key ); ?>" <?php selected( $default_warranty_length_duration, $length_duration_key ); ?>><?php echo esc_html( $length_duration_value ); ?></option>
                             <?php endforeach ?>
                         </select>
-                        <p class="description"><?php _e( 'Choose your number of day or week or month or year', 'wc-return-warranty' ) ?></p>
+                        <p class="description"><?php esc_html_e( 'Choose your number of day or week or month or year', 'wc-return-warranty' ); ?></p>
                     </td>
                 </tr>
 
                 <tr class="length_duration">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[hide_warranty]"><?php _e( 'Hide Warranty Text', 'wc-return-warranty' ); ?></label>
+                        <label for="wcrw_default_warranty[hide_warranty]"><?php esc_html_e( 'Hide Warranty Text', 'wc-return-warranty' ); ?></label>
                     </th>
                     <td>
                         <label for="wcrw_default_warranty[hide_warranty]">
                             <input type="hidden" name="wcrw_default_warranty[hide_warranty]" value="no">
                             <input type="checkbox" id="wcrw_default_warranty[hide_warranty]" name="wcrw_default_warranty[hide_warranty]" value="yes" <?php checked( $default_warranty_hide, 'yes' ); ?>>
-                            <?php _e( 'Hide warranty text from product, cart and checkout page', 'wc-return-warranty' ) ?>
+                            <?php esc_html_e( 'Hide warranty text from product, cart and checkout page', 'wc-return-warranty' ) ?>
                         </label>
-                        <p class="description"><?php _e( 'If checked, then warranty text will be hidden on product, cart and checkout page. Admin and customer can see warranty only order page', 'wc-return-warranty' ) ?></p>
+                        <p class="description"><?php esc_html_e( 'If checked, then warranty text will be hidden on product, cart and checkout page. Admin and customer can see warranty only order page', 'wc-return-warranty' ) ?></p>
                     </td>
                 </tr>
             </tbody>
@@ -383,14 +383,14 @@ class WCRW_Admin_Settings {
             <tbody>
                 <tr class="">
                     <th scope="row">
-                        <label for="wcrw_default_warranty[add_ons]"><?php _e( 'Price base warranty', 'wc-return-warranty' ); ?></label>
+                        <label for="wcrw_default_warranty[add_ons]"><?php esc_html_e( 'Price base warranty', 'wc-return-warranty' ); ?></label>
                     </th>
                     <td>
                         <table class="wcrw-addon-table">
                             <thead>
                                 <tr>
-                                    <th class="cost"><?php _e( 'Cost', 'wc-return-warranty' ) ?></th>
-                                    <th class="duration"><?php _e( 'Duration', 'wc-return-warranty' ) ?></th>
+                                    <th class="cost"><?php esc_html_e( 'Cost', 'wc-return-warranty' ) ?></th>
+                                    <th class="duration"><?php esc_html_e( 'Duration', 'wc-return-warranty' ) ?></th>
                                     <th class="action"></th>
                                 </tr>
                             </thead>

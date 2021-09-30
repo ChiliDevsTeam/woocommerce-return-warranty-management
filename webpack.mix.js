@@ -13,7 +13,6 @@ let mix = require('laravel-mix');
 
 mix.js('assets/src/main.js', 'assets/js/builder.js')
     .less('assets/less/admin.less', 'assets/css/')
-    .less('assets/less/style.less', 'assets/css/');
 
 // Full API
 // mix.js(src, output);
