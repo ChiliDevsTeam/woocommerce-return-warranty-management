@@ -2,9 +2,9 @@
 Contributors: chilidevs
 Tags: WooCommerce Return, RMA, Warranty Management, Product Return System, WooCommerce Product Warranty Management
 Requires at least: 4.4
-Tested up to: 5.8.1
+Tested up to: 5.9.1
 WC requires at least: 3.0
-WC tested up to: 5.7.1
+WC tested up to: 6.2.1
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -111,6 +111,13 @@ A. Just install and activate the PRO version without deleting the free plugin. A
 9. Customer request details view
 
 == Changelog ==
+
+v1.2.3 -> March 01, 2022
+--------------------------------------------
+- [Fix]   Fixed translation issues on expiry text
+- [Fix]   Fixed total item amount( inc tax ) showing on admin request details page
+- [Fix]   Fixed styles on admin request statues field in details page
+- [Tweak] Tested latest version with WooCommerce and WordPress.
 
 v1.2.2 -> September 30, 2021
 --------------------------------------------
