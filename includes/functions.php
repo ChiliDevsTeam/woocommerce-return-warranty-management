@@ -618,7 +618,7 @@ function wcrw_transformer_warranty_request( $data ) {
                 'thumbnail'      => $image ? $image : wc_placeholder_img_src(),
                 'quantity'       => $quantites[$key],
                 'url'            => $product->get_permalink(),
-                'price'          => $order->get_item_subtotal( $item, false ),
+                'price'          => $order->get_line_subtotal( $item, true ),
                 'item_id'        => $item_id,
                 'order_quantity' => $item->get_quantity(),
             ];
