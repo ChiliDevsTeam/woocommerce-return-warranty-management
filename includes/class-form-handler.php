@@ -61,7 +61,7 @@ class WCRW_Handle_Form {
 
         wc_add_notice( __( 'Request has been submitted successfully', 'wc-return-warranty' ), 'success' );
 
-        wp_redirect( wc_get_account_endpoint_url( 'warranty-requests' ) );
+        wp_safe_redirect( wc_get_account_endpoint_url( 'warranty-requests' ) );
         exit();
     }
 
@@ -101,7 +101,8 @@ class WCRW_Handle_Form {
 
         do_action( 'wcrw_after_warranty_request_udpated', $postdata, $request );
 
-        wp_redirect( add_query_arg( ['updated' => 1 ], $postdata['_wp_http_referer'] ) );
+        wp_safe_redirect( add_query_arg( ['updated' => 1 ], $postdata['_wp_http_referer'] ) );
+        exit();
     }
 
     /**
@@ -139,7 +140,7 @@ class WCRW_Handle_Form {
         }
 
         $url = add_query_arg( [ 'page' => 'wc-return-warranty', 'updated' => 1, 'message' => 'deleted' ], admin_url( 'admin.php' ) );
-        wp_redirect( $url );
+        wp_safe_redirect( $url );
         exit();
     }
 
@@ -183,7 +184,7 @@ class WCRW_Handle_Form {
         }
 
         $url = add_query_arg( [ 'page' => 'wc-return-warranty', 'updated' => 1, 'message' => 'status_updated' ], admin_url( 'admin.php' ) );
-        wp_redirect( $url );
+        wp_safe_redirect( $url );
         exit();
     }
 
@@ -229,7 +230,7 @@ class WCRW_Handle_Form {
         $order             = wc_get_order( $postdata['order_id'] );
 
         if ( ! empty( $order->get_items() ) ) {
-            foreach ( $order->get_items() as $key => $item ) {
+            foreach ( $order->get_items() as $item ) {
                 if ( ! empty( $item->get_product_id() ) ) {
                     $items[] = [
                         'product_id' => $item->get_product_id(),
@@ -274,7 +275,7 @@ class WCRW_Handle_Form {
             wc_add_notice( __( 'Your request has been submitted successfully', 'wc-return-warranty' ) );
         }
 
-        wp_redirect( wc_get_account_endpoint_url( 'warranty-requests' ) );
+        wp_safe_redirect( wc_get_account_endpoint_url( 'warranty-requests' ) );
         exit();
     }
 

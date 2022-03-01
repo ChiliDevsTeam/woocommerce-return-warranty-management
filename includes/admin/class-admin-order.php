@@ -90,7 +90,7 @@ class WCRW_Admin_Order {
 
                             if ( $expiry ) {
                                 if ( current_time('timestamp') > strtotime( $expiry ) ) {
-                                    echo ' <small>('. __( 'expired on', 'wc-return-warranty' ) . ' ' . $expiry .')</small>';
+                                    echo ' <small>(' . __( 'expired on', 'wc-return-warranty' ) . ' ' . $expiry .')</small>';
                                 } else {
                                     echo ' <small>(' . __( 'expires', 'wc-return-warranty' ) . ' ' . $expiry .')</small>';
                                 }
